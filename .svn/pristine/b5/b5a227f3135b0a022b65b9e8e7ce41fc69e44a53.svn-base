@@ -1,0 +1,180 @@
+<div id="furnitureinfodiv" class="dialog-v">
+	<div id="furnitureinfoTmpl"
+		class="lab-int fg-buttonset fg-buttonset-single">
+		<div id="span-close" class="span-c" title="Close"
+			onclick="javascript:closeDialog('furnitureinfodiv');"></div>
+		<div id="furnitureinfo-help" class="span-h" title="" onclick="javascript:openHelpWindow('furniture_help');"></div>
+		<div class="lineBreak05p" id="detailsDiv"></div>
+		<div id="FurnitureInfo_DetailsBody"></div>
+		<div id="furnitureInfo_AttachmentBody"></div>
+	</div>
+</div>
+<script id="FurnitureInfo_DetailsTmpl" type="text/x-jquery-tmpl">
+<form id="FurnitureForm" form class="styleForm formPattern">	
+<table id="furnitureInfoTable" class="formTable">
+			<input type="hidden"  class="int" id="hid-furnitureGid" name="hid-furnitureGid" value="${gid}"/>
+			<input type="hidden"  class="int" id="thegeom" name="thegeom" value="${thegeom}"/>
+				<tr id="furnitureIdTR">	
+					<td>
+						<label for="pid" id="furnitureid1">Furniture ID : </label>
+								
+						<input type="text"  class="int" id="furnitureid" name="furnitureid" value="${furnitureid}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pid" id="row_id">RoW ID : </label>
+								
+						<input type="text"  class="int" id="roWID" name="RoWID" value="${rowId}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label id="lbl_furniture_type">Type : </label>
+						
+						<select name="type" id="type" class="int">        						
+        				</select>
+												
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pid" id="installed_date">Installed Date : </label>
+								
+						<input type="text"  class="int" id="furnitureInstalledDate" name="furnitureInstalledDate" value="${installedDate}"/>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<label id="lbl_furniture_condition">Condition : </label>
+						
+						<select name="condition" id="condition" class="int">        						
+        				</select>
+												
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label id="unresolved_issues">Un-resolved issues :</label>
+						<select name="furnitureUnresolvedIssues" id="furnitureUnresolvedIssues" class="int" disabled="disabled">						
+							<!--<option value="false">No</option>	
+							<option value="true">Yes</option>-->			
+						 </select>		
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pid" id="last_inspected">Last Inspected : </label>
+								
+						<input type="text"  class="int" id="furnitureLastInspected" name="furnitureLastInspected" value="${lastInspected}"/>
+					</td>
+				</tr>
+				
+
+				<tr>
+					<td>
+						<label id="surveyor">Surveyor : </label>
+						<input style="display:none" type="text"  class="int" id="txtFurnitureSurveyor" name="txtFurnitureSurveyor" value=""  disabled/>
+						<select name="furnitureSurveyor" id="furnitureSurveyor" class="int">        						
+        				</select>
+												
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pid" id="next_pathsurvey">Next Inspection : </label>
+								
+						<input type="text"  class="int" id="furnitureNextsurvey" name="furnitureNextsurvey" value="${nextPathsurvey}"/>
+					</td>
+				</tr>
+				<tr>	
+					<td colspan="2">
+						<label for="sum" id="notes">Notes  : </label>
+						
+						<textarea id="furnitureNotes" class="qb_querybox" rows="2" name="furnitureNotes" spellcheck="false">${notes}</textarea>				
+						
+					</td>
+				</tr>
+		</table>
+</form>
+<div class="buttons btn-holder-float">
+			
+				<span class="lesserbtn" id="btnUpdateFurniture"><input type="button" id="fntr_edit" value="Edit"/></span>  
+				<span class="lesserbtn" id="btnCancelFurniture"><input type="button" id="fntr_cancel" value="Cancel" /></span>
+				<span class="lesserbtn" id="btnSaveFurniture"><input  type="button" id="fntr_save" value="Save" onclick="saveFurniture();"/></span>
+</div>	
+	<div class="nxtPrevBTNHolder">
+				<div class="prvbtn">				
+				<a href="#" onclick="getPreviousFurniture(${gid},'${furnitureid}')">
+				<span>Previous</span></a>			
+
+				</div>  
+				<div class="nxtbtn">				
+				
+				<a href="#" onclick="getNextFurniture(${gid},'${furnitureid}')">
+				<span>Next</span></a>		
+				</div>  				
+			</div>	
+		<ul class="footerBtns">
+			<li>
+			<a href="#" id="furnitureLink_1"  title="" class="btn01" onclick="javascript:furnitureLink('${rowId}','${furnitureid}');">
+			<span class="LinkFurniture" id="btnViewFurnitureLink">View Furniture Links</span>
+			</a>
+			</li>			
+			<li>
+			<a title="" id="locate_furniture_lnk" class="btn01" href="#" onclick="javascript:zoomToFurniture(${gid});return false;">
+					<span class="mapIT">Locate on Map</span></a>
+			</li>
+			<li>
+			<a title="" id="furnitureLink_3" class="btn01" href="#" onclick="javascript:createEditFurniture();return false;">
+					<span class="editFurniture" id="edit_furniture_lnk">Edit Furniture</span></a>
+			</li>
+			<li>
+			<a title="" id="create_issue_lnk" class="btn01" href="#" onclick="javascript:createIssueOnFurniture(${gid},'${rowId}','${furnitureid}');return false;">
+					<span class="createIssue">Create Issue</span></a>
+			</li>
+			
+			</ul>
+</script>
+
+<script id="furnitureInfo_AttachmentTmpl" type="text/x-jquery-tmpl">	
+		<div id="FurattachmentDiv" class="attachmentcontainer">
+		<div class="blueboxHeader"></div>
+		
+		<div class="blueboxContent">
+	<div id="FurfileAttachmentDiv">	</div>
+    <div class="outertableup">    
+		<div id="AttchFileList" class="lab-int">
+        	<table width="100%" cellpadding="1" cellspacing="1">        	
+                	<!--start:heading-->
+                    <tr>
+                        <td colspan="2" class="subTitle">
+                            <span id="attached_files">Attached Files</span>
+                        </td>
+                   </tr>
+               		<!--end:heading--> 
+            </table>
+			<table width="100%" cellspacing="1" cellpadding="1" border="0">
+				<thead>
+					<tr>						
+						<th class="headercolorup"><span id="attchmt_file">File</th>
+						<th class="headercolorup"><span id="attchmt_action">Action</th>
+					</tr>
+				</thead>
+				
+				<tbody id="FurAttchFileListBody">
+			
+				</tbody>
+				
+			</table>
+		</div>
+    </div>
+	
+	</div>
+	
+	<div class="blueboxFooter"></div>
+	
+	</div>
+</script>

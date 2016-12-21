@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="studio" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<non-jta-data-source>java:comp/env/jdbc/SNPA</non-jta-data-source>	
+		<class>com.rmsi.spatialvue.studio.domain.Action</class>
+		<class>com.rmsi.spatialvue.studio.domain.Attachment</class>
+		<class>com.rmsi.spatialvue.studio.domain.AttachmentPK</class>
+		<class>com.rmsi.spatialvue.studio.domain.Baselayer</class>
+		<class>com.rmsi.spatialvue.studio.domain.Bookmark</class>
+		<class>com.rmsi.spatialvue.studio.domain.Group</class>
+		<class>com.rmsi.spatialvue.studio.domain.Layer</class>
+		<class>com.rmsi.spatialvue.studio.domain.LayerField</class>
+		<class>com.rmsi.spatialvue.studio.domain.Layergroup</class>
+		<class>com.rmsi.spatialvue.studio.domain.LayerLayergroup</class>
+		<class>com.rmsi.spatialvue.studio.domain.Layertype</class>
+		<class>com.rmsi.spatialvue.studio.domain.Maptip</class>
+		<class>com.rmsi.spatialvue.studio.domain.MaptipPK</class>
+		<class>com.rmsi.spatialvue.studio.domain.Module</class>
+		<class>com.rmsi.spatialvue.studio.domain.ModuleAction</class>
+		<class>com.rmsi.spatialvue.studio.domain.Outputformat</class>
+		<class>com.rmsi.spatialvue.studio.domain.Overviewmap</class>
+		<class>com.rmsi.spatialvue.studio.domain.Printtemplate</class>
+		<class>com.rmsi.spatialvue.studio.domain.Project</class>
+		<class>com.rmsi.spatialvue.studio.domain.ProjectBaselayer</class>
+		<class>com.rmsi.spatialvue.studio.domain.Projection</class>
+		<class>com.rmsi.spatialvue.studio.domain.ProjectLayergroup</class>
+		<class>com.rmsi.spatialvue.studio.domain.Role</class>
+		<class>com.rmsi.spatialvue.studio.domain.RoleModule</class>
+		<class>com.rmsi.spatialvue.studio.domain.Savedquery</class>
+		<class>com.rmsi.spatialvue.studio.domain.Style</class>
+		<class>com.rmsi.spatialvue.studio.domain.Unit</class>
+		<class>com.rmsi.spatialvue.studio.domain.User</class>
+		<class>com.rmsi.spatialvue.studio.domain.UserGroup</class>
+		<class>com.rmsi.spatialvue.studio.domain.UserProject</class>
+		<class>com.rmsi.spatialvue.studio.domain.UserRole</class>
+		<class>com.rmsi.spatialvue.studio.domain.DbConnection</class>
+	    <class>com.rmsi.spatialvue.studio.domain.Task</class>
+	    <class>com.rmsi.spatialvue.studio.domain.TaskScheduler</class>
+	    <class>com.rmsi.spatialvue.studio.domain.PublicUser</class>
+	    <class>com.rmsi.spatialvue.studio.domain.SnpaRole</class>
+	    <class>com.rmsi.spatialvue.studio.domain.Complaint</class>
+	    <class>com.rmsi.spatialvue.studio.domain.Complaint_Nature_Lkp</class>
+	    <class>com.rmsi.spatialvue.studio.domain.AnnualHolidayCalendar</class>
+	    <class>com.rmsi.spatialvue.studio.domain.Access_Land_polygon</class>
+	    <class>com.rmsi.spatialvue.studio.domain.AccessLandContact</class>
+	    <class>com.rmsi.spatialvue.studio.domain.AccessLandTypeLkp</class>
+	    <class>com.rmsi.spatialvue.studio.domain.RoW_Path</class>
+	    <class>com.rmsi.spatialvue.studio.domain.Contact</class>
+	    <class>com.rmsi.spatialvue.studio.domain.ContactTypeLkp</class>
+	    <class>com.rmsi.spatialvue.studio.domain.Warden_Area</class>
+	    <class>com.rmsi.spatialvue.studio.domain.PathTypeLkp</class>
+	    <class>com.rmsi.spatialvue.studio.domain.PathLegalstatusLkp</class>
+	    <class>com.rmsi.spatialvue.studio.domain.ResponsibleDepartmentLkp</class>
+	    <class>com.rmsi.spatialvue.studio.domain.PathConditionLkp</class>
+	    <class>com.rmsi.spatialvue.studio.domain.ClassLkp</class>
+	    <class>com.rmsi.spatialvue.studio.domain.Community_Council</class>
+	    <class>com.rmsi.spatialvue.studio.domain.FurnitureContact</class>
+	    <class>com.rmsi.spatialvue.studio.domain.FurnitureTypeLkp</class>
+	    <class>com.rmsi.spatialvue.studio.domain.FurnitureConditionLkp</class>
+	    <class>com.rmsi.spatialvue.studio.domain.Furniture</class>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.cache.region.factory_class"
+				value="net.sf.ehcache.hibernate.EhCacheRegionFactory" />
+			<!--  property name="hibernate.cache.use_second_level_cache"
+				value="false" / -->
+				<property name="hibernate.default_batch_fetch_size" value="50"/>
+				<property name="hibernate.jdbc.batch_size" value="100"/>
+				<property name="hibernate.order_inserts" value="true"/>
+				<property name="hibernate.order_updates" value="true"/>
+				<property name="hibernate.cache.use_second_level_cache" value="true"/>
+				<property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider"/>
+				<property name="hibernate.show_sql" value="false"/> 
+		</properties>
+	</persistence-unit>
+</persistence>

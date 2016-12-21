@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <list-property name="configVars">
+        <structure>
+            <property name="name">__isdisplay__startdate_613_0</property>
+            <property name="value">2010-01-01</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__enddate_614_1</property>
+            <property name="value">2014-01-01</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__dateLabel_638_2</property>
+            <property name="value">2010-01-01</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__lang_1596_3</property>
+            <property name="value">cy</property>
+        </structure>
+        <structure>
+            <property name="name">startdate_613_4</property>
+            <property name="value">2010-01-01</property>
+        </structure>
+        <structure>
+            <property name="name">startdate_613_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">dateLabel_638_5</property>
+            <property name="value">2010-01-01</property>
+        </structure>
+        <structure>
+            <property name="name">dateLabel_638_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">enddate_614_6</property>
+            <property name="value">2014-01-01</property>
+        </structure>
+        <structure>
+            <property name="name">enddate_614_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">lang_1596_7</property>
+            <property name="value">cy</property>
+        </structure>
+        <structure>
+            <property name="name">lang_1596_type_</property>
+            <property name="value">string</property>
+        </structure>
+    </list-property>
+</report>

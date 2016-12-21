@@ -1,0 +1,245 @@
+<div id="legalinfodiv" class="dialog-v">
+	<div id="legalinfoTmpl" class="lab-int fg-buttonset fg-buttonset-single">
+		<div id="span-close" class="span-c" title="Close" onclick="javascript:closeDialog('legalinfodiv');"></div>
+		<div id="legalinfo-help" class="span-h" title="" onclick="javascript:openHelpWindow('legal_help');"></div>
+		<div class="lineBreak05p" id="detailsDiv"></div>	
+
+			
+				
+				<div id="LegalInfo_DetailsBody">
+				
+				</div>
+				
+				<div id="legalAttachmentBody">
+				
+				</div>
+				
+				<div>
+				
+					<!-- a href="#" onclick="showJobLink()">View Job Link</a> 
+					 <br />
+					<a href="#">View Parent Issue</a> 
+					 <br />
+					<a href="#">Print Risk Assessment Document</a--> 
+				</div>
+				
+
+	
+	</div>	
+</div>
+<script id="LegalInfo_DetailsTmpl" type="text/x-jquery-tmpl">
+<form id="legalInfoForm" class="styleForm">	
+<table id="legalInfoTable" class="formPattern">
+
+<tr>
+	<td>
+                <input type="hidden"  class="int" id="issueGid" name="issueGid" value=""/>
+	</td>		
+</tr>
+	 				
+				<tr>
+					<td>
+						<label for="rowID" id="legal_rowid">RoWID : </label>
+					</td>
+					</tr><tr>
+					<td>			
+						<input type="text"  class="int" id="legalRoWID" name="legalRoWID" value="${rowId}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pid" id="legal_authority">Legal Authority  : </label>
+					</td>
+					</tr><tr>
+					<td>			
+						<select id="legalAuth" name="legalAuth" class="slt">
+	                
+                        </select>
+
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pid" id="legal_type">Type : </label>
+					</td>
+					</tr><tr>
+					<td>			
+						<select id="legalType" name="legalType" class="slt">
+	                
+                        </select>
+					</td>
+				</tr>
+
+				
+				<tr>
+					<td>
+						<label for="pid" id="legal_effects">Effects : </label>
+					</td>
+					</tr><tr>
+					<td>			
+						<select id="legalEffects" name="legalEffects" class="slt">
+	                
+                        </select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label for="pid" id="legal_path_passable">Is Path Passable : </label>
+					</td>
+					</tr><tr>
+					<td>			
+						<select id="isPathPass" name="isPathPass" class="slt">
+	                     
+                        </select>
+
+					</td>
+				</tr>
+
+
+				<tr>
+					<td>
+						<label for="pid" id="legal_status">Status : </label>
+					</td>
+					</tr><tr>
+					<td>			
+						<select id="legalStatus" name="legalStatus" class="slt">
+	                
+                        </select>
+					</td>
+				</tr>
+
+
+				<tr>
+					<td>
+						<label for="pid" id="legal_eff_date">Effective Date : </label>
+					</td>
+					</tr><tr>
+					<td>			
+						<input type="text"  class="int" id="legalEffectiveDate" name="legalEffectiveDate" value=""/>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<label for="pid" id="legal_estm_clsr_date">Estimated Closure End Date : </label>
+					</td>
+					</tr><tr>
+					<td>			
+						<input type="text"  class="int" id="legalEstimatedDate" name="legalEstimatedDate" value=""/>
+					</td>
+				</tr>
+
+
+				<tr>
+					<td>
+						<label for="pid" id="legal_evt_modification">Legal Event Modification Order : </label>
+					</td>
+					</tr><tr>
+					<td>	
+                        <select id="legalLegalEventorder" name="legalLegalEventorder" class="slt">
+	                
+                        </select>
+					</td>
+				</tr>
+
+				<tr>	
+					<td colspan="2">
+						<label for="sum" id="legal_notes">Notes  : </label>
+						
+						<textarea id="legalNotes" class="qb_querybox" rows="2" name="legalNotes" spellcheck="false"></textarea>				
+						
+					</td>
+				</tr>
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</table>
+<!--a href="#" onclick="javascript:showIssueDetails(${issueGid}, null);" id="hrefShowParentIssue" >Go to Parent Issue</a-->
+</form>
+			 <div class="btn-holder-w buttons">
+								
+				<span class="lesserbtn" id="btnUpdateLegal"><input type="button" id="legal_edit" value="Edit" onclick="javascript:editLegalDetails();"/> </span>
+				<span class="lesserbtn" id="btnCancelLegal"><input type="button" id="legal_cancel" value="Cancel" onclick="javascript:legalCancelBtn(${legalid})" /></span>   
+				<span class="lesserbtn" id="btnSaveLegal"><input type="button" id="legal_save" value="Save" onclick="javascript:saveLegalDetails();"/>  </span>
+				
+			</div>
+					<ul class="footerBtns">
+					<li>
+					<a title="" class="btn01" href="#" id="hrefShowParentIssue" onclick="javascript:showIssueDetails(${issueGid}, null);"><span class="ParentIssue" id="legal_parent_issue">Go to Parent Issue</span></a>
+					</li>
+					</ul>
+				
+
+</script>
+
+
+<script id="legalAttachmentTmpl" type="text/x-jquery-tmpl">	
+		
+		<div id="attachmentDiv" class="attachmentcontainer">
+		<div class="blueboxHeader"></div>
+		
+		<div class="blueboxContent">
+		
+	<div id="fileAttachmentDiv">	</div>
+
+	
+    <div class="outertableup">    
+		<div id="AttchFileList" class="lab-int">
+        	<table width="100%" cellpadding="1" cellspacing="1">        	
+                	<!--start:heading-->
+                    <tr>
+                        <td colspan="2" class="subTitle">
+                            <span id="legal_attached_files">Attached Files</span>
+                        </td>
+                   </tr>
+               		<!--end:heading--> 
+            </table>
+			<table width="100%" cellspacing="1" cellpadding="1" border="0">
+				<thead>
+					<tr>						
+						<th class="headercolorup"><span id="legal_attchmt_file">File</span></th>
+						<th class="headercolorup"><span id="legal_attchmt_action">Action</span></th>
+					</tr>
+				</thead>
+				
+				<tbody id="legalAttchFileListBody">
+			
+				</tbody>
+				
+			</table>
+		</div>
+    </div>
+	
+
+
+	</div>
+	
+	<div class="blueboxFooter"></div>
+	
+
+
+	</div>
+
+
+
+</script id="legalAttachmentBody" type="text/x-jquery-tmpl">
+
+
+

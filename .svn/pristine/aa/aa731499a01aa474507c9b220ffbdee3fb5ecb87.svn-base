@@ -1,0 +1,257 @@
+	<div id="configSetting_accordion" style="text-align:left;">
+		
+		<h3><a href="#">Survey Configuration</a></h3>
+	
+			<div id="configsetting_surveyBody" title="Survey" style="min-height:200px; overflow:hidden;">
+			<table id="configsetting_surveyTable"  class="tablesorter" cellpadding="0" cellspacing="0">
+	
+			<thead>
+				<tr>	
+					<th>
+						Category
+					</th>		
+					<th>
+						Priority
+					</th>					
+					
+					<th>
+						Duration of Next Survey (In Months) 
+					</th>
+								
+					<th>
+						Action
+					</th>
+					
+					
+				</tr>	
+			</thead>
+			<tbody id="configsetting_surveyTableBody">
+					
+			</tbody>
+
+	</table>
+			<table id="surveyEdit">
+		<tbody id="surveyEditBody">
+			
+		</tbody>
+	</table>
+			
+			</div>
+		<h3><a href="#">Complaint Configuration</a></h3>
+		<div id="configsetting_complaintsBody" title="Complaints" style="min-height:200px; overflow:hidden;">
+		<table id="configsetting_complaintsTable"  class="tablesorter" cellpadding="0" cellspacing="0">
+	
+	<thead>
+		<tr>	
+		
+		    <th>
+				Category
+			</th>
+			
+			<th>
+				Target Field
+			</th>					
+			
+			<th>
+				Source Field
+			</th>
+			<th>
+				Working Days
+			</th>
+									
+			<th>
+				Action
+			</th>
+			
+			
+		</tr>	
+	</thead>
+	<tbody id="configsetting_complaintsTableBody">
+						
+	</tbody>
+
+	</table>
+		<table id="complaintsEdit">
+			<tbody id="complaintsEditBody">
+			</tbody>
+		</table>
+		</div>
+			
+		<h3><a href="#">Issue Configuration</a></h3>
+			<div id="configsetting_IssueBody" title="Issue" style="min-height:200px; overflow:hidden;">
+			<table id="configsetting_IssueTable"  class="tablesorter" cellpadding="0" cellspacing="0">	
+			<thead>
+				<tr>	
+				    
+				    <th>
+						Category
+					</th>
+					
+					<th>
+						Target Field
+					</th>					
+					
+					<th>
+						Source Field
+					</th>
+					
+					<th>
+						Working Days
+					</th>
+					<th>
+					    Action
+					</th>
+					
+					
+				</tr>	
+			</thead>
+			<tbody id="configsetting_IssueTableBody">
+					
+			</tbody>
+			</table>
+			<table id="IssueEdit">
+		<tbody id="issueEditBody">
+			
+		</tbody>
+	</table>
+			</div>
+			
+	</div>
+
+<script id="configSetting_SurveyEditForm" type="text/x-jquery-tmpl">
+	<tr>
+	
+	    <td>
+			Category
+		</td>
+		<td>
+				<label id="surveyCat" value=""  ></lable>
+		</td>
+		<td>
+			Priority
+		</td>
+		<td>             	
+				<label id="surveyPriorityID" value=""  ></lable>               	   		
+		</td>
+		
+	</tr>
+	<tr>
+	<tr>
+		<td>
+			Duration of Next Survey
+		</td>
+		<td>
+			<input type="textbox" name="Duration" id="surveyDuration" value=""  />
+		</td>
+        <td>		
+         <label id="surveyTaskId" value=""></lable>
+		</td>
+		
+	</tr>
+	<tr>
+<td>
+		<div>
+<input id="user_btnSaveSurvey" class="btn" type="button" value="Save"  onclick="javascript:saveSurveyTask();"/>
+<input id="user_btnBackSurvey" class="btn" type="button" value="Back" onclick="javascript:displaySurvey();"/>
+</div>	
+</td>
+</tr>			
+</script>
+
+
+
+<script id="configSetting_IssueEditForm" type="text/x-jquery-tmpl">
+
+	<tr>
+		<td>
+			Category
+		</td>
+		<td>
+             	<!--<input type="textbox" name="IssueCategory" id="IssueCategory" value="${issueCategory}" />-->
+				<label id="issueCat" value=""  ></lable>
+               	   		
+		</td>
+		<td>
+			Source Field
+		</td>
+		<td>
+			<!--<input type="textbox" name="issueField" id="Field" value="${issueField}"  />--->
+			<label id="issueFieldText" value=""  ></lable>
+		</td>
+		</tr>
+		<tr>
+  
+		<td>
+			Working Days
+		</td>
+		<td>
+			<input type="textbox" name="issueDays" id="issueDays" value=""  />
+		</td>
+       <td>		<label id="issueTaskId" value=""></lable>
+		</td>
+		
+	</tr>
+	<tr>
+<td>
+<div>
+<input id="user_btnSaveIssue" class="btn" type="button" value="Save"  onclick="javascript:saveIssueTask();"/>
+<input id="user_btnBackIssue" class="btn" type="button" value="Back" onclick="javascript:displayIssue();"/>
+</div>	
+</td>
+<td>
+</td>
+</tr>			
+</script>
+ 
+ 
+ 
+
+<script id="configSetting_ComplaintEditForm" type="text/x-jquery-tmpl">
+
+<tr>
+		<td>
+			Category
+		</td>
+		<td>
+             	<!--<input type="textbox" name="IssueCategory" id="IssueCategory" value="${issueCategory}" />-->
+				<label id="CategoryCom" value="$"  >Responce By</lable>
+               	   		
+		</td>
+		<td>
+			Source Field
+		</td>
+		<td>
+			<!--<input type="textbox" name="issueField" id="Field" value="${issueField}"  />--->
+			<label id="Field" value="${issueField}"  >Reported On</lable>
+		</td>
+		</tr>
+	<tr>
+		<td>
+		 Working Days
+</td>
+<td>		 <input type="textbox" name="complaintDays" id="complaintDays" value=""  />
+		</td>
+<td>		<label id="complaintTaskId" value=""></lable>
+		</td>
+		<!--<td>
+			Duration of Pop-up Start(in Days)
+		</td>
+		<td>
+			<input type="textbox" name="popup" id="popup" value="${popup}"  />
+		</td>-->
+	</tr>
+	<tr>
+<td>
+<div>
+<input id="user_btnSaveComplaint" class="btn" type="button" value="Save"  onclick="javascript:saveComplaintTask();"/>
+<input id="user_btnBackComplaint" class="btn" type="button" value="Back" onclick="javascript:displayComplaint();"/>
+</div>	
+</td>
+<td>
+</td>
+<td>
+		</td>
+</tr>			
+</script>
+
+	

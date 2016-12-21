@@ -1,0 +1,313 @@
+<div id="rowinfodiv" class="dialog-v">
+	<div id="rowinfoTmpl" class="lab-int fg-buttonset fg-buttonset-single">
+		<div id="span-close" class="span-c" title="Close" onclick="javascript:closeDialog('rowinfodiv');"></div>
+		<div id="rowinfo-help" class="span-h" title="" onclick="javascript:openHelpWindow('path_help');" ></div>
+		<div class="lineBreak05p" id="detailsDiv"></div>
+	<!--div id="rowinfo_accordion" style="text-align:left;" class="popupcaption"> Master Details</div-->
+			
+			
+			
+			<div id="subcelladjustcreate">
+				
+				
+				<div id="RowInfo_MasterDetailsBody">
+				
+				</div>
+				
+				
+				
+			</div>
+
+			</div>
+		
+	
+	</div>	
+
+<script id="RowInfo_MasterDetailsTmpl_line" type="text/x-jquery-tmpl">
+	<form class="styleForm formPattern" id="pathinfoform">
+	<table id="rowInfo_line" class="formTable">
+	 
+				<tr>
+					<td>
+						<label for="pid" id="path_pid">RoW_ID : </label>
+								
+						<input type="text"  class="int" id="path_rowId" name="path_rowId" value="${rowId}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pid" id="path_type_pid">Type : </label>
+								
+					<select name="pathtype" id="pathtype" class="int">
+        				<option  value="">Please Select</option>         
+       				 </select>
+						<!--<input type="text"  class="int" id="Type" name="Type" value="${type}"/>-->
+					</td>
+					
+				</tr>
+
+				<tr>
+					<td>
+						<label for="comm" id="path_promo_route">Promoted Route : </label>
+						
+						<!--input type="text"  class="int" id="path_promotedRoute" name="path_promotedRoute" value="${promotedRoute}"/-->
+						<select name="path_promotedRoute" id="path_promotedRoute" class="int">
+        				<!--<option  value="false">No</option>   
+						<option  value="true">Yes</option>-->         
+       				 </select>
+						
+
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="comm" id="path_community">Community : </label>
+						<select name="path_Community" id="path_Community" class="int">   
+							<!--<option  value="">Please Select</option>-->     						
+        				</select>
+						
+						<!--input type="text"  class="int" id="path_Community" name="path_Community" value="${community}"/-->
+						
+
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="comm" id="path_class">Class : </label>
+					
+						<select name="path_classLkp" id="path_classLkp" class="int">   
+							<option  value="">Please Select</option>     						
+        				</select>
+						<!--input type="text"  class="int" id="classLkp" name="classLkp" value="${classLkp}"/-->
+						
+
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td>
+						<label for="len" id="path_length">Length : </label>
+					
+						<input type="text"  class="int" id="lengthKm" name="lengthKm" value="${lengthKm}"/>	
+						
+						
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<label for="sp" id="path_condition">Condition : </label>
+					
+						<select name="pathConditionLkp" id="pathConditionLkp" class="int">   
+							<!--option  value="">Please Select</option-->     						
+        				</select>
+						<!--input type="text"  class="int" id="pathConditionLkp" name="pathConditionLkp" value="${pathConditionLkp}"/ -->
+						
+						
+					</td>
+				</tr>	
+				
+				<tr>
+					<td>
+						<label for="ep" id="path_issues">No. of un-resolved Issues : </label>
+					
+						<input type="text"  class="int" id="unresolvedIssues" name="unresolvedIssues" value="${unresolvedIssues}"/>
+						
+						
+					</td>
+				</tr>	
+				<tr>
+					<td>
+						<label for="len" id="path_legal_status">Legal Status  : </label>
+					<select name="pathLegalstatus" id="pathLegalstatus" class="int">   
+							<option  value="">Please Select</option>     						
+        				</select>
+										
+						
+					</td>
+				</tr>				
+				<tr>
+					<td>
+						<label for="war" id="path_last_survey">Last Survey : </label>
+						
+						<input type="text"  class="int" id="lastsurvey" name="lastsurvey" value="${lastsurvey}"/>
+						
+						
+					</td>
+				</tr>
+						<tr>
+					<td>
+						<label for="stat" id="path_surveyed_by">Surveyed by : </label>
+						
+						<input style="display:none" type="text"  class="int" id="txtSurveyedBy" name="txtSurveyedBy" value=""  disabled/>			
+						<select name="surveyedBy" id="surveyedBy" class="int">   
+							<option  value="">Please Select</option>     						
+        				</select>
+						
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="stat" id="path_next_survey">Next Survey Due : </label>
+						
+						<input type="text"  class="int" id="dateofnextsurvey" name="dateofnextsurvey" value="${dateofnextsurvey}"/>	
+					
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label for="stat" id="path_assigned_to">Assigned to : </label>
+						
+						<input style="display:none" type="text"  class="int" id="txtAssignedTo" name="txtAssignedTo" value=""  disabled/>			
+					<select name="assignedTo" id="assignedTo" class="int">   
+							<option  value="">Please Select</option>     						
+        				</select>
+						
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="con" id="path_warden_area">Warden Area  : </label>
+						<select name="wardenArea" id="wardenArea" class="int">   
+							<option  value="">Please Select</option>     						
+        				</select>
+						<!--input type="text"  class="int" id="wardenArea" name="wardenArea" value="${wardenArea}"/-->	
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label for="stat" id="path_responsibility">Responsibility : </label>
+						
+						<select class="int" name="responsibleDepartmentLkp" id="responsibleDepartmentLkp">   
+							<option  value="">Please Select</option>     						
+        				</select>
+						<!--input type="text"  class="int" id="responsibleDepartmentLkp" name="responsibleDepartmentLkp" value="${responsibleDepartmentLkp}"/-->	
+					
+						
+					</td>
+				</tr>		
+
+				<tr>
+					<td>
+						<label for="stat" id="path_start_from">Start From : </label>
+						
+						<input type="text"  class="int" id="startfrom" name="startfrom" value="${startfrom}"/>	
+					
+						
+					</td>
+				</tr>	
+				<tr>
+					<td>
+						<label for="stat" id="path_to">To : </label>
+						
+						<input type="text"  class="int" id="to" name="to" value="${to}"/>	
+					
+						
+					</td>
+				</tr>	
+				
+				<tr>	
+					<td colspan="2">
+						<label for="sum" id="path_desc">Description  : </label>
+						
+						<textarea id="description" class="qb_querybox" rows="2" name="description" spellcheck="false">${description}</textarea>				
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label for="stat" id="path_agreement_ref">Agreement Reference : </label>
+						
+						<input type="text"  class="int" id="agreementRef" name="agreementRef" value="${agreementRef}"/>	
+					
+						
+					</td>
+				</tr>	
+				
+				
+				<tr>
+					<td>
+						<label for="stat" id="path_agreement_end_date">Agreement End Date : </label>
+						
+						<input type="text"  class="int" id="agreementEndDate" name="agreementEndDate" value="${agreementEndDate}"/>	
+					
+						
+					</td>
+				</tr>	
+				
+				<tr>	
+					<td colspan="2">
+						<label for="sum" id="path_notes">Notes  : </label>
+						
+						<textarea id="notes" class="qb_querybox" rows="2" name="notes" spellcheck="false">${notes}</textarea>				
+						
+					</td>
+				</tr>
+				
+				
+				
+			 </table>
+</form>
+			<div class="buttons btn-holder-float">
+								
+				<span class="lesserbtn" id="btnUpdateRoW_line"><input type="button" id="row_edit" value="Edit"/> </span>
+				<span class="lesserbtn" id="btnCancelRoW_line"><input type="button" id="btnPathCancel" value="Cancel" /> </span>
+				<span class="lesserbtn" id="btnSaveRoW_line"><input type="button" id = "btnPathSave" value="Save" onclick="saveRowPath();" />   </span>
+				
+			</div>
+		<!--added for handle history records-->
+		<div id="footerdiv"> 
+			<div class="nxtPrevBTNHolder">
+				<div class="prvbtn">				
+				<a href="#" onclick="getPreviousPath(${gid},'${rowId}')">
+				<span>Previous</span></a>			
+
+				</div>  
+				<div class="nxtbtn">				
+				
+				<a href="#" onclick="getNextPath(${gid},'${rowId}')">
+				<span>Next</span></a>		
+				</div>  				
+			</div>		
+				
+		</div>
+			
+		<ul class="footerBtns">
+					<li>
+					<a title="" class="btn01" href="#" onclick="javascript:showPathLink(${gid},'${rowId}');return false;">
+					<span class="LinkIcon" id="path_link">View Path Link</span></a>	
+					</li>
+										
+					<!--a class="btn01" href="#" onclick="javascript:createEditPath();return false;">
+					<span class="pathEdit">Create Path</span></a-->
+					<li>
+
+					<a title="" class="btn01" href="#" onclick="javascript:zoomToRowPath();return false;">
+					<span class="mapIT" id="map_it">Locate on Map</span></a>
+					</li>
+					
+					<li>
+					<a title="" class="btn01" href="#" onclick="javascript:createIssueOnPath(${gid},'${rowId}');return false;">
+					<span class="createIssue" id="create_issue">Create Issue</span></a>
+					</li>
+					
+					<li>
+					<a title="" class="btn01" href="#" onclick="javascript:createFurnitureOnPath(${gid},'${rowId}');return false;">
+					<span class="createFurniture" id="create_furniture">Create Furniture</span></a>
+					</li>
+					
+					<li>
+					<a title="" class="btn01" href="#" onclick="javascript:createSurfaceOnPath(${gid},'${rowId}');return false;">
+					<span class="createSurface" id="create_surface">Create Surface</span></a>
+					</li>
+			</ul>	
+			
+
+</script>
+
+

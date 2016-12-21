@@ -1,0 +1,498 @@
+<div id="workcommitment_accordion" style="text-align: left;">
+
+	<h3>
+		<a href="#"><span id="wc-survey">Surveys</span></a>
+	</h3>
+
+	<div id="workcommitment_SurveysBody" title=""
+		style="min-height: 200px; overflow: hidden;">
+		
+		<div class="headerBtns">
+			<a href="#"  onclick="javascript:showSurveyList('pending');" class="btn02"><span id="survey_pending" class="PendingLink">Pending</span></a>
+			<a href="#" onclick="javascript:showSurveyList('backlog');" class="btn02 hide"><span id="survey_backlog" class="backLog">Backlog </span></a>
+			<!-- a href="#" onclick="javascript:showSurveyList('all');" class="btn02 hide"><span class="allLink">All</span></a-->
+
+		</div>
+		<table id="workcommitment_SurveysTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+
+
+	<thead>
+		<tr>		
+			<th>
+				<span id=survey_rowid>RoWID</span>
+			</th>
+			
+			<th>
+				<span id=survey_by>Survey by</span>
+			</th>
+			
+			<th>
+				<span id=survey_priority>Priority</span>
+			</th>
+			
+			<th>
+				<span id=survey_assignedto>Assigned to</span>
+			</th>
+			<th>
+				&nbsp;
+			</th>
+			
+		</tr>	
+	</thead>
+	<tbody id="workcommitment_SurveysTableBody">
+			
+	</tbody>
+
+	</table>
+	
+	
+	</div>
+	
+	<h3 id="hrefComp">
+		<a  href="#"><span id="wc-complaints">Complaints</span></a>
+	</h3>
+
+	<div id="workcommitment_ComplaintsBody" title=""
+		style="min-height: 200px; overflow: hidden;">		
+			<div class="headerBtns">
+			<a href="#" class="btn02" onclick="javascript:showComplaintList('P');"><span id="complaint_pending" class="PendingLink">Pending</span></a><!-- span class="openLink">Open</span></a-->
+			<a href="#" class = "btn02 hide" onclick="javascript:showComplaintList('B');"><span id="complaint_backlog" class="backLog">Backlog</span></a>
+			<a href="#" class = "btn02 hide" onclick="javascript:showComplaintList('A');"><span id="complaint_all" class="allLink">All</span></a>
+
+		</div>
+		
+		<table id="workcommitment_ComplaintsTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>			
+			<th>
+				<span id="complaint_id">Id</span>
+			</th>
+			<th>
+				<span id="complaint_issueid">Issue Id</span>
+			</th>
+			<th>
+				<span id="complainant_name">Name</span>
+			</th>	
+			<th>
+				<span id="complaint_reportedon">Reported on</span>
+			</th>
+			<th>
+				<span id="complaint_acknowlegeby">Acknowledge by</span>
+			</th>
+			<th>
+				<span id="complaint_type">Type</span>
+			</th>			
+			<th>
+				<span id="complaint_respondby">Respond by</span>
+			</th>
+			<th>
+				<span id="complaint_assigned">Assigned To</span>
+			<th>
+			<th>
+				&nbsp;
+			</th>
+			
+		</tr>	
+	</thead>
+	<tbody id="workcommitment_ComplaintsTableBody">	
+    </tbody>
+	
+	</table>		
+	</div>
+
+	<h3>
+		<a href="#"><span id="wc-issues">Open Issues</span></a>
+	</h3>
+
+	<div id="workcommitment_IssueBody" title=""
+		style="min-height: 200px; overflow: hidden;">
+		
+		<div class="headerBtns">
+			<a href="#" class="btn02" onclick="javascript:showIssueList('Open');"><span id="issues_pending" class="PendingLink">Pending</span></a>
+			<a href="#" class = "btn02 hide" onclick="javascript:showIssueList('backlog');"><span id="issues_backlog" class="backLog">Backlog</span></a>
+			<!-- a href="#" class = "btn02 hide" onclick="javascript:showIssueList('all');"><span class="allLink">All</span></a-->
+
+		</div>
+		<table id="workcommitment_IssueTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+			<thead>
+				<tr>
+					<th><span id="issue_id">ID</span></th>
+					<th><span id="issue_rowid">RoWID</span></th>
+					<th><span id="issue_type">Type</span></th>
+					<th><span id="issue_assignedto">Assigned to</span></th>
+					<th><span id="issue_urgency">Urgency</span></th>				
+					<!--<th>Responsibility for</th>-->
+					<th><span id="issue_inspectby">Inspect by</span></th>
+					<th><span id="issue_status">Status</span></th>	
+					<th><span id="issue_resolveby">Resolve by</span></th>
+					<th><span id="issue_action">Action</span></th>
+					<th width="100px"><!-- Action --></th>
+				</tr>	
+			</thead>
+			<tbody id="workcommitment_IssueTableBody">			
+			</tbody>
+		</table>
+	</div>
+	<h3>
+		<a href="#"><span id="wc-outstandingjobs">Outstanding Jobs</span></a>
+	</h3>
+
+
+	<div id="workcommitment_JobsBody" title=""
+		style="min-height: 200px; overflow: hidden;">
+		<div class="headerBtns">
+			<a href="#"  onclick="javascript:showJobList('pending');" class="btn02"><span id="outjob_pending" class="PendingLink">Pending</span></a>
+			<a href="#" onclick="javascript:showJobList('backlog');" class="btn02 hide"><span id="outjob_backlog" class="backLog">Backlog </span></a>
+			<a href="#" onclick="javascript:showJobList('all');" class="btn02 hide"><span id="outjob_all" class="allLink">All</span></a>
+		</div>
+<table id="workcommitment_JobsTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+				
+	<thead>
+		<tr>			
+			<th>
+				<span id="outjob_id">Id</span>
+			</th>
+			<th>
+				<span id="outjob_rowid">RoW_ID</span>
+			</th>
+			<th>
+				<span id="outjob_type">Job Type</span>
+			</th>	
+			<th>
+				<span id="outjob_feature">Feature</span>
+			</th>
+			<th>
+				<span id="outjob_targetdate">Target Date</span>
+			</th>
+			
+			
+		</tr>	
+	</thead>
+	<tbody id="workcommitment_JobsTableBody">
+			
+				
+	</tbody>
+
+	</table>
+	</div>
+	
+	<h3 id="closedJob">
+		<a href="#"><span id="closed_jobs">Closed Jobs</span></a>
+	</h3>
+
+
+	<div id="workcommitment_ClosedJobsBody" title=""
+		style="min-height: 200px; overflow: hidden;">
+		
+		<!-- div class="headerBtns">
+				<div id="divFromTodate" class="styleForm">
+			<label for="pid">From : </label>
+			<input type="text"  id="jobStartDate" name="jobStartDate" class="int"/> 
+			<label for="pid">To : </label>
+			<input type="text"  id="jobEndDate" name="jobEndDate" class="int"/> 
+			<span class="lesserbtn" id="btnSubmit"><input type="button" value="Filter" onclick="displayClosedJobs();" />   </span>
+			</div>
+			
+		</div-->
+		<div class="headerSelect">
+			<div id="divFromTodate" class="styleForm">
+			<div style="float:left; width: 120px; text-align:right; padding-top:0.3em">
+			<label for="pid" class="floatLeft" id="job_closed_tenure">Job closed since : </label>
+			</div>
+			
+			<div style="float:left; width:160px;">
+			<select name="closedJobsTime" id="closedJobsTime" class="int">
+        				<!-- option  value="">Please Select</option--> 
+        				<!--<option  value="30">Last month</option> 
+        				<option  value="90">Last 3 month</option> 
+						<option  value="180">Last 6 month</option> 
+						<option  value="270">Last 9 month</option> 
+						<option  value="365">Last year</option> 
+						<option  value="0">All</option>-->
+        				        
+       		</select>
+			</div>
+			<div style="float:left; width:50px; margin-top:0.2em">
+			<a href="#" onclick="javascript:displayClosedJobs(0);" class="btn02">
+			<span class="FilterSpan" id="closedjob_filter">Filter</span>
+			</a>			
+			
+			</div>
+			</div>
+			
+		</div>
+		
+	<table id="workcommitment_ClosedTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+				
+	<thead>
+		<tr>			
+			<th>
+				<span id="closed_job_id">Id</span>
+			</th>
+			<th>
+				<span id="closed_job_rowId">Row Id</span>
+			</th>
+			<th>
+				<span id="closed_job_type">Job Type</span>
+			</th>	
+			<th>
+				<span id="closed_job_feature">Feature</span>
+			</th>
+			<th>
+				<span id="closed_job_completed_on">Completed On</span>
+			</th>
+			<th>
+				<span id="closed_job_locate">Locate</span>
+			</th>
+			
+		</tr>	
+	</thead>
+	<tbody id="workcommitment_ClosedJobsTableBody">
+			
+				
+	</tbody>
+
+	</table>
+	</div>
+
+</div>
+
+
+<script id="workcommitment_SurveysTmpl" type="text/x-jquery-tmpl">
+
+<tr>
+	<td><a href="javascript:showPathDetails('${gid}','${rowId}');">${rowId}</a></td>
+	<td>${dateofnextsurvey}</td>
+	
+
+		<td>
+			{{if (classLkp)}}
+					${classLkp.priority}
+				 {{else}}
+					    
+				 {{/if}}
+		</td>
+		<td>${assignedTo}		
+		</td>
+	
+	<td class="gridicons">
+			<a title="Re-assign Survey" href="#"  class ="btnGrid clssurvey" onclick="javascript:reassignSurvey('${rowId}', '${gid}');">
+			<div class="reassignSurvey"><span>Re-assign Survey</span></div>	
+			</a>			
+	</td>
+	
+</tr>
+
+</script>
+
+
+
+<script id="workcommitment_IssueTmpl" type="text/x-jquery-tmpl">
+				
+	
+	
+			<tr>
+			<td> <a href="#" onclick="javascript:showIssueDetails('${gid}');">${gid}</a></td>
+			<td>${rowId}</td>
+			<td>
+			{{if (issueTypeLkp)}} 
+				{{if ($item.wc_lang=='en')}}
+					${issueTypeLkp.type}
+				{{else}}
+					${issueTypeLkp.math}
+				{{/if}} 
+			{{else}}
+					
+			{{/if}}
+			</td>
+			<td>${assignedTo}</td>
+			<td>
+			{{if (issueUrgencyLkp)}} 
+				{{if ($item.wc_lang=='en')}}
+					${issueUrgencyLkp.urgencyType}
+				{{else}}
+					${issueUrgencyLkp.brys}
+				{{/if}} 
+			{{else}}
+			
+			{{/if}}
+			</td>		
+		    <!--<td>
+			{{if (responsibleDepartmentLkp)}} 
+				${responsibleDepartmentLkp.department}
+				{{else}}
+			
+				{{/if}}
+				</td>-->
+			<td>${inspectBy}</td>
+			<td>
+			{{if (actionStatusLkp)}} 
+				{{if ($item.wc_lang=='en')}}
+					${actionStatusLkp.actionStatus}
+				{{else}}
+					${actionStatusLkp.statws}
+				{{/if}} 
+			{{else}}
+			
+			{{/if}}
+			</td>
+			<td>${resolveBy}</td>
+			<td>${ActionType}</td>
+			
+			<td class="gridicons">
+			<a class="btnGrid clsjob" title="Create Jobs" href="#" onclick="javascript:SpatialVue.Job('${gid}');">
+			<div class="createJobs"><span>Create Jobs</span></div>
+			<a class="btnGrid clslegal" title="Create Legal" href="#" onclick="javascript:createLegal(${gid},'${rowId}');">
+			<div class="createLegal"><span>Create Legal</span></div>
+			<a class="btnGrid clsassignissue" title="Re-Assign Issue" href="#" onclick="javascript:reassignIssue('${rowId}', '${gid}');">
+			<div class="reassignIssue"><span>Re-Assign Issue</span></div>
+			</td>	
+
+			</tr>
+	</script>
+<script id="workcommitment_JobsTmpl" type="text/x-jquery-tmpl">
+<tr>
+			<td>
+				<a href="#" onclick="javascript:SpatialVue.Job('${issueGid}');">${jobid}</a>
+			</td>
+			<td>
+				{{if (issue)}}
+					${issue.rowId}
+				{{else}}
+					    
+				 {{/if}}
+			</td>
+			<td>
+			{{if (jobTypeLkp)}}
+				{{if ($item.wc_lang=='en')}}
+					${jobTypeLkp.type}
+				{{else}}
+					${jobTypeLkp.math}
+				{{/if}}
+			{{else}}
+					    
+			{{/if}}
+			</td>
+			<td>
+			{{if (jobFeatureLkp)}}
+				{{if ($item.wc_lang=='en')}}
+					${jobFeatureLkp.type}
+				{{else}}
+					${jobFeatureLkp.math}
+				{{/if}}
+			{{else}}
+					    
+			{{/if}}
+			</td>
+			<td>${targetDate}</td>
+		</tr>
+</script>
+
+
+
+<script id="workcommitment_ComplaintsTableTmpl" type="text/x-jquery-tmpl">
+    
+   
+			<tr>
+			<td>
+				<a href="#" onclick="javascript:showComplaintDetails('${complaintid}','${reportedOn}');">${complaintid}</a>
+			</td>
+			<td>
+				{{if (issueid)}} 
+				<a onclick="javascript:showIssueDetails('${issueid}');" href="#">${issueid}</a>
+				{{else}}
+			
+				{{/if}} 
+			</td>
+			<td>
+                {{if (publicUser)}} 
+				${publicUser.name}
+				{{else}}
+				${contact.firstName}
+				{{/if}} 				
+			</td>
+			<td>
+				${reportedOn}
+			</td>
+			<td>
+				${acknowledgeBy}
+			</td>
+			<td>
+				{{if (complaintNatureLkp)}} 
+				${complaintNatureLkp.enquiryType}
+				{{else}}
+			
+				{{/if}} 
+			</td>
+			<td>
+				${respondBy}	
+			</td>
+
+			<td>
+                ${assignedTo}		
+			</td>
+			
+			
+			<td class="gridicons">
+			{{if ($item.role_admin == "admin")}}
+			<a class="btnGrid clsassigncpt" title="Assign Complaint" href="#" onclick="javascript:reassignComplaint('${complaintid}','${assignedToEmail}');">
+			<div class="assignComplaint"><span>Assign Complaint</span></div>
+			</a>
+			{{else}}
+			{{if (!resolveStatus)}} 
+			<a class="btnGrid" title="Create New Issue" href="#" onclick="javascript:createComplaintIssue('${gid}','${complaintid}','${reportedOn}');">
+			<div class="newIssue"><span>Create New Issue</span></div>
+			</a>			
+			
+			<a class="btnGrid" title="Add to Existing Issue" href="#" onclick="javascript:addComplaintToExistingIssue('${complaintid}','${issueid}');">
+			<div class="existingIssue"><span>Add to Existing Issue</span></div>
+			
+			</a>
+			{{else}}
+			
+			{{/if}} 
+			{{/if}} 
+			</td>		
+
+			</tr>
+
+
+</script>
+
+<script id="workcommitment_ClosedJobsTmpl" type="text/x-jquery-tmpl">
+<tr>
+			<td>
+				<a href="#" onclick="javascript:SpatialVue.Job('${issueGid}');">${jobid}</a>
+			</td>
+			<td>
+				${issue.rowId}
+			</td>
+			<td>
+			{{if (jobTypeLkp)}}
+				{{if ($item.wc_lang=='en')}}
+					${jobTypeLkp.type}
+				{{else}}
+					${jobTypeLkp.math}
+				
+				{{/if}}
+			{{else}}
+					    
+			{{/if}}
+			</td>
+			<td>
+			{{if (jobFeatureLkp)}}
+					{{if ($item.wc_lang=='en')}}
+						${jobFeatureLkp.type}
+					{{else}}
+						${jobFeatureLkp.math}
+					{{/if}}
+			{{else}}
+					    
+			{{/if}}
+			</td>
+			<td>${jobCompleted}</td>
+			<td>
+				<a href="#" onclick="javascript:zoomToIssue('${issueGid}');"><span class='job_zoom'>Zoom</span></a>
+			</td>
+		</tr>
+</script>

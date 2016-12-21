@@ -1,0 +1,118 @@
+	<div id="calendarSetting_accordion" style="text-align:left;">
+		
+		<h3><a href="#">Holiday Calendar</a></h3>
+	
+			<div id="calendarSetting_holidayCalBody" title="HolidayCalendar" style="min-height:200px; overflow:hidden;">
+			<div class="topmenu">
+<a id="holidayCalender_btnNew" class="btn02" onclick="javascript:createEditHolidayCalenderRecord();"><span class="NewBTN">New</span></a>
+<a id="holidayCalender_btnSave" class="btn02" onclick="jAlert('Data Successfully Saved', 'Calendar');"><span class="saveBTN">Save</span></a>
+<a id="holidayCalender_btnBack" class="btn02" onclick="javascript:displayHolidayCalender();"><span class="BackBTN">Back</span></a>
+</div>
+			
+			<table id="editholinderCalender" >
+			<tbody id="editholinderCalenderBody">
+        		
+    		</tbody>
+		</table>	
+			</div>
+		<!-- <h3><a href="#">Annual leave Calendar</a></h3>
+		<div id="calendarSetting_annualLeaveBody" title="AnnualleaveCalendar" style="min-height:200px; overflow:hidden;">
+		
+		</div>
+			 -->
+	</div>
+	
+	<script id="calendarSetting_HolidayCalTmpl" type="text/x-jquery-tmpl">
+				
+	<table id="calendarSetting_holidayCalTable"  class="tablesorter" cellpadding="0" cellspacing="0">
+	
+	<thead>
+		<tr>		
+			<th>
+				Holiday
+			</th>					
+			
+			<th>
+				Date
+			</th>
+			
+			<th>
+				Type(Public/Non-working)
+			</th>
+			
+			<th>
+				
+			</th>
+			<th>
+			
+			</th>
+			
+			
+		</tr>	
+	</thead>
+	<tbody id="calendarSetting_holidaycalenderTableBody">
+			<tr>
+			<td>
+				1
+			</td>			
+			<td>
+				05/05/2011
+			</td>
+			<td>
+				Public
+			</td>
+			
+				<td align="center">
+				<a href="javascript:createEditHolidayCalenderRecord('1');"><img src="resources/images/studio/edit.png" title="Edit"/></a>
+            </td>
+			 <td align="center">
+				<a href="javascript:deleteUser('${date}');"><img src="resources/images/studio/delete.png" title="Delete" /></a>
+           </td>	
+			</tr>
+				<tr>
+			<td>
+				1
+			</td>
+			<td>
+				05/06/2011
+			</td>			
+			<td>
+				Non-working
+			</td>
+			<td align="center">
+				<a href="javascript:createEditHolidayCalenderRecord('${date}');"><img src="resources/images/studio/edit.png" title="Edit" /></a>
+            </td>
+           <td align="center">
+				<a href="javascript:deleteUser('${date}');"><img src="resources/images/studio/delete.png" title="Delete" /></a>
+           </td>	
+			</tr>
+			
+	</tbody>
+
+	</table>
+</script>	
+
+<script id="holinderCalenderTemplateForm" type="text/x-jquery-tmpl">        
+ <tr>
+ <td>Holiday</td>
+ <td>
+    <input type="textbox" name="holiday" id="holiday" value="${holiday}" />    	
+    </td>  
+<td>Type</td>
+ <td> <select name="holidayType" id="holidayType" >
+ <option  value="">Please Select</option>  
+ <option  value="public">Public</option>    
+ <option  value="nonWorking">Non-Working</option>     
+ </select></td>
+ </tr>
+
+ <tr>
+
+<td>Date</td>
+ <td><input type="textbox" name="holidayDate" class="datepicker"  id="holidayDate" value="${holidayDate}"/>
+ </td><![CDATA[${$item.addDatePicker()}]]>
+</tr>
+
+ </script>
+	
+	

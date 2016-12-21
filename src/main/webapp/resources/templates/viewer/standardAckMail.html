@@ -1,0 +1,86 @@
+<div id="ackMaildiv" class="dialog-v">
+	<div id="ackMailDiv" class="lab-int">
+		<div id="span-close" class="span-c" title="Close"  onclick="javascript:closeDialog('ackMaildiv');"></div>
+		<div id="span-help" class="span-h" title="" onclick="javascript:openHelpWindow('complaint_help');"></div>
+		<div class="lineBreak05p"></div>
+		
+		<div id="ackMailBody" title="Acknowledgement Mail">
+			
+		</div>
+		<div id="closeMailBody" title="Close Mail">
+			
+		</div>
+		
+	</div>	
+	
+</div>
+
+
+<script id="ackMailTmpl" type="text/x-jquery-tmpl">
+<form id="standardAckForm" class="styleForm formPattern">
+	<table id="ackMailTable" class="formTable">				
+				
+				<tr>
+				<td> <label id="ack_mailto"> Mail To:</label> 
+				<input type="text"  class="int" id="mailTo" name="mailTo" /> </td>
+				</tr>
+				
+				<tr>
+				<td> <label for="subject" id="ack_subject">Subject :</label> 
+				<input type="text"  class="int" id="subjectVal" name="subjectVal"/> </td>
+				</tr>
+	
+			    <tr>
+				<td colspan="5"> <label for="message" id="ack_msg">Message :</label> 
+				<textarea style="height:200px;" id="messageVal" class="qb_querybox" rows="50" name="messageVal" spellcheck="false"></textarea></td>
+				</tr>
+                <tr><td>
+                <input type="hidden" id="complaintIdForAck"  name="complaintIdForAck" /> 
+		        </td></tr>
+
+				
+		</table>
+    </form>
+	
+		<div class="btn-holder-w buttons" style="text-align: centre">
+								
+				<span class="lesserbtn" id="btnSubmitStandardAck" > <input type="button" id="ack_submit" value="Submit"  onclick="javascript:saveStandardAckForm();"/> </span>
+								
+	    </div>
+	
+</script>
+
+
+<script id="closeMailTmpl" type="text/x-jquery-tmpl">
+<form id="closeComplaintForm" class="styleForm formPattern">
+	<table id="closeMailTable" class="formTable">				
+				
+				<tr>
+				<td> <label id="closecpt_mailto"> Mail To:</label> 
+				<input type="text"  class="int" id="mailTo" name="mailTo" /> </td>
+				</tr>
+				
+				<tr>
+				<td> <label for="subject" id="closecpt_sub">Subject :</label> 
+				<input type="text"  class="int" id="subjectVal" name="subjectVal"/> </td>
+				</tr>
+	
+			    <tr>
+				<td colspan="5"> <label for="message" id="closecpt_msg">Message :</label> 
+				<textarea style="height:200px;" id="messageVal" class="qb_querybox" rows="50" name="messageVal" spellcheck="false"></textarea></td>
+				</tr>
+                <tr><td>
+                <input type="hidden" id="complaintIdForClosing"  name="complaintIdForClosing" /> 
+		        </td></tr>
+
+				
+		</table>
+    </form>
+	
+		<div class="btn-holder-w buttons" style="text-align: centre">
+								
+				<span class="lesserbtn" id="btnSubmitCloserComp" > <input type="button" value="Submit"  onclick="javascript:closeComplaint();"/> </span>
+								
+	    </div>
+	
+</script>

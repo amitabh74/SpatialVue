@@ -1,0 +1,277 @@
+	<div class="backtoParent"><a href="#" id="goToparentfurnitureLink" class="btnbacktoParent"><span id="furniture_parent">Go to parent</span></a></div>
+	<div id="furniturelink_accordion" style="text-align:left;">
+		<h3><a id="FurnitureIssue" href="#">Issue</a></h3>
+			<div id="furniturelink_IssueBody" title="" style="min-height:200px; overflow:hidden;">
+				<!-- href="#" onclick="javascript:alert('Historical issues');" style="float:right"> View Historical issues </a-->
+				<div class="headerBtns">
+					<a class="btn02" href="#" id="openIssueFLink">
+					<span class="OISpan" id="fp_open_issue">Open Issues </span></a>
+					<a class="btn02" href="#" id="histricolIssueFLink">
+					<span class="HISpan" id="fp_historical_issue">Historical Issues</span></a>				
+				</div>
+				<table id="furniturelink_IssueTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+
+
+				<thead>
+					<tr>		
+										
+						<th>
+							<span id="fp_id">ID</span>
+						</th>
+						<th>
+							<span id="fp_rowid">RoWID</span>
+						</th>
+						
+						<th>
+							<span id="fp_type">Type</span>
+						</th>
+						
+						<th>
+							<span id="fp_urgency">Urgency</span>
+						</th>
+						
+						<th>
+							<span id="fp_status">Status</span>
+						</th>	
+						<th>
+							<span id="fp_assigned_to">Assigned to</span>
+						</th>
+						<th>
+							<span id="fp_resolved_by">Resolved by</span>
+						</th>
+						<th>
+							<span id="fp_action">Action</span>
+						</th>
+						<th width="100px"></th>
+					</tr>	
+				</thead>
+				<tbody id="furniturelink_IssueTableBody">
+							
+				</tbody>
+
+				</table>
+				
+				
+		</div>
+			<h3><a id="FurnitureRoW_Path" href="#">Path Detail</a></h3>
+	
+			<div id="furniture_pathBody" title="" style="min-height:200px; overflow:hidden;">
+				<table id="furniturelink_PathTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+
+
+					<thead>
+						<tr>								
+							<th>
+								<span id="fl_path_id">RoWID</span>
+							</th>
+							
+							<th>
+								<span id="fl_path_type">Type</span>
+							</th>
+							
+							<th>
+								<span id="fl_path_priority">Path Priority</span> 
+							</th>
+							
+							<th>
+								<span id="fl_path_lastsurvey">Last Survey Date</span>
+							</th>	
+							<th>
+								<span id="fl_status">Legal Status</span>
+							</th>
+							
+						</tr>	
+					</thead>
+					<tbody id="furniturelink_PathTableBody">
+							
+					</tbody>
+
+				</table>
+				
+				
+			</div>
+			
+			<h3><a id="FurnitureContact" href="#">Contact</a></h3>
+	
+			
+			<div title="" style="min-height:200px; overflow:hidden;">				
+				<div class="headerBtns">
+					<a class="btn02" href="#" id="addNewFurnitureContact" ><span class="ANCSpan" id="fl_add_new">Add New Contact</span></a>	
+					<a class="btn02" href="#" id="addToExistingFurnitureContact" ><span class="AECSpan" id="add_existing">Add Existing Contact</span></a>		
+				</div>
+				<table id="furniture_ContactTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>		
+							
+							<th>
+								<span id="fl_contactid">ContactId</span>
+							</th>					
+							
+							
+							<th>
+								<span id="fl_fname">First Name</span>  
+							</th>
+							
+							<th>
+								<span id="fl_surname">Surname</span>
+							</th>
+							<th>
+								<span id="fl_contactType">ContactType</span>
+							</th>
+							<th>
+								<span id="fl_position">Position</span>
+							</th>	
+							<th>
+								<span id="fl_address">Phone</span> 
+							</th>
+							<th>
+								<span id="fl_email">Email</span>
+							</th>
+							<th>
+								
+							</th>
+							<!--th>
+								Action
+							</th-->
+						</tr>	
+				 </thead>
+				<tbody id="furniture_ContactTableBody">
+								
+				</tbody>
+
+			</table>
+		</div>
+			
+	</div>
+	
+<script id="furniturelink_IssueTmpl" type="text/x-jquery-tmpl">
+		
+			<tr>
+			<td>
+				<a href="#" onclick="javascript:showIssueDetails('${gid}','${rowId}');">${gid}</a>
+			</td>
+			<td>
+				${rowId}
+			</td>			
+			<td>
+				{{if (issueTypeLkp)}} 
+				${issueTypeLkp.type}
+				{{else}}
+			
+				{{/if}} 
+			</td>
+		
+			<td>
+				{{if (issueUrgencyLkp)}} 
+				${issueUrgencyLkp.urgencyType}
+				{{else}}
+			
+				{{/if}}
+			</td>
+			<td>
+				{{if (actionStatusLkp)}} 
+				${actionStatusLkp.actionStatus}
+				{{else}}
+			
+				{{/if}}
+			</td>
+			<td>
+				${assignedTo}
+			</td>
+			<td>
+				${resolveBy}
+			</td>
+			<td>
+				${ActionType}
+			</td>
+			<td class="gridicons">
+				<a class="btnGrid clsjob" id="ftr_createjobs" title="Create Jobs" onclick="javascript:SpatialVue.Job('${gid}');" href="#">    
+				<div class="createJobs"><span>Create Jobs</span></div>
+				</a>
+				
+				<a class="btnGrid clslegal" id="ftr_createlegal" title="Create Legal" onclick="javascript:createLegal('${gid}');" href="#">     
+				<div class="createLegal"><span>Create Legal</span></div>
+				</a> 
+			</td>
+
+			
+			
+
+		</tr>
+		
+			
+
+
+</script>
+	
+
+<script id="furniturelink_PathTmpl" type="text/x-jquery-tmpl">
+	
+	<tr>
+           	<td>
+				<a href="javascript:showPathDetails('${gid}','${rowId}');">${rowId}</a>
+            </td>
+			
+			<td>
+
+			{{if (pathTypeLkp)}} 
+				${pathTypeLkp.type}
+				{{else}}
+			
+				{{/if}}
+				
+			</td>
+			<td>
+				{{if (classLkp)}} 
+				${classLkp.priority}
+				{{else}}
+			
+				{{/if}}
+				
+			</td>
+			<td>
+			${lastsurvey}		
+				
+			</td>	
+			<td>
+				{{if (pathLegalstatusLkp)}} 
+				${pathLegalstatusLkp.status}	
+				{{else}}
+			
+				{{/if}}
+			</td>
+			
+        </tr>   
+</script>
+
+
+<script id="furniturelink_ContactTmpl" type="text/x-jquery-tmpl">
+        <tr>
+           	<td align="center">
+				<a href="javascript:showContactDetails('${contactid}');">${contactid}</a>
+            </td>
+			<td>
+				${firstName}
+			</td>
+			
+			<td>
+				${surname}
+			</td>
+			<td>
+				${contactTypeLkp.contactType}
+			</td>
+			<td>
+				${position}
+				
+			</td>	
+			<td>
+				${_primary_phone_}
+			</td>
+			<td>
+				${email}
+			</td>	
+			<td align="center">
+				<a href="javascript:deleteFurnitureContact('${contactid}');"><img src="resources/images/studio/delete.png" title="Delete" /></a>
+           </td>
+        </tr>
+</script>

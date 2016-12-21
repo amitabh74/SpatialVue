@@ -1,0 +1,702 @@
+/* ----------------------------------------------------------------------
+ * Copyright (c) 2011 by RMSI.
+ * All Rights Reserved
+ *
+ * Permission to use this program and its related files is at the
+ * discretion of RMSI Pvt Ltd.
+ *
+ * The licensee of RMSI Software agrees that:
+ *    - Redistribution in whole or in part is not permitted.
+ *    - Modification of source is not permitted.
+ *    - Use of the source in whole or in part outside of RMSI is not
+ *      permitted.
+ *
+ * THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL RMSI OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * ----------------------------------------------------------------------
+ */
+
+package com.rmsi.spatialvue.studio.dao.hibernate;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.Query;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.ServletRequestUtils;
+
+import com.rmsi.spatialvue.studio.dao.AccessLandDAO;
+import com.rmsi.spatialvue.studio.dao.AnnualHolidayCalendarDAO;
+import com.rmsi.spatialvue.studio.dao.IssueDAO;
+//import com.rmsi.spatialvue.studio.dao.IssueDAO;
+import com.rmsi.spatialvue.studio.domain.Access_Land_polygon;
+import com.rmsi.spatialvue.studio.domain.ActionStatusLkp;
+import com.rmsi.spatialvue.studio.domain.AnnualHolidayCalendar;
+import com.rmsi.spatialvue.studio.domain.Complaint;
+import com.rmsi.spatialvue.studio.domain.Issue;
+import com.rmsi.spatialvue.studio.domain.IssueAction;
+import com.rmsi.spatialvue.studio.domain.Job;
+import com.rmsi.spatialvue.studio.domain.JobTypeLkp;
+
+@Repository
+public class IssueHibernateDAO extends GenericHibernateDAO<Issue, Long> implements
+IssueDAO {
+
+	
+	@SuppressWarnings("unchecked")
+	public Issue getIssueByGid(Integer gid) {
+		List<Issue> issue =
+			getEntityManager().createQuery("Select i from Issue i where i.gid = :gid").setParameter("gid", gid).getResultList();		
+		if(issue.size() > 0)
+		{			
+			return issue.get(0);
+		}
+		else
+			return null;
+	}
+
+	@Override
+	public Issue getPreviousIssue(Integer gid, String rowid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Issue getNextIssue(Integer gid, String rowid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updateIssueHistoryById(Integer gid) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Issue> getIssueByRowID(String status,String rowid) {
+		List<Issue> issue =
+			getEntityManager().createQuery("Select i from Issue i where i.actionStatusLkp.actionStatus= :status and i.rowId = :rowid and i.ishistory = false").setParameter("status", status).setParameter("rowid", rowid).getResultList();		
+		if(issue.size() > 0)
+		{			
+			return issue;
+		}
+		else
+			return null;
+		
+		
+	}
+
+	@Override
+	public List<Issue> getIssueByFurnitureID(String actionids,
+			String furnitureid) {
+		
+		String[] statusids = actionids.split(",");
+		
+		if (statusids.length < 1){
+			return null;
+		}
+		List<Integer> inList = new ArrayList<Integer>();
+		
+		for(int i =0; i < statusids.length ; i++){
+			inList.add(Integer.parseInt(statusids[i]));
+		}
+
+		System.out.println("Select i from Issue i where i.furnitureid = " + furnitureid);
+		List<Issue> issue =
+			//getEntityManager().createQuery("Select i from Issue i where i.actionStatusLkp.actionstatusid in (actionids) and i.furnitureid = :furnitureid and i.ishistory = false").setParameter("actionids", actionids).setParameter("furnitureid", furnitureid).getResultList();		
+			//getEntityManager().createQuery("Select i from Issue i where i.actionStatusLkp.actionstatusid in (:inList) and i.furnitureid = :furnitureid ").setParameter("inList", inList).setParameter("furnitureid", furnitureid).getResultList();
+			getEntityManager().createQuery("Select i from Issue i where i.furnitureid = :furnitureid ").setParameter("furnitureid", furnitureid).getResultList();
+		if(issue.size() > 0)
+		{			
+			return issue;
+		}
+		else
+			return null;
+	}
+	
+	
+	@Override
+	public List<Issue> getFurnitureIssuesByActionId(String actionids,
+			String furnitureid) {
+		
+		String[] statusids = actionids.split(",");
+		
+		if (statusids.length < 1){
+			return null;
+		}
+		List<Integer> inList = new ArrayList<Integer>();
+		
+		for(int i =0; i < statusids.length ; i++){
+			inList.add(Integer.parseInt(statusids[i]));
+		}
+
+		System.out.println("Into getFurnitureIssuesByActionId -- " + actionids);
+		List<Issue> issue =
+			//getEntityManager().createQuery("Select i from Issue i where i.actionStatusLkp.actionstatusid in (actionids) and i.furnitureid = :furnitureid and i.ishistory = false").setParameter("actionids", actionids).setParameter("furnitureid", furnitureid).getResultList();		
+			getEntityManager().createQuery("Select i from Issue i where i.actionStatusLkp.actionstatusid in (:inList) and i.furnitureid = :furnitureid ").setParameter("inList", inList).setParameter("furnitureid", furnitureid).getResultList();
+		if(issue.size() > 0)
+		{			
+			return issue;
+		}
+		else
+			return null;
+	}
+
+
+	@Override
+	public List<Issue> getIssueByjobid(Integer jobid) {
+		
+		/*String[] statusids = actionids.split(",");
+		
+		if (statusids.length < 1){
+			return null;
+		}
+		List<Integer> inList = new ArrayList<Integer>();
+		
+		for(int i =0; i < statusids.length ; i++){
+			inList.add(Integer.parseInt(statusids[i]));
+		}*/
+
+		List<Issue> issue =
+			getEntityManager().createQuery("Select i from Issue i where i.gid in (select jb.issueGid from Job jb where jb.jobid=:jobid)").setParameter("jobid", jobid).getResultList();
+		if(issue.size() > 0)
+		{			
+			return issue;
+		}
+		else
+			return null;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Issue> getHistoricalIssueByRowId(String rowid) {
+		
+		List<Issue> issue =
+			getEntityManager().createQuery("Select i from Issue i where  i.rowId = :rowid and i.ishistory = true").setParameter("rowid", rowid).getResultList();		
+		
+			return issue;
+		
+	}
+	//Added by PBJ
+	@Override
+	public List<Issue> getAllIssues() {
+		List<Issue> issue = getEntityManager().createQuery("Select i from Issue i ORDER BY i.issueUrgencyLkp.urgencyid DESC, i.resolveBy DESC").getResultList();
+		if(issue.size() > 0)
+		{			
+			return issue;
+		}
+		else{
+			return null;
+		}
+	}
+	
+	@Override
+	public List<Issue> getAllOpenIssues(int promptDays) {
+		List<Issue> issue = getEntityManager().createQuery(
+				"Select i from Issue i where i.ishistory = false and i.actionStatusLkp.actionstatusid in (1,4,5,6)AND (i.resolveBy >= current_date) ORDER BY i.issueUrgencyLkp.urgencyid DESC, i.resolveBy DESC").getResultList();
+		if(issue.size() > 0)
+		{		
+			System.out.println("issue count super user: " + issue.size());
+			return issue;
+		}
+		else{
+			return null;
+		}
+	}
+	
+	@Override
+	public List<Issue> getOpenIssuesForMiscUser(Integer userId, int promptDays) {
+	
+	List<Issue> issue = getEntityManager().createQuery("Select i from Issue i  " +
+			" where  i.ishistory = false and  i.actionStatusLkp.actionstatusid in (1,4,5,6) " +
+			"AND ((i.assignedTo=:userId ) OR i.assignedTo in " +
+			"(SELECT id from User users where manager_id = :userId)) " +
+			"AND (i.resolveBy >= current_date) ORDER BY i.issueUrgencyLkp.urgencyid DESC, i.resolveBy DESC").setParameter("userId", userId).getResultList();
+	
+		
+		/*List<Issue> issue = getEntityManager().createQuery("Select i from Issue i  " +
+				" where i.actionStatusLkp.actionstatusid in (1,4) " +
+				"AND ((i.assignedTo=:userId ) OR i.assignedTo in " +
+				"(SELECT id from User users where manager_id = :userId)) " +
+				"AND (i.resolveBy BETWEEN current_date AND (current_date +(" +
+				"Select ts.taskPrompt from TaskScheduler ts,Task t where t.tasktypeid=ts.task.tasktypeid and t.surveyType=i.issueUrgencyLkp.urgencyType and t.task='Issue Resolve Date')" +
+				") OR i.inspectBy BETWEEN current_date AND (current_date (Select ts.taskPrompt from TaskScheduler ts,Task t where t.tasktypeid=ts.task.tasktypeid and t.surveyType=i.issueUrgencyLkp.urgencyType and t.task='Issue Inspected By Date')) ) ORDER BY i.issueUrgencyLkp.urgencyid DESC, i.resolveBy DESC").setParameter("userId", userId).getResultList();
+		*/
+	if(issue.size() > 0)
+		{			
+			return issue;
+		}
+		else{
+			return null;
+		}
+	}
+	
+	
+	@Override
+	// The methods fetches the issues with status open and pending for userId +
+	// All the seasonal Wardens reporting to the LoggedIn users Boss +
+	// Access Team Role users
+	public List<Issue> getOpenIssuesForWardenUsers(int userRoleId, Integer uid, Integer accessTeamRoleId, int promptDays) {
+
+		// Pending (  1. Pick the hard coded values of Open, pending issues from the config
+		//  		  2. Pick the roleId for Seasonal Wardens from the config file.
+		 List<Issue> issue =getEntityManager().createQuery("Select i from Issue i " +
+				" where i.ishistory = false and i.actionStatusLkp.actionstatusid in (1,4,5,6) " +
+				" AND (i.assignedTo=:uid " +
+				" OR (i.assignedTo in ( SELECT id from User users where managerid in " +
+				" (select managerid from User user where id = :uid)AND users.functionalRole in (10)))" +
+				" OR" +
+				" i.assignedTo in (select id from User user where functionalRole  =:accessTeamRoleId)) "+ 
+				" AND (i.resolveBy >=  current_date) ORDER BY i.issueUrgencyLkp.urgencyid DESC, i.resolveBy DESC").setParameter("uid", uid).setParameter("accessTeamRoleId", accessTeamRoleId).getResultList();
+	if(issue.size() > 0)
+		{			
+			return issue;
+		}
+		else{
+			return null;
+		}
+	}
+
+	//this method is used to get issue by path id and status ids
+	@Override
+	public List<Issue> getOpenIssueOnPathByRowID(List<Integer> actionIdList,
+			String rowid) {
+		try {
+			List<Issue> issue = getEntityManager()
+					.createQuery("Select i from Issue i where i.actionStatusLkp.actionstatusid in (:inList) and i.rowId= :rowId")
+					.setParameter("inList", actionIdList)
+					.setParameter("rowId", rowid).getResultList();
+			if (issue.size() > 0) {
+				return issue;
+			} else{
+				return null;
+			}
+		} catch (Exception ex) {
+			return null;
+		}
+		
+	}
+
+	@Override
+	public boolean updateIssueSurveyor(Integer gid,String useremail,Date objResolveByDate) {
+		try {
+			
+			
+			Query query = getEntityManager().createQuery("update Issue i set i.assignedTo = :useremail, i.resolveBy=:objResolveByDate where i.gid = :gid AND ishistory=false");
+			query.setParameter("useremail", useremail);
+			query.setParameter("gid", gid);
+			query.setParameter("objResolveByDate", objResolveByDate);
+			int count = query.executeUpdate();
+			if (count > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	@Override
+	public boolean CloseIssueByIssueID(Integer gid, Date objSignOffDate) {
+		try {
+			
+			Query query = getEntityManager().createQuery("update Issue i set i.actionStatusLkp.actionstatusid = 3, i.signoff=:objSignOffDate, i.ishistory = true where i.gid = :gid");
+			query.setParameter("objSignOffDate", objSignOffDate);
+			query.setParameter("gid", gid);
+			int count = query.executeUpdate();
+			if (count > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	public List<Issue> getBacklogIssues(int promptDays){
+		List<Issue> issue = getEntityManager().createQuery("Select i from Issue i  " +
+				" where i.ishistory = false and i.actionStatusLkp.actionstatusid in (1,4,5,6) AND  i.resolveBy < current_date ORDER BY i.issueUrgencyLkp.urgencyid DESC, i.resolveBy DESC").getResultList();
+		
+		if(issue.size() > 0)
+			{			
+			System.out.println("Backlog issues superuser count: " + issue.size());
+				return issue;
+			}
+			else{
+				return null;
+			}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Issue> getBacklogIssuesByWarden(int promptDays, String emailId, int roleId){
+		System.out.println("----Into getBacklogIssuesByWarden -----");
+		List<Issue> issue = null;
+		if(roleId == 8){ //Head warden case
+			issue = getEntityManager().createQuery("Select i from Issue i  " +
+					" where i.ishistory = false and i.actionStatusLkp.actionstatusid in (1,4,5,6) AND  i.resolveBy < current_date " +
+					" AND (i.assignedTo in (Select u.email from User u where u.managerid = (Select usr.id from User usr" +
+					" where usr.email = :emailId)) or assigned_to = :email) ORDER BY i.issueUrgencyLkp.urgencyid DESC, i.resolveBy DESC")
+					.setParameter("emailId", emailId)
+					.setParameter("email", emailId)
+					.getResultList();
+		}else{ //Warden/Seasonal Warden case
+			issue = getEntityManager().createQuery("Select i from Issue i  " +
+				" where i.ishistory = false and i.actionStatusLkp.actionstatusid in (1,4,5,6) AND  i.resolveBy < current_date " +
+				" AND i.assignedTo = :emailId ORDER BY i.issueUrgencyLkp.urgencyid DESC, i.resolveBy DESC").setParameter("emailId", emailId).getResultList();
+		}
+		if(issue != null && issue.size() > 0)
+			{	
+			System.out.println("Backlog issues warden count: " + issue.size());
+				return issue;
+			}
+			else{
+				return null;
+			}
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Issue getOpenIssueOnPathByUrgency(List<Integer> actionIdList,String rowid) {
+		try {
+			List<Issue> issue = getEntityManager()
+					.createQuery("Select i from Issue i where i.actionStatusLkp.actionstatusid in (:inList) and i.rowId= :rowId and i.ishistory = false order by i.issueUrgencyLkp.urgencyid desc LIMIT 1")
+					.setParameter("inList", actionIdList)
+					.setParameter("rowId", rowid).getResultList();
+			if (issue.size() > 0) {
+				return issue.get(0);
+			} else{
+				return null;
+			}
+		} catch (Exception ex) {
+			return null;
+		}
+		
+	}
+
+	//added By Saurabh
+	@Override
+	public List<Issue> getOpenIssuesForMiscUserByEmail(String email,
+			int promptDays,List<Integer> actionIdList) {
+		List<Issue> issue = getEntityManager().createQuery("Select i from Issue i  " +
+				" where  i.ishistory = false and  i.actionStatusLkp.actionstatusid in (1,4,5,6) " +
+				"AND ((i.assignedTo=:email ) OR i.assignedTo in " +
+				"(SELECT email from User users where manager_id = (select id from User user where email = :email))) " +
+				"AND (i.resolveBy >= current_date) " +
+				" ORDER BY i.issueUrgencyLkp.urgencyid DESC, i.resolveBy DESC").setParameter("email", email).getResultList();
+		
+		if(issue.size() > 0)
+			{			
+				System.out.println("Misc user issue count: " + issue.size());
+				return issue;
+			}
+			else{
+				return null;
+			}
+	}
+
+	@Override
+	public List<Issue> getOpenIssuesForWardenUsersByEmail(String email, int promptDays,Integer accessTeamRoleId,Integer seasonalWardensRoleId,List<Integer> actionIdList) {
+		// Pending (  1. Pick the hard coded values of Open, pending issues from the config
+		//  		  2. Pick the roleId for Seasonal Wardens from the config file.
+		 List<Issue> issue =getEntityManager().createQuery("Select i from Issue i " +
+				" where i.ishistory = false and i.actionStatusLkp.actionstatusid in (:inList) " +
+				" AND (i.assignedTo=:uemail " +
+				" OR (i.assignedTo in ( SELECT email from User users where managerid in " +
+				" (select managerid from User user where email = :uemail) AND users.functionalRole =:seasonalWardensRoleId))" +
+				" OR" +
+				" i.assignedTo in (select email from User user where functionalRole  =:accessTeamRoleId)) "+ 
+				" AND (i.resolveBy >= current_date)" +
+				" ORDER BY i.issueUrgencyLkp.urgencyid DESC, i.resolveBy DESC").
+				setParameter("uemail", email).setParameter("accessTeamRoleId", accessTeamRoleId)
+				.setParameter("inList", actionIdList)
+				.setParameter("seasonalWardensRoleId", seasonalWardensRoleId).getResultList();
+	if(issue.size() > 0)
+		{		
+			System.out.println("Warden user issue count: " + issue.size());
+			return issue;
+		}
+		else{
+			return null;
+		}
+	}
+	
+	//this method is used to get issue by surface id and status ids
+	@Override
+	public List<Issue> getIssueBySurfaceid(List<Integer> actionIdList,
+			String surfaceid) {
+		try {
+			/*List<Issue> issue = getEntityManager()
+					.createQuery("Select i from Issue i where i.actionStatusLkp.actionstatusid in (:inList) and i.surfaceid= :surfaceid")
+					.setParameter("inList", actionIdList)
+					.setParameter("surfaceid", surfaceid).getResultList();*/
+			
+			List<Issue> issue = getEntityManager()
+			.createQuery("Select i from Issue i where i.surfaceid= :surfaceid")
+			.setParameter("surfaceid", surfaceid).getResultList();
+			
+			if (issue.size() > 0) {
+				return issue;
+			} else{
+				return null;
+			}
+		} catch (Exception ex) {
+			return null;
+		}
+		
+	}
+	
+	
+	@Override
+	public List<Issue> getSurfaceIssuesByActionId(List<Integer> actionIdList,
+			String surfaceid) {
+		try {
+			List<Issue> issue = getEntityManager()
+					.createQuery("Select i from Issue i where i.actionStatusLkp.actionstatusid in (:inList) and i.surfaceid= :surfaceid")
+					.setParameter("inList", actionIdList)
+					.setParameter("surfaceid", surfaceid).getResultList();
+			
+			
+			if (issue.size() > 0) {
+				return issue;
+			} else{
+				return null;
+			}
+		} catch (Exception ex) {
+			return null;
+		}
+		
+	}
+	
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public String getParentGid(String parentLyr, String parentId) {
+		String str="";
+		System.out.println("####HDAO: "+parentLyr + "-"+parentId );		
+		if(parentLyr.equalsIgnoreCase("furniture")){
+    		str="Select frn.gid from Furniture frn where frn.furnitureid = :parentId and frn.ishistory=false";
+    	}
+    	else if(parentLyr.equalsIgnoreCase("surface")){
+    		
+    		str="Select srf.gid from Surface srf where srf.surfaceid  = :parentId and srf.ishistory=false";
+    		
+    	}
+    	else if(parentLyr.equalsIgnoreCase("accessland")){
+    		
+    		str="Select alp.gid from Access_Land_polygon alp where alp.rowid  = :parentId and alp.isHistory=false";
+    		
+    	}
+    	else if(parentLyr.equalsIgnoreCase("rowpath")){
+    		
+    		str="Select rp.gid from RoW_Path rp where rp.rowId  = :parentId and rp.isHistory=false";
+    	}
+    	else{
+    		
+    		
+    	}
+		System.out.println("################# "+str);
+		
+		try {
+			
+			List<Integer> gid = getEntityManager()
+					.createQuery(str)
+					.setParameter("parentId", parentId).getResultList();
+			System.out.println("######SIZE: "+ gid.size());
+			if (gid.size() > 0) {
+				System.out.println("################# GID :"+gid.get(0) );
+				return gid.get(0)+"";
+			} else{
+				return null;
+			}
+		} catch (Exception ex) {
+			return null;
+		}
+	
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<IssueAction> getIssueActionType(String furnitureId, boolean status){
+		List<Object> jobs = null;
+		List<Object> legals = null;
+		List<IssueAction> actions = new ArrayList<IssueAction>();
+		try{
+			if(furnitureId != null){
+				jobs = getEntityManager()
+						.createQuery("Select j.issueGid from Job j, Issue i where  j.issueGid = i.gid and i.furnitureid = :fid and i.ishistory = :status")
+						.setParameter("fid", furnitureId)
+						.setParameter("status", status).getResultList();
+			
+					if(jobs.size() > 0){
+						for (Object job : jobs) {
+							IssueAction action = new IssueAction();
+							action.setIssueId(job.toString());
+							action.setActionType("Job");
+							actions.add(action);
+						  }
+					}
+					
+				legals = getEntityManager()
+					.createQuery("Select l.issueGid from Legal l, Issue i where l.issueGid = i.gid and i.furnitureid = :fid and i.ishistory = :status")
+					.setParameter("fid", furnitureId)
+					.setParameter("status", status).getResultList();
+				
+				if(legals.size() > 0){
+					for (Object legal : legals) {
+						IssueAction action = new IssueAction();
+						action.setIssueId(legal.toString());
+						action.setActionType("Legal");
+						actions.add(action);
+					  }
+				}
+			}else{
+				
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return actions;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<IssueAction> getWorkCommitmentIssueActionType(boolean status){
+		List<Object> jobs = null;
+		List<Object> legals = null;
+		List<IssueAction> actions = new ArrayList<IssueAction>();
+		try{
+			jobs = getEntityManager()
+					.createQuery("Select j.issueGid from Job j, Issue i where  j.issueGid = i.gid and i.ishistory = :status")
+					.setParameter("status", status).getResultList();
+		
+				if(jobs.size() > 0){
+					for (Object job : jobs) {
+						IssueAction action = new IssueAction();
+						action.setIssueId(job.toString());
+						action.setActionType("Job");
+						actions.add(action);
+					  }
+				}
+				
+			legals = getEntityManager()
+				.createQuery("Select l.issueGid from Legal l, Issue i where l.issueGid = i.gid and i.ishistory = :status")
+				.setParameter("status", status).getResultList();
+			
+			if(legals.size() > 0){
+				for (Object legal : legals) {
+					IssueAction action = new IssueAction();
+					action.setIssueId(legal.toString());
+					action.setActionType("Legal");
+					actions.add(action);
+				  }
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return actions;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<IssueAction> getActionForPathIssues(String rowId, boolean status){
+		List<Object> jobs = null;
+		List<Object> legals = null;
+		List<IssueAction> actions = new ArrayList<IssueAction>();
+		try{
+			if(rowId != null){
+				jobs = getEntityManager()
+						.createQuery("Select j.issueGid from Job j, Issue i where  j.issueGid = i.gid and i.rowId = :rowid and i.ishistory = :status")
+						.setParameter("rowid", rowId)
+						.setParameter("status", status).getResultList();
+			
+					if(jobs.size() > 0){
+						for (Object job : jobs) {
+							IssueAction action = new IssueAction();
+							action.setIssueId(job.toString());
+							action.setActionType("Job");
+							actions.add(action);
+						  }
+					}
+					
+				legals = getEntityManager()
+					.createQuery("Select l.issueGid from Legal l, Issue i where l.issueGid = i.gid and i.rowId = :rowid and i.ishistory = :status")
+					.setParameter("rowid", rowId)
+					.setParameter("status", status).getResultList();
+				
+				if(legals.size() > 0){
+					for (Object legal : legals) {
+						IssueAction action = new IssueAction();
+						action.setIssueId(legal.toString());
+						action.setActionType("Legal");
+						actions.add(action);
+					  }
+				}
+			}else{
+				
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return actions;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<IssueAction> getActionForSurfaceIssues(String surfaceId, boolean status){
+		List<Object> jobs = null;
+		List<Object> legals = null;
+		List<IssueAction> actions = new ArrayList<IssueAction>();
+		try{
+			if(surfaceId != null){
+				jobs = getEntityManager()
+						.createQuery("Select j.issueGid from Job j, Issue i where  j.issueGid = i.gid and i.surfaceid = :surfaceid and i.ishistory = :status")
+						.setParameter("surfaceid", surfaceId)
+						.setParameter("status", status).getResultList();
+			
+					if(jobs.size() > 0){
+						for (Object job : jobs) {
+							IssueAction action = new IssueAction();
+							action.setIssueId(job.toString());
+							action.setActionType("Job");
+							actions.add(action);
+						  }
+					}
+					
+				legals = getEntityManager()
+					.createQuery("Select l.issueGid from Legal l, Issue i where l.issueGid = i.gid and i.surfaceid = :surfaceid and i.ishistory = :status")
+					.setParameter("surfaceid", surfaceId)
+					.setParameter("status", status).getResultList();
+				
+				if(legals.size() > 0){
+					for (Object legal : legals) {
+						IssueAction action = new IssueAction();
+						action.setIssueId(legal.toString());
+						action.setActionType("Legal");
+						actions.add(action);
+					  }
+				}
+			}else{
+				
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return actions;
+	}
+}

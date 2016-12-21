@@ -1,0 +1,187 @@
+<%@ page session="true" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet"
+				href="<c:url value="./resources/styles/landing.css" />"
+				type="text/css" media="screen, projection" />
+
+<link rel="stylesheet"
+	href="<c:url value="./resources/scripts/jquery-ui-1.8.13/css/redmond/jquery-ui-1.8.13.custom.css" />"
+	type="text/css" media="screen, projection" />
+
+<link rel="stylesheet" type="text/css" media="print, projection, screen"
+	href="<c:url value="./resources/scripts/jquery-alert/jquery.alerts.css" />" />
+
+<script
+	src="<c:url value="./resources/scripts/jquery-1.7.1/jquery-1.7.1.min.js"  />"
+	type="text/javascript"></script>
+<script
+	src="<c:url value="./resources/scripts/jquery-ui-1.8.13/jquery-ui-1.8.13.custom.min.js"  />"
+	type="text/javascript"></script>
+<script
+	src="<c:url value="./resources/scripts/jquery-validate/jquery.validate.js"  />"
+	type="text/javascript"></script>
+<script type="text/javascript"
+	src="<c:url value="./resources/scripts/spatialvue/studio/registerUser.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="./resources/scripts/jquery-alert/jquery.alerts.js" />"></script>
+<title>Registration Form</title>
+
+<%
+String urlLang = request.getQueryString();
+//System.out.println("Url lang: " + urlLang);
+String lang = null;
+if(urlLang != null){
+	int pos = urlLang.indexOf("=");
+	if(pos > -1){
+		lang = urlLang.substring(++pos);
+	}else{
+		lang = "en";
+	}
+}
+%>
+
+<script language='javascript'>
+function translateForgotPwdStrings(){
+	var language = "<%=lang%>";
+
+	if(language.indexOf("cy") > -1){
+		$("#forgotpwd_header").html("Anghofio Cyfrinair");
+		$("#forgotpwd_detail").html("Ar gyfer adfer cyfrinair, nodwch eich manylion ar y ffurflen isod. Mae'n orfodol i lenwi meysydd sydd wedi ei nodi â <em style='font-size: 15px;'>&#42;</em>");
+		$("#forgetPwd-email").html("E-bost <em>&#42;");
+		$('#btnSubmitFP').attr("value", 'Cyflwyno');
+		$('#btnSubmitFP').css("background-image", "url(resources/images/viewer/submit_green_cy.png)");
+	}else{
+		$("#forgotpwd_header").html("Forgot Password");
+		$("#forgotpwd_detail").html("To retrieve password please enter your details on the form below. Fields marked with <em style='font-size: 15px;'>&#42;</em> are mandatory.");
+		$("#forgetPwd-email").html("Email <em>&#42;");
+		$('#btnSubmitFP').attr("value", 'Submit');
+		$('#btnSubmitFP').css("background-image", "url(resources/images/viewer/submit_green.png)");
+	}
+}
+
+function forgotPassword(){
+	var valid = true;
+	/* if ( $.trim($("#usrname").val()) == "" )
+	    {
+	        valid = false;
+			$("#errUsrName").show();
+			$("#errUsrName").text('Please enter Name');
+	    }else{
+	    	$("#errUsrName").hide();
+	    }*/
+	 
+	 if ( $.trim($("#usrMail").val()) == "" )
+	    {
+		  	valid = false;
+	        $("#errUsrMail").show();
+	        var language = "<%=lang%>";
+	        if(language.indexOf("cy") > -1){
+	        	$("#errUsrMail").text('Nodwch eich e-bost os gwelwch yn dda.');
+	        }else{
+				$("#errUsrMail").text('Please enter Email');
+	        }
+	    }
+		else{
+			$("#errUsrMail").hide();
+		}
+	 
+	 if(valid){
+		 jQuery.ajax({
+		        type: "POST",              
+		        url: "user/forgotpassword",
+		        data: jQuery("#forgotpasswordform").serialize(),
+		        success: function (data) {
+		        	if(data==false){
+		        			if('<%=lang%>'=='cy'){
+		        				jAlert('Enw defnyddiwr neu ebost anghywir.','Anghofio cyfrinair');
+		        				$('#popup_ok').attr("value", 'Iawn');
+		        			}
+		        			else{
+		        				jAlert('User name or email is incorrect.','Forgot Password');
+		        				$('#popup_ok').attr("value", 'Ok');
+		        			}
+		        	}
+		        	else if(data==true){
+		        		
+		        		if('<%=lang%>'=='cy'){
+		        			
+			        		jAlert("Mae eich cyfrinair wedi cael ei anfon i'ch adnabyddiaeth e-bost",'Anghofio cyfrinair', function () {
+			        			
+			        			document.location.href = ('<%=lang%>'=='cy')?"login?lang=cy":"login?lang=en";
+			                 });
+			        		$('#popup_ok').attr("value", 'Iawn');
+		        		}else{
+		        			jAlert('Your password has been sent on your email id.', 'Forgot Password', function () {
+			        			document.location.href = ('<%=lang%>'=='cy')?"login?lang=cy":"login?lang=en";
+			                 });
+		        		}
+		           	}
+		        },
+		        error: function (XMLHttpRequest, textStatus, errorThrown) {
+		           	jAlert('Please try again ','Forgot Password');
+		        	 //document.location.href = "login";
+		        }
+		    }); 
+	 }
+}
+
+</script>
+</head>
+<body onload="translateForgotPwdStrings();">
+	<!--start:header-->
+	<div id="header">
+		<div class="widthheader">
+			<div class="leftheader">
+				<%if(lang.equalsIgnoreCase("cy")){	
+				%>
+				<a href="http://www.eryri-npa.gov.uk/cym/home">
+					<img src="<c:url value="resources/images/viewer/logo-text_welsch.png" />" />
+				</a>
+				<%}else{								
+				%>
+				<a href="http://www.eryri-npa.gov.uk/home">
+					<img src="<c:url value="resources/images/viewer/logo-text.png" />" />
+				</a>			
+				<%}								
+				%>
+			</div>
+
+		</div>
+	</div>
+
+
+	<!--end:header-->
+	<form class="cmxform" id="forgotpasswordform" onsubmit="return false;">
+		<div id="signup-form">
+			<ul id="company-info" class="section">
+				<li class="header"><span></span>
+					<h3><div id="forgotpwd_header"></div></h3>
+					<h4>
+						<div id="forgotpwd_detail"></div>
+					</h4></li>
+
+
+				<li><span> <label for="userMail"><span id='forgetPwd-email'></span></em>
+					</label> <input type="text" class="int" id="usrMail" name="usrMail"
+						value="" /> 
+						<div class="field_with_errors">
+					<div style="display:none" id="errUsrMail" name="errUsrMail" class="formError"></div>
+						</div>
+						
+						</span></li>
+
+				
+				<li><input id="btnSubmitFP"
+					type="button" value="" onclick="javascript:forgotPassword();" />
+				</li>
+			</ul>
+
+		</div>
+	</form>
+</body>
+</html>

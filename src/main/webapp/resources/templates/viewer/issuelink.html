@@ -1,0 +1,296 @@
+	<div class="backtoParent"><a href="#" id="gotoParentIssueLink" class="btnbacktoParent"><span id="issuelink_parentlink">Go to parent</span></a></div>
+	<div id="issueLink_accordion" style="text-align:left;">
+	
+		<h3><a href="#"><span id="issuelink_complaintheader">Complaints</span></a></h3>
+	
+			<div id="issuelink_ComplaintsBody" title="" style="min-height:200px; overflow:hidden;">
+			
+			<table id="issuelink_PathTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+
+
+					<thead>
+						<tr>								
+							<th>
+								<span id="issuelink_complaintid">Complaint Id</span>
+							</th>
+							
+							<th>
+								<span id="issuelink_name">Name</span>
+							</th>
+							<th>
+								<span id="issuelink_type">Type</span>
+							</th>
+							<th>
+								<span id="issuelink_reportedon">Reported on</span>
+							</th>
+							
+							<th>
+								<span id="issuelink_acknowledgeby">Acknowledge by</span>
+							</th>	
+							
+							<th>
+								<span id="issuelink_respondby">Respond by</span>
+							</th>
+							
+						</tr>	
+					</thead>
+					<tbody id="issuelink_ComplaintTableBody">
+							
+					</tbody>
+
+				</table>
+			
+			</div>
+	
+		<h3><a id="Contact" href="#"><span id="issuelink_contact">Contact</span></a></h3>
+	
+			
+			<div title="" style="min-height:200px; overflow:hidden;">				
+			
+			<div class="headerBtns">
+
+					<a class="btn02" href="#" id="issue_addNewContact" name="pathNewContact" ><span class="ANCSpan" id="issuelink_addnew">Add New Contact</span></a>
+					<a class="btn02" href="#" id="issue_addToExistingContact" name="pathcontactlink" ><span class="AECSpan" id="issuelink_addexisting">Add Existing Contact</span></a>			
+				</div>
+				<table id="issue_ContactTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>		
+							
+							<th>
+								<span id="issuelink_contactid">ContactId</span>
+							</th>					
+							
+							
+							<th>
+								<span id="issuelink_fname">First Name</span>  
+							</th>
+							
+							<th>
+								<span id="issuelink_lname">Surname</span>
+							</th>
+							<th>
+								<span id="issuelink_contacttype">ContactType</span>
+							</th>
+							<th>
+								<span id="issuelink_position">Position</span>
+							</th>	
+							<th>
+								<span id="issuelink_phone">Phone</span> 
+							</th>
+							<th>
+								<span id="issuelink_email">Email</span>
+							</th>
+							
+							<th>&nbsp;</th>
+							
+						</tr>	
+				 </thead>
+				<tbody id="issue_ContactTableBody">
+								
+				</tbody>
+
+			</table>
+				
+			</div>
+		
+			<h3><a id="RoW_Path" href="#"><span id="issuelink_pathdetail">Path Detail</span></a></h3>
+			<div id="issue_pathlBody" title="" style="min-height:200px; overflow:hidden;">
+				<table id="issuelink_PathTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+
+
+					<thead>
+						<tr>								
+							<th>
+								<span id="issuelink_rowid">RoWID</span>
+							</th>
+							
+							<th>
+								<span id="issuelink_typecolmn">Type</span>
+							</th>
+							
+							<th>
+								<span id="issuelink_pathpriority">Path Priority</span> 
+							</th>
+							
+							<th>
+								<span id="issuelink_lastsurveydate">Last Survey Date</span> 
+							</th>	
+							<th>
+								<span id="issuelink_legalstatus">Legal Status</span>
+							</th>
+							
+						</tr>	
+					</thead>
+					<tbody id="issuelink_PathTableBody">
+							
+					</tbody>
+
+				</table>
+				
+				
+			</div>
+			
+			<!--<h3><a id="HistoricalIssue" href="#">Historical Issue</a></h3>
+			<div id="issue_HistoricalIssueBody" title="HistoricalIssue" style="min-height:200px; overflow:hidden;">
+				<table id="issuelink_HistoricalIssueTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+
+
+				<thead>
+					<tr>		
+										
+						<th>
+							RoWID
+						</th>
+						
+						<th>
+							Type
+						</th>
+						
+						<th>
+							Urgency 
+						</th>
+						
+						<th>
+							Status 
+						</th>	
+						<th>
+							Assigned to
+						</th>
+						<th>
+							Resolved by
+						</th>
+						
+					</tr>	
+				</thead>
+				<tbody id="issuelink_HistoricalIssueTableBody">
+							
+				</tbody>
+
+				</table>
+				
+				
+			</div>-->
+			
+			
+	</div>
+	
+
+
+<script id="issuelink_PathTmpl" type="text/x-jquery-tmpl">
+	
+	<tr>
+           	<td>
+				<a href="javascript:showPathDetails('${gid}','${rowId}');">${rowId}</a>
+            </td>
+			
+			<td>
+			${pathTypeLkp.type}	
+			</td>
+			<td>
+			${classLkp.priority}	
+			</td>
+			<td>
+			${lastsurvey}		
+				
+			</td>	
+			<td>
+			${pathLegalstatusLkp.status}	
+			</td>
+			
+        </tr>   
+</script>
+
+
+<script id="issuelink_ContactTmpl" type="text/x-jquery-tmpl">
+        <tr>
+           	<td align="center">
+				<a href="javascript:showContactDetails('${contactid}');">${contactid}</a>
+            </td>
+			<td>
+				${firstName}
+			</td>
+			
+			<td>
+				${surname}
+			</td>
+			<td>
+				${contactTypeLkp.contactType}
+			</td>
+			<td>
+				${position}
+				
+			</td>	
+			<td>
+				${_primary_phone_}
+			</td>
+			<td>
+				${email}
+			</td>	
+			<td align="center">
+				<a href="javascript:deleteIssueContact('${contactid}');"><img src="resources/images/studio/delete.png" title="Delete" /></a>
+           </td>
+        </tr>
+</script>
+
+
+<script id="issuelink_ComplaintTmpl" type="text/x-jquery-tmpl">
+<tr>
+			<td>
+				<a href="#" onclick="javascript:showComplaintDetails('${complaintid}');">${complaintid}</a>
+			</td>			
+			<td>
+				{{if (publicUser)}} 
+				${publicUser.name}
+				{{else}}
+			
+				{{/if}} 
+			</td>
+			<td>
+				{{if (complaintNatureLkp)}} 
+				${complaintNatureLkp.enquiryType}
+				{{else}}
+			
+				{{/if}} 
+			</td>
+			
+			<td>
+				${reportedOn}
+			</td>
+			<td>
+				${acknowledgeBy}
+			</td>
+			<td>
+				${respondBy}
+			</td>
+</tr>
+
+</script>
+
+
+<!--<script id="issuelink_HistoricalIssueTmpl" type="text/x-jquery-tmpl">
+		
+			<tr>
+			<td>
+				<a href="#" onclick="javascript:showIssueDetails('${gid}','${rowId}');">${rowId}</a>
+			</td>			
+			<td>
+				${issueTypeLkp.type}
+			</td>
+		
+			<td>
+				${issueUrgencyLkp.urgencyType}
+			</td>
+			<td>
+				${actionStatusLkp.actionStatus}
+			</td>
+			<td>
+				${assignedTo}
+			</td>
+			<td>
+				${resolveBy}
+			</td>
+						
+			</tr>
+
+
+</script>-->

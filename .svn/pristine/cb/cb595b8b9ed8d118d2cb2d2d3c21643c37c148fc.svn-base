@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <list-property name="configVars">
+        <structure>
+            <property name="name">__isdisplay__dateLabel_633_0</property>
+            <property name="value">2011-01-01</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__startdate_634_1</property>
+            <property name="value">2011-01-01</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__enddate_635_2</property>
+            <property name="value">2013-01-01</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__lang_677_3</property>
+            <property name="value">cy</property>
+        </structure>
+        <structure>
+            <property name="name">startdate_634_4</property>
+            <property name="value">2011-01-01</property>
+        </structure>
+        <structure>
+            <property name="name">startdate_634_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">dateLabel_633_5</property>
+            <property name="value">2011-01-01</property>
+        </structure>
+        <structure>
+            <property name="name">dateLabel_633_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">enddate_635_6</property>
+            <property name="value">2013-01-01</property>
+        </structure>
+        <structure>
+            <property name="name">enddate_635_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">lang_677_7</property>
+            <property name="value">cy</property>
+        </structure>
+        <structure>
+            <property name="name">lang_677_type_</property>
+            <property name="value">string</property>
+        </structure>
+    </list-property>
+</report>

@@ -1,0 +1,529 @@
+	
+	<div class="backtoParent"><a href="#" id="goToparentpathLink" class="btnbacktoParent"><span id="rowlink_parent">Go to parent</span></a></div>
+	
+	<div id="pathlink_accordion" style="text-align:left;">
+	
+			
+			<h3><a id="Issue" href="#"><span id="pathlink_issue">Issue</span></a></h3>
+			<div id="pathlink_IssueBody" title="" style="min-height:200px; overflow:hidden;">
+				
+
+				<div class="headerBtns">
+					<a class="btn02" href="#" id="openIssueLink">
+					<span class="OISpan" id="rowlink_openissue">Open Issues </span></a>
+					<a class="btn02" href="#" id="histricolIssueLink">
+					<span class="HISpan" id="rowlink_historyissue">Historical Issues</span></a>				
+				</div>
+			<table id="accessLandlink_IssueTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+
+
+	<thead>
+		<tr>		
+					<th>
+						<span id="rowlink_issueid">ID</span>
+					</th>
+					<th>
+						<span id="rowlink_id">RoW ID</span>
+					</th>
+					<th>
+						<span id="rowlink_furnitureid">Furniture Id</span>
+					</th>
+					<th>
+						<span id="rowlink_issuetype">Type</span>
+					</th>
+					<th>
+						<span id="rowlink_issueurgency">Urgency</span>
+					</th>
+					<th>
+						<span id="rowlink_issuestatus">Status</span>
+					</th>
+					<th>
+						<span id="rowlink_assignedto">Assigned to</span>
+					</th>
+					<th>
+						<span id="rowlink_resolveby">Resolved by</span>
+					</th>
+					<th>
+						<span id="rowlink_issueaction">Action</span>
+					</th>
+					<th width="100px"></th>
+		</tr>
+	</thead>
+	<tbody id="pathlink_IssueTableBody">
+				
+	</tbody>
+
+	</table>
+				
+				
+			</div>
+	
+		
+		
+		<h3><a href="#"><span id="pathlink_FurnitureHeader">Furniture</span></a></h3>
+	
+			<div id="pathlink_FurnitureBody" title="" style="min-height:200px; overflow:hidden;">
+			
+			<table id="pathlink_FurnitureTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+	
+	<thead>
+		<tr>		
+			<th>
+				<span id="rowlink_furnitureID">FurnitureID</span>
+			</th>					
+			
+			<th>
+				<span id="rowlink_furnituretype">Type</span>
+			</th>
+			
+			<th>
+				<span id="rowlink_furniturecondition">Condition</span>
+			</th>
+			
+			<th>
+				<span id="rowlink_lastinspected">Last Inspected</span>
+			</th>	
+			<th>
+				<span id="rowlink_installdate">Installed Date</span>
+			</th>
+			<th>
+				<span id="rowlink_unresolvedissue">Unresolved Issues</span>
+			</th>
+			<!--th>
+				Action
+			</th-->
+		</tr>	
+	</thead>
+	<tbody id="pathlink_FurnitureTableBody">
+			
+	</tbody>
+	<!-- tfoot>
+	    <tr id="pathlinkFurniture_pagerDiv">
+	       <td colspan="7" >
+            	<table cellpadding="1" cellspacing="1" class="cell_margin">
+                	<tr>
+                    	<td width="100%" class="cell_color">
+                        	<table cellpadding="1" cellspacing="1" class="table_adjust">
+                            	<tr>
+                                	 <td class="cell_adjust" >
+                                    	<img src="resources/scripts/tablesorter/addons/pager/icons/first.png" title="First" class="first"/>
+                                    </td>
+                                    <td class="cell_adjust" >
+                                        <img src="resources/scripts/tablesorter/addons/pager/icons/prev.png" title="Previous" class="prev"/>
+                                    </td>
+                                   <td class="cell_adjustone">
+                                        <input type="text" class="pagedisplay" readonly="readonly"/>
+                                    </td>
+                                    <td class="cell_adjust" >
+                                        <img src="resources/scripts/tablesorter/addons/pager/icons/next.png" title="Next" class="next"/>
+                                    </td>
+                                     <td class="cell_adjust" >
+                                        <img src="resources/scripts/tablesorter/addons/pager/icons/last.png" title="Last" class="last"/>
+                                    </td>
+                                   <td class="cell_adjustone">
+                                        <select class="pagesize">
+                                            <option selected="selected"  value="10">10</option>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                            <option  value="40">40</option>
+                                        </select>
+                                    </td>
+                                </tr>                            
+                            </table>                        
+                        </td>
+                    </tr>
+                </table>
+           </td>
+	    </tr>
+	</tfoot-->
+	</table>
+			
+			</div>
+			
+			
+		
+		<h3><a href="#"><span id="pathlink_surface">Surface</span></a></h3>
+	
+			<div id="pathlink_SurfaceBody" title="" style="min-height:200px; overflow:hidden;">
+			<table id="pathlink_SurfaceTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+	
+	<thead>
+		<tr>		
+			<th>
+				<span id="pathlink_surfaceid">SurfaceID</span>
+			</th>					
+			
+			<th>
+				<span id="pathlink_surfacetype">Type</span>
+			</th>
+			
+			<th>
+				<span id="pathlink_surfacecondition">Condition</span>
+			</th>
+			
+			<th>
+				<span id="pathlink_surfaceinspected">Last Inspected</span>
+			</th>	
+			<!--th>
+				Why 
+			</th-->
+			<th>
+				<span id="pathlink_surfaceunresolved">Unresolved Issues</span>
+			</th>
+			<!--th>
+				Action
+			</th-->
+		</tr>	
+	</thead>
+	<tbody id="pathlink_SurfaceTableBody">
+			
+	</tbody>
+
+	</table>
+			
+			
+			</div>	
+		<h3><a href="#"><span id="pathlink_LegalHeader">Legal</span></a></h3>
+	
+			<div id="pathlink_LegalIssueBody" title="" style="min-height:200px; overflow:hidden;">
+			
+
+
+
+				<table id="pathlink_LegalIssueTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+
+
+	<thead>
+		<tr>		
+			<th>
+				<span id="pathlink_legalid">LegalID</span></th>
+			</th>					
+			<th>
+				<span id="pathlink_legalrowid">RoWID</span>
+			</th>
+			<th>
+				<span id="pathlink_legalissueid"></span>
+			</th>
+			<th>
+				<span id="pathlink_legaltype">Type</span>
+			</th>
+			
+			<th>
+				<span id="pathlink_legalstatus">Status</span>
+			</th>	
+			
+		</tr>	
+	</thead>
+	<tbody id="pathlink_LegalIssueTableBody">
+	
+
+				
+	</tbody>
+
+	</table>
+			</div>		
+			
+	<h3><a href="#"><span id="pathlink_contact">Contact</span></a></h3>
+	
+			
+			<div title="" style="min-height:200px; overflow:hidden;">				
+				<div class="headerBtns">
+					<a class="btn02" href="#" id="pathNewContact" name="pathNewContact" ><span class="ANCSpan" id="add_new_contact">Add New Contact</span></a>
+					<a class="btn02" href="#" id="pathcontactlink" name="pathcontactlink" ><span class="AECSpan" id="add_exist_contact">Add Existing Contact</span></a>			
+				</div>
+				<table id="pathlink_ContactTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>		
+			
+			<th>
+				<span id="pathlink_contactid">ContactId</span>
+			</th>					
+			<th>
+				<span id="pathlink_contactname">First Name</span> 
+			</th>
+			<th>
+				<span id="pathlink_contactsname">Surname</span>
+			</th>
+			<th>
+				<span id="pathlink_contacttype">ContactType</span>
+			</th>
+			<th>
+				<span id="pathlink_contactposition">Position</span>
+			</th>	
+			<th>
+				<span id="pathlink_contactphone">Phone</span>
+			</th>
+			<th>
+				<span id="pathlink_contactmail">Email</span>
+			</th>
+			<th>
+				<span id="pathlink_contactaction">Action</span>
+			</th>
+			<!--th>
+				Action
+			</th-->
+		</tr>	
+	</thead>
+	<tbody id="pathlink_ContactTableBody">
+				
+	</tbody>
+
+	</table>
+				
+				
+			</div>
+	</div>
+	
+		
+
+<script id="pathlink_SurfaceTmpl" type="text/x-jquery-tmpl">
+<tr>
+			<td>
+				<a href="#" onclick="javascript:showSurfaceDetails('${gid}','${gid}');">${surfaceid}</a>
+			</td>			
+			<td>
+				{{if (surfaceTypeLkp)}}
+					${surfaceTypeLkp.type}
+				 {{else}}
+					    
+				 {{/if}}
+				
+			</td>
+			<td>
+				{{if (surfaceConditionLkp)}}
+					${surfaceConditionLkp.condition}
+				 {{else}}
+					    
+				 {{/if}}
+				
+			</td>
+		
+			<td>
+			${lastInspected}
+				
+			</td>
+			<!--td>
+				response to complaint
+			</td-->
+			<td>
+				${unresolvedStatus}
+			</td>
+			</tr>
+	
+
+</script>
+
+<script id="pathlink_LegalIssueTmpl" type="text/x-jquery-tmpl">
+
+	<tr>
+			<td>
+				<a href="#" onclick="javascript:createLegal(${issueGid},'${rowId}');">${legalid}</a>
+			</td>
+			<td>
+
+				${rowId}
+			</td>
+			<td>
+
+				${issueGid}
+			</td>
+			
+			<td>
+
+				{{if (legalTypeLkp)}}
+					${legalTypeLkp.legalType}
+				 {{else}}
+					    
+				 {{/if}}
+				
+			</td>
+					
+			<td>
+
+				{{if (legalStatusLkp)}}
+					${legalStatusLkp.legalStatus}
+				 {{else}}
+					    
+				 {{/if}}
+			</td>
+
+
+
+
+
+
+
+
+			</tr>
+</script>
+
+<script id="ContactDetailTemplate" type="text/x-jquery-tmpl">
+        <tr>
+           	<td align="center">
+				<a href="javascript:showContactDetails('${contactid}');">${contactid}</a>
+            </td>
+			<td>
+				${firstName}
+			</td>
+			
+			<td>
+				${surname}
+			</td>
+			<td>
+				{{if (contactTypeLkp)}}
+					${contactTypeLkp.contactType}
+				 {{else}}
+					    
+				 {{/if}}
+			</td>
+			<td>
+				${position}
+				
+			</td>	
+			<td>
+				${_primary_phone_}
+			</td>
+			<td>
+				${email}
+			</td>	
+			<td align="center">
+				<a href="javascript:deletePathContact('${contactid}');"><img src="resources/images/studio/delete.png" title="Delete" /></a>
+           </td>
+        </tr>
+</script>
+
+
+
+<script id="pathLinkIssueTmpl" type="text/x-jquery-tmpl">
+{{each(i,issue) $item.issueList}}
+			<tr>
+				<td>
+				<a href="#" onclick="javascript:showIssueDetails('${issue.gid}','${rowId}');">${issue.gid}</a>
+			</td>
+			<td>
+				${issue.rowId}
+			</td>
+			<td>
+				{{if (issue!=null)}}
+					${issue.furnitureid}
+				 {{else}}
+					    
+				 {{/if}}
+				
+			</td>			
+			<td>
+				{{if (issue.issueTypeLkp!=null)}}
+					${issue.issueTypeLkp.type}
+				 {{else}}
+					    
+				 {{/if}}
+				
+			</td>
+		
+			<td>
+
+				{{if (issue.issueUrgencyLkp!=null)}}
+					${issue.issueUrgencyLkp.urgencyType}
+				 {{else}}
+					    
+				 {{/if}}
+				
+			</td>
+			<td>
+				
+				{{if (issue.actionStatusLkp!=null)}}
+					${issue.actionStatusLkp.actionStatus}
+				 {{else}}
+					    
+				 {{/if}}
+				
+			</td>
+			<td>
+			{{if (issue)}}
+					${issue.assignedTo}
+				 {{else}}
+					    
+				 {{/if}}
+				
+			</td>
+			<td>
+			{{if (issue)}}
+					${issue.resolveBy}
+				 {{else}}
+					    
+				 {{/if}}
+				
+			</td>
+			<td>
+				${ActionType}
+			</td>
+			
+			<td class="gridicons">
+				<a class="btnGrid clsjob" id="path_createjob" title="Create Jobs" onclick="javascript:SpatialVue.Job('${issue.gid}');" href="#">    
+				<div class="createJobs"><span>Create Jobs</span></div>
+				</a>
+				
+				<a class="btnGrid clslegal" id="path_createlegal" title="Create Legal" onclick="javascript:createLegal(${gid},'${rowId}');" href="#">     
+				<div class="createLegal"><span>Create Legal</span></div>
+				</a> 
+			</td>
+			</tr>
+		{{/each}}
+</script>
+
+
+<script id="pathLinkFurnitureTmpl" type="text/x-jquery-tmpl">
+       <tr>		
+			<td align="center">
+				<a href="#" onclick="javascript:showFurnitureDetails('${gid}', '${rowId}');">${furnitureid}</a>
+            </td>
+			<td>
+
+			 	{{if (furnitureTypeLkp!=null)}}
+					${furnitureTypeLkp.type}
+				 {{else}}
+					    
+				 {{/if}}
+				
+			</td>
+			
+			<td>
+				
+				{{if (furnitureConditionLkp!=null)}}
+					${furnitureConditionLkp.condition}
+				 {{else}}
+					    
+				 {{/if}}
+			</td>
+			
+			<td>
+				${lastInspected}
+			</td>
+			
+			<td>
+				${installedDate}
+			</td>	
+			<td>
+				${unresolvedIssues}
+			</td>
+			
+			<!--td>
+			<a href="javascript:alert('${issueid}');">
+			<img src="resources/images/viewer/add.png" height="20px" width="20px" title="Create Jobs"></a>
+			</td-->
+		</tr>
+</script>
+	
+	
+	
+<script id="noresulttext" type="text/x-jquery-tmpl">
+       
+		<tr><td align="center" colspan="8">
+		<div class="noResult">No Result found</div>
+		</td></tr>
+		
+ 		
+</script>
+				 
+				
+

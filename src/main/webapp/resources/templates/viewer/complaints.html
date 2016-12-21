@@ -1,0 +1,130 @@
+<div id="complaintsdiv" class="dialog-v">
+	<div id="complaintsTmpl" class="lab-int">
+		<div id="span-close" class="span-c" title="Close"  onclick="javascript:closeDialog('complaintsdiv');"></div>
+		<div id="span-help" class="span-h" title="" onclick="javascript:openHelpWindow('complaint_help');"></div>
+		<div class="lineBreak05p"></div>
+		
+		<div id="workcommitment_ComplaintsDetailsBody">
+			
+		</div>
+	
+	
+	
+		
+		
+	
+		<div class="lineBreak05p"></div>
+	
+	</div>	
+
+</div>
+
+<script id="workcommitment_ComplaintsDetailsTmpl" type="text/x-jquery-tmpl">
+		<form id="complaintDetailForm" class="styleForm formPattern">
+		<table id="workcommitment_ComplaintsDetailsTable" class="formTable">
+		
+		<tr>
+		<td>
+				{{if (issueid)}} 
+				<label class="msg" for="ms" id="complaintAssociated">Issue id ${issueid} is associated with this complaint</label>
+				{{else}}
+				<label class="msg" for="ms" id="complaintUnassociated">No Issue associated with this complaint</label>
+				{{/if}} 
+		</td>
+		</tr>
+		<tr>
+		<td> <label for="zz" id="complaintid">ComplaintID:</label> 
+		<input type="text"  class="int" id="wc_complaintID" name="wc_complaintID" value="${complaintid}"/> </td>
+		</tr>
+		<tr>
+		<td> <label id="complainant_name">Complainant Name:</label> <input type="text"  class="int" id="wc_comName" name="wc_comName" /> </td>
+		</tr>
+		<tr>
+		<td colspan="2"> <label id="contact_details"> Contact details:</label>
+                 
+		<textarea id="addressUser" class="qb_querybox" rows="3" name="contactDetails" spellcheck="false" ></textarea></td>
+		</tr>
+		<tr>
+		<td> <label id="complaint_language">Language flag</label>
+        <input type="text"  class="int" id="language" name="language" />
+        </td>
+		</td>
+		</tr>
+
+		<tr>
+		<td> <label id="complaint_reportedon"> Reported on:</label><input type="text"  class="int" id="reportedOn" name="reportedOn" value="${reportedOn}"/> </td>
+		</tr>
+		<tr>
+		<td> <label id="complaint_acknowledgeby"> Acknowledge by:</label><input type="text"  class="int" id="acknowledgeBy" name="acknowledgeBy" value="${acknowledgeBy}"/> </td>
+		</tr>
+		<tr>
+		<td> <label id="complaint_acknowldegement_sent"> Acknowledgement sent on:</label><input type="text"  class="int" id="acknowledgementSent" name="acknowledgementSent" value="${acknowledgementSent}"/> </td>
+		</tr>
+		
+		
+		<tr>
+		<td> <label id="complaint_enquiry_type"> Type of Enquiry:</label>
+			<select id="typeEnq" name="typeEnq" class="slt">
+	                
+            </select> </td> 
+		</td>
+		</tr>
+		<tr>
+		<td colspan="2"> <label id="complaint_nature"> Nature of Complaint:</label>
+		<textarea id="natureOfComplaint" class="qb_querybox" rows="3" name="natureOfComplaint" value="${complaintEnquiryNature}" spellcheck="false">${complaintEnquiryNature}</textarea></td>
+		</tr>
+		<tr>
+		<td colspan="2"> <label id="complaint_location"> Location of Complaint:</label>
+		<textarea id="locationOfComplaint" class="qb_querybox" rows="3" name="locationOfComplaint" value="${complaintEnquiryLocation}" spellcheck="false">${complaintEnquiryLocation}</textarea></td>
+		</tr>		
+		<tr>
+		<td> <label id="complaint_recommendation"> Recommendation:</label><input type="text"  class="int" id="recommendation" name="recommendation" value="${recommendation}"/>  </td>
+		</tr>
+		<tr>
+		<td> <label id="complaint_respond_by"> Respond by:</label><input type="text"  class="int" id="wc_respondBy" name="respondBy" value="${respondBy}"/>  </td>
+		</tr>
+        <tr>
+		<td> <label id="complaint_signoff"> Signed off:</label><input type="text"  class="int" id="signedOff" name="signedOff" value="${signedoff}"/>  </td>
+		</tr>
+		<tr>
+		<td> <label id="complaint_response_date">Date of response:</label><input type="text"  class="int" id="resToComp" name="resToComp" value="${responseSent}"/>  </td>
+		
+                 <tr><td>
+                <input type="hidden" id="complainantIdForAck"  name="complainantIdForAck" /> 
+				<input type="hidden" id="issueID"  name="issueID" value="${issueid}" /> 
+				<input type="hidden" id="wc_gidID"  name="wc_gidID" value="${gid}" />
+		        </td></tr>
+		
+	</table>
+</form>
+	<div class="btn-holder-w buttons">
+				<span class="lesserbtn" id="btnUpdateComplaint"><input type="button" id="cpt_edit" value="Edit" /></span>
+				<span class="lesserbtn" id="btnCancelComplaint"><input type="button" id="cpt_cancel" value="Cancel" /></span>
+				<span class="lesserbtn" id="btnSaveComplaint"><input type="button" value="Save" id="cpt_save" onclick="javascript:updateComplaint();"/></span>
+				
+	</div>
+
+<ul class="footerBtns">
+		<li>
+		<a class="btn01" href="#" onclick="javascript:showAckForm();"><span class="senAckment" id="acknowledge"></span></a>
+		</li>
+		<li>
+		<a class="btn01 showComplaintLink" href="#" id="hrefShowParentIssue" ><span class="ParentIssue" id="parent_issue"></span></a>	
+		</li>
+		<li>
+		<a class="btn01 showComplaintLink" href="#"  onclick="javascript:showComplaintOnMap();return false;"><span class="locateMap" id="locate_complaint"></span></a>
+		</li>
+		<li>
+		<a class="btn01" href="#" id="hrefcreateComplaintIssue" ><span class="createIssue" id="create_cpt_issue"></span></a>
+		</li>
+		<li>
+		<a class="btn01" href="#" onclick="javascript:showClosingComplaintMailForm();"><span class="closeComplaint" id="close_complaint"></span></a>
+		</li>
+		
+		<li>
+		<a class="btn01" href="#" onclick="javascript:addComplaintToExistingIssue('${complaintid}','${issueid}');"><span class="existingIssue" id="add_to_existing_issue"></span></a>
+		</li>				
+		</ul>
+
+
+</script>

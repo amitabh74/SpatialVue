@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<meta name="author" content="Pankaj.Joshi">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>Job</title>
+<style type="text/css">
+body {background-color:#ffffff;color:#000000;}
+p,li,h1,h2,h3,h4,h5,table {text-align:justify;line-height:normal;}
+a:link{color:#0000ff;}
+.Balloon_Text {font-size:8pt;font-family:'Tahoma';}
+.Caption {font-weight:bold;}
+.Document_Map {font-size:8pt;font-family:'Tahoma';}
+.List_Continue {margin-left:18pt;margin-bottom:6pt;}
+.List_Paragraph {margin-left:36pt;}
+.No_Spacing {margin-left:14pt;font-family:'Arial';}
+.Style7 {text-indent:-18pt;margin-left:20pt;font-weight:bold;font-size:12pt;}
+h1 {text-indent:-7pt;margin-left:7pt;margin-top:0pt;margin-bottom:0pt;font-weight:bold;font-size:14pt;font-family:'Cambria';color:#1f497d;}
+h2 {text-indent:-22pt;margin-left:26pt;margin-top:0pt;margin-bottom:0pt;font-weight:bold;font-size:13pt;font-family:'Cambria';color:#000000;}
+h3 {text-indent:-25pt;margin-left:40pt;margin-top:0pt;margin-bottom:0pt;font-weight:bold;font-size:14pt;font-family:'Cambria';color:#000000;}
+h4 {text-indent:-18pt;margin-left:15pt;margin-bottom:auto;font-weight:bold;font-size:10pt;font-family:'Arial';color:#632423;}
+p, li {margin-top:0pt;margin-bottom:0pt;font-weight:normal;font-size:10pt;font-family:'Calibri';color:#000000;}
+ol, ul {margin:0 0 0 20pt;padding:0;list-style-position:outside;}
+li p {margin:0;padding:0;text-indent:0;}
+li, li div {margin:0;padding:0;}
+ol.L10_1{margin-left:20pt;}
+ol.L1_1{margin-left:30pt;}
+ol.L11_1{margin-left:35pt;}
+ol.L6_1{margin-left:20pt;list-style-type:lower-latin;}
+</style>
+</head>
+<body>
+<h3 style="text-indent:0;margin-left:0;margin-top:12pt;"><a name="_Toc324262268">Job</a></h3>
+<br>
+<p>Job module includes functionalities like view and edits job details, create job for issue and view contact and issue details associated with job. In this module user is allowed to upload a risk assessment document for a job. </p>
+<br>
+<ol class="L10_1">
+<li><h4 style="margin-top:auto;"><a name="_Toc324262269">View Job Information</a></h4></li></ol><br>
+<ol class="L1_1">
+<li><div style="font-family:'Calibri';">To view job information user has to go to Work Commitment tab. From Open Issues section or Outstanding Jobs section user can view job details.</div></li>
+<li><div style="font-family:'Calibri';">In Open issues part, click on Create/View Job tool if Job does not exist for issue a new job form is opened otherwise the jobs details will be shown in left panel as Job tab in read only format.</div></li>
+<li><div style="font-family:'Calibri';">In outstanding job part click on Job ID and job details will be shown in left panel as Job tab read only format. </div></li>
+<li><div style="font-family:'Calibri';">User can view job details from the Issue part of feature (Path Links/Furniture Links/Surface Links/Access Land Links).</div></li>
+<li><div style="font-family:'Calibri';">On Issue part of feature link click on Create/View Job icon. If job is created for the issue, application displays job details in left panel in Job tab in read only format. </div></li></ol>
+<br>
+<p style="margin-left:30pt;font-size:11pt;font-family:'Calibri';"><img alt="" border="1" width="684" height="708" src="job/job_img1.png"></p>
+<p class="Caption" style="text-indent:36pt;margin-left:200pt;">Fig.1 Job Details</p>
+<br>
+<ol class="L10_1" start="2">
+<li><h4 style="margin-top:auto;"><a name="_Toc324262270">Edit Job Information</a></h4></li></ol><br>
+<ol class="L1_1">
+<li><div style="font-family:'Calibri';">To edit Job details click on Edit button. Application changes attribute format to editable with two buttons Cancel and Save.</div></li>
+<li><div style="font-family:'Calibri';">Edit required fields and click on ‘Save’ button. Application displays message for successful submission of changes.</div></li>
+<li><div style="font-family:'Calibri';">Click Cancel button to discard changes without saving changes.</div></li></ol>
+<br>
+<ol class="L10_1" start="3">
+<li><h4 style="margin-top:auto;"><a name="_Toc324262271">Job Links</a></h4></li></ol><br>
+<p>In job links user can view and delete contacts associated with Job. And user can add contact to job. User can also view the issue detail for which job is created. To go to job links, click on Job Links tool &nbsp;<img alt="" border="0" width="28" height="29" src="job/job_img2.png"> present on Job tab. Application opens a new tab Job Links in main window with two accordions: Contact (default open) and Issue.</p>
+<br>
+<p style="margin-left:10pt;font-size:11pt;font-family:'Calibri';"><img alt="" border="1" width="770" height="270" src="job/job_img5.png"></p>
+<p class="Caption" style="text-indent:36pt;margin-left:200pt;">Fig.2 Job Links</p>
+<br>
+<ol class="L6_1">
+<li><div class="Style7">Contact </div></li></ol>
+<br>
+<p>In contact part user can view contact details associated with the job. User can add a new contact or add an existing contact to the job. </p>
+<br>
+<ol class="L11_1">
+<li>To go to contact part, click on contact accordion. All contact details (if exists) will be shown in tabular format.</li>
+<li>To remove a contact, click on Delete icon in last column. Application displays confirmation message.</li>
+<li>Click Ok to Remove or click Cancel to discard.</li>
+<li>To add a new contact, click on Add New Contact button. Fill details of the contact in the form opened in left panel and click on Save.</li>
+<li>To add an existing contact, click on Add Existing Contact. Select contact from drop-down and click on Save button.</li>
+<li>Click on Go to Parent button on top of accordion, application displays the Job details &nbsp;for which link is opened.</li></ol>
+<br>
+<ol class="L6_1" start="2">
+<li><div class="Style7">Issue</div></li></ol>
+<br>
+<p>In Issue part user can see parent issue of the job. Click on Issue accordion, application displays parent issue details in tabular format. Click on Issue ID, application opens issue information in left panel. </p>
+<br>
+<ol class="L10_1" start="4">
+<li><h4 style="margin-top:auto;"><a name="_Toc324262272">Create Jobs</a></h4></li></ol><br>
+<p>Job can be created from Open Issues in Work Commitment dashboard. And also from Issue part of features link (Path Links/Furniture Links/Surface Links/Access Land Links).</p>
+<p>From Work Commitment in Open Issue accordion or from Path Links/Furniture Links/Surface Links/Access Land Links tab in Issue accordion, click on Create/View Job icon on last column.</p>
+<p>If job is not created for selected issue, application opens Job tab with attribute fields. Follow the below steps to create new job:</p>
+<br>
+<ol class="L1_1">
+<li><div style="font-family:'Calibri';">Enter all the field details (excluding auto filled fields).</div></li>
+<li><div style="font-family:'Calibri';">Click on ‘Save’ button. Application displays a message for successful creation of job.</div></li>
+<li><div style="font-family:'Calibri';">Click Cancel button to exit from job creation.</div></li></ol>
+<br>
+<ol class="L10_1" start="5">
+<li><h4 style="margin-top:auto;"><a name="_Toc324262273">Print Risk Assessment Document</a></h4></li></ol><br>
+<p class="No_Spacing" style="margin-left:0;font-family:'Calibri';">In this user is allowed to upload risk assessment document to Job. The steps are described below:</p>
+<br>
+<ol class="L1_1">
+<li><div style="font-family:'Calibri';">User clicks on Print Risk Assessment </font><img alt="" border="0" width="30" height="30" src="job/Job_img3.png"><font face="Calibri"> button, a new window will open with Risk Assessment template (which will be an external URL to RoW application). User can save the risk assessment document on his/her local machine.</font></div></li></ol>
+<br>
+<p class="No_Spacing" style="margin-left:35pt;font-family:'Calibri';"> &nbsp;<img alt="" border="1" width="318" height="334" src="job/job_img4.png"></p>
+<p class="Caption" style="text-indent:17pt;margin-left:70pt;"> Fig.2 Risk Attachment Box</p>
+<br>
+<ol class="L1_1" start="2">
+<li><div style="font-family:'Calibri';">In Risk Assessment box, user selects Risk Assessment required option as Yes. Application expands the box to provide option to upload risk assessment document. &nbsp;</div></li>
+<li><div style="font-family:'Calibri';">User enters Risk Assessment Reference and enters Risk Assessment documents location path or browse to its location with the help of Browse button.</div></li>
+<li><div style="font-family:'Calibri';">Click on Upload button. Application uploads the document and shows it in the document list.</div></li>
+<li><div style="font-family:'Calibri';">Select Assessment Completed as Yes.</div></li>
+<li><div style="font-family:'Calibri';">Risk assessment data will be saved with the Job.</div></li>
+<li><div style="font-family:'Calibri';">If user selects Yes for Assessment Completed without attaching risk assessment document, application shows a message that risk assessment document needs to be uploaded.</div></li>
+<li><div style="font-family:'Calibri';">User can remove a Risk Assessment document by click on Remove from Action column.</div></li>
+<li><div style="font-family:'Calibri';">Application displays a confirmation message. Click Ok to remove or click Cancel to discard remove process.</div></li>
+<li><div style="font-family:'Calibri';">If user selects No option for Risk Assessment Required, application shrink risk assessment box.</div></li></ol>
+<br>
+<ol class="L10_1" start="6">
+<li><h4 style="margin-top:auto;"><a name="_Toc324262274">Attach/Remove File</a></h4></li></ol><br>
+<p>This functionality allows users to add files (up to 2MB) to the job. File could be of text type, image and other type.</p>
+<p>For this application displays an attachment box with the list of already attached files. Attachment box consists of a text box ‘Description’, Browse button as File name and Attach button.</p>
+<br>
+<p>To add an attachment:</p>
+<ol class="L1_1">
+<li><div style="font-family:'Calibri';">Enter attachment description.</div></li>
+<li><div style="font-family:'Calibri';">Enter file path or click on Browse button to add file name from any specific location.</div></li>
+<li><div style="font-family:'Calibri';">Click on Attach button.</div></li>
+<li><div style="font-family:'Calibri';">On successful attachment, attached file is displayed in Attached Files list.</div></li></ol>
+<br>
+<p class="No_Spacing" style="margin-left:0;font-family:'Calibri';">To remove an attachment: </p>
+<ol class="L1_1">
+<li><div style="font-family:'Calibri';">Click on the remove icon after the file name in Attached Files list on Job tab.</div></li>
+<li><div style="font-family:'Calibri';">Application displays a confirmation message to remove attachment.</div></li>
+<li><div style="font-family:'Calibri';">Click Ok to remove or Click Cancel to discard.</div></li></ol>
+<br>
+</body>
+</html>

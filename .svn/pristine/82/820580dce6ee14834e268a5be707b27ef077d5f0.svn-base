@@ -1,0 +1,99 @@
+welcome.title=SNPA | Studio
+typeMismatch=could not be parsed
+
+#SMTP Host
+smtp.hostserver=false
+#smtp.host=10.2.151.27
+smtp.host=smtp.gmail.com
+smtp.port=465
+smtp.mail.username=snpauk@gmail.com
+smtp.mail.password=snpa123#
+
+
+#Mail Template
+log.complaint.mail=Annwyl / Dear <1>,\n\nDiolch am adrodd ynghylch problem gyda\u2019r rhwydwaith hawliau tramwy, fe dderbyniwyd eich ymholiad ac fe fydd Awdurdod Parc Cenedlaethol Eryri  yn ymchwilio i\u2019r mater cyn gynted \u00E2 phosib.  Bydd aelod o\u2019r T\u00EEm Wardeinio a Mynediad yn cysylltu \u00E2 chi o fewn yr ychydig ddyddiau nesaf gyda rhagor o fanylion pan fydd eich ymholiad wedi cael ei adolygu.\n\nEich cyfeirnod yw <2>, dyfynnwch y cyfeirnod hwn pan fyddwch yn cysylltu gydag Awdurdod Parc Cenedlaethol Eryri ynghylch yr ymholiad hwn.\n\nOs na fyddwch wedi clywed gan Awdurdod y Parc Cenedlaethol o fewn 2 ddiwrnod gwaith wedi i chi adrodd ynghylch y broblem hon yna cysylltwch gyda\u2019r T\u00EEm Wardeinio a Mynediad ar ht@eryri-npa.gov.uk\n\nThank-you for reporting a problem with the rights of way network, your enquiry has been received and will be looked into as soon as possible by the National Park Authority. A member of the Warden and Access Team will contact you in the next few days with further details when your enquiry has been reviewed.\n\nYour reference is is <2>, please quote this reference when contacting the National Park Authority about this enquiry.\n\nIf you do not hear from the National Park Authority within 2 working days of reporting this problem please contact the Warden and Access team at row@snowdonia-npa.gov.uk \n\nYn gywir / Regards\n\nT\u00EEm Wardeinio a Mynediad / Warden and Access Team\nAwdurdod Parc Cenedlaethol Eryri\nSnowdonia National Park Authority
+acknowledgement.mail=Annwyl / Dear <3>,\n\nCyfeinrod / Reference\: <1>\n\n Mae eich problem gyda'r rhwydwaith hawliau tramwy wedi cael ei gofrestru yn awr, a bydd y warden <WARDEN>, yn gwneud ymchwiliadau i'r broblem, ac fe fydd yn cysylltu \u00E2 chi o fewn y 10 niwrnod gwaith nesaf er mwyn rhoi gwybod i chi beth fydd yn digwydd nesaf. Gallwch gysylltu gyda'r warden trwy ebostio <WARDEN EMAIL>.\n\nOs na fyddwch yn clywed gan Awdurdod y Parc Cenedlaethol wedi'r cyfnod hwn yna cysylltwch gyda'r T\u00EEm Wardeinio a Mynediad ar ht@eryri-npa.gov.uk\n\nYour problem with the rights of way network has now been registered, and will be investigated by the warden <WARDEN>, who will contact you within the next 10 working days with the proposed course of action. You may contact this warden at <WARDEN EMAIL>.\n\nIf you do not hear from the National Park Authority after this period of time contact the Warden and Access team at row@snowdonia-npa.gov.uk\n\nYn gywir / Regards\n\nT\u00EEm Wardeinio a Mynediad / Warden and Access Team\nAwdurdod Parc Cenedlaethol Eryri\nSnowdonia National Park Authority
+close.complaint.mail=Annwyl / Dear <1>,\n\nCyfeinrod / Reference\: <2>\n\nAr \u00F4l ymchwilio i'ch ymholiad ynghylch y rhwydwaith hawliau tramwy, bwriad Warden yr Awdurdod yw (WARDEN I'W GWBLHAU)\n\nPetaech angen rhagor o wybodaeth, yna cysylltwch \u00E2 mi ar <PHONE> neu <EMAIL>.\n\nFollowing the inspection of your enquiry concerning the rights of way network, it is the intention of the Authority Warden to (WARDEN TO COMPLETE)\n\nIf you require further information, please contact me on <PHONE> or email <EMAIL>.\n\nYn gywir / Regards\n\n<WARDEN>\n\nT\u00EEm Wardeinio a Mynediad / Warden and Access Team\nAwdurdod Parc Cenedlaethol Eryri\nSnowdonia National Park Authority
+forgetpassword.mail=Dear <1>,\n\n Your password for SNPA RoW Management System is <2> \n\nRegards\nSNPA Authority
+forgetpassword.subject=new password
+close.complaint.mail.subject=Eryri - Ymholiad Hawliau Tramwy / Snowdonia - Rights of Way enquiry
+#Admin Details
+admin.email.address=admin@snpa.com
+contanct.person=ADMIN
+
+complaint.layer.name=Complaint_Layer
+
+
+#Survey Task Prompt
+workcommitment.surveytask.prompt=30
+workcommitment.surveytask.superUserRoleIds=7,12,5,6
+workcommitment.superUsersRole= 12,4,1,6,5,7
+workcommitment.wardenUsersRole= 9
+workcommitment.accessTeamRoleId=14
+workcommitment.backlog.displayroles=12,4,7
+workcommitment.assignment.enableroles=1,4,6,7,8,9,12
+workcommitment.headwardenUserRole=8
+issue.showissue.actionstatus=1,4,5,6
+workcommitment.complaint.prompt=30
+issue.histricolissue.actionstatus=2,3
+workcommitment.seasonalWardenId=10
+
+#publicuser
+publicuser.defaultproject=Public-RoW
+publicuser.userroleName=ROLE_PUBLICUSER
+publicuser.noofdays.passwordexp=365
+
+#Tomcat database resource name
+tomcat.db.resource.name=jdbc/SNPA
+
+#Tab file import configurations
+zip.folder.path=C:/TAB_FOLDER
+fw.tool.path=C:/FWTools2.4.7
+batch.file.path=C:/TAB/layer_batch.bat
+temp.zip.file.path=C:/TAB1.zip
+csv.folder.path=C:/TAB/surface
+log.file.path=C:/Apache Software Foundation/Tomcat 7.0/webapps/snowdoniaprow/resources/import.log
+
+#Tab file import file-table mapping
+
+import.layers.name=Issues,Furniture,Access_Land_polygon,RoW_Paths,Surface
+surface.history.key.column.name=surface_id,ishistory
+surface.columns.mapping=row_id:row_id,surface_id:SurfaceID,type:surface_type,average_width:AveWidth,length:length,condition:condition,surveyor:surveyor,notes:notes,lastsurfacedate:lastsurfaced,last_inspected:Inspected,photo:photo,Update:Update
+
+access_land_polygon.history.key.column.name=row_id,ishistory
+access_land_polygon.columns.mapping=row_id:row_id,type:type,area_name:area_name,area:area,agreement_reference:agreement_reference,agreement_date:agreement_date,agreement_end_date:agreement_end_date,unresolved_status:unresolved_status,notes:notes,photo:photos,Update:Update
+
+row_paths.history.key.column.name=row_id,ishistory
+#row_paths.columns.mapping=row_id:RoW_ID,type:Type,community:Community,_class:Class,length_km:length_km,legalstatus:LegalStatus,wardenarea:WardenArea,lastsurvey:LastSurvey,dateofnextsurvey:DateOfNextSurvevy,responsibility:Responsibility,startfrom:StartFrom,to:To,description:Description,agreement_ref:AgreementRef,agreement_end_date:AgreementEndDate,notes:Notes,unresolved_issues:UnresolvedIssues,promoted_route:Promoted
+row_paths.columns.mapping=row_id:RoW_ID,type:Type,condition:Condition,community:Community,_class:Class,length_km:length_km,legalstatus:LegalStatus,wardenarea:WardenArea,lastsurvey:LastSurvey,dateofnextsurvey:DateOfNextSurvey,responsibility:Responsibility,startfrom:StartFrom,to:To,description:Description,agreement_ref:AgreementRef,agreement_end_date:AgreementEndDate,notes:Notes,promoted_route:Promoted,assigned_to:assigned_to,surveyed_by:surveyed_by,Update:Update
+
+furniture.history.key.column.name=furnitureid,ishistory
+#furniture.columns.mapping=furnitureid:FurnitureID,row_id:RoW_ID,type:Type,installed_date:Installed_date,condition:Condition,notes:Notes,last_inspected:Last_inspected,next_pathsurvey:Next_PathSurvey,unresolved_issues:unresolved_issues,surveyor:Surveyor
+furniture.columns.mapping=furnitureid:furnitureid,row_id:row_id,type:type,installed_date:installed_date,condition:condition,notes:notes,last_inspected:last_inspected,next_pathsurvey:next_pathsurvey,unresolved_issues:unresolved_issue,surveyor:surveyor,photo:photo,Update:Update
+
+issues.history.key.column.name=0,ishistory
+#issues.columns.mapping=furnitureid:FurnitureID,row_id:RoW_ID,issuetype:IssueType,why:Why,problem:Problem,urgency:Urgency,responsibility:ResponsibilityFor,actionstatus:ActionStatus,notes:Notes,reported_on:ReportedOn_Surveyed,inspect_by:Inspect_by,inspected_on:Inpected_on,resolve_by:resolve_by,signoff:SignOff,assigned_to:Assigned_to
+issues.columns.mapping=furnitureid:FurnitureID,surfaceid:SurfaceID,row_id:RoW_ID,issuetype:issue_type,why:Why,problem:Problem,urgency:Urgency,responsibility:ResponsibilityFor,actionstatus:ActionStatus,notes:Notes,reported_on:ReportedOn_Surveyed,inspect_by:Inspect_by,inspected_on:Inspected_on,resolve_by:Resolve_by,signoff:SignOff,assigned_to:AssignedTo,photo:photo,Update:Update
+
+#added for getting LookUp Table Mapping fieldname(tab):lookupTableName:IDfield(lkp):RelationField(lkp);;
+
+surface.lookupTable.columns.mapping=type:snpa.surface_type_lkp:typeid:type;;condition:snpa.surface_condition_lkp:conditionid:condition;;surveyor:users:id:name
+access_land_polygon.lookupTable.columns.mapping=type:snpa.access_land_type_lkp:typeid:type
+row_paths.lookupTable.columns.mapping=Type:snpa.path_type_lkp:path_type_id:type;;_class:snpa.class_lkp:id:priority;;condition:snpa.path_condition_lkp:conditionid:condition;;legalstatus:snpa.path_legalstatus_lkp:legalstatusid:status;;responsibility:snpa.responsible_department_lkp:departmentid:department;;assigned_to:users:email:name;;surveyed_by:users:email:name
+issues.lookupTable.columns.mapping=issuetype:snpa.issue_type_lkp:issuetypeid:type;;why:snpa.issue_reason_lkp:reasonid:reason;;urgency:snpa.issue_urgency_lkp:urgencyid:urgency_type;;responsibility:snpa.responsible_department_lkp:departmentid:department;;actionstatus:snpa.action_status_lkp:actionstatusid:action_status;;assigned_to:users:email:name
+furniture.lookupTable.columns.mapping=type:snpa.furniture_type_lkp:typeid:type;;condition:snpa.furniture_condition_lkp:conditionid:condition;;surveyor:users:id:name
+#community_councils.history.key.column.name=communityi,
+#Warden_Area.history.key.column.name=Warden_Area,
+#community_councils.columns.mapping=communityi:CommunityID,Name:Name
+#Warden_Area.columns.mapping=Warden_Area:Warden_Area,Warden:Warden,Position:Position
+
+#Job file import configurations
+job.upload.folder.path=C:/JOB_FOLDER
+
+#Job file DB fields - table mapping
+surface.jobfile.columns.mapping=RoW_ID:row_id,SurfaceID:surface_id,Type:type,AveWidth:average_width,Length:length,LastSurfaced:lastsurfacedate,Condition:condition,Inspected:last_inspected,Surveyor:surveyor,Notes:notes,Photo:0,fid:0,Update:0
+issue.jobfile.columns.mapping=Type:issuetype,Why:why,Surveyedon:inspected_on,AssignedTo:assigned_to, Problem:problem,actionstatus:actionstatus,Urgency:urgency,Notes:notes,Photo:0,RoW_ID:row_id,FurnitureID:furnitureid,SurfaceID:surfaceid,fid:0,Update:0
+furniture.jobfile.columns.mapping=RoW_ID:row_id,FurnitureID:furnitureid,Feature:0,Type:type,Installed:installed_date,Condition:condition,Inspected:last_inspected,Surveyor:surveyor,Notes:notes,Photo:0,fid:0,Update:0
+jobfile.date.format=dd/MM/yyyy
+
+attachment.upload.path=C:/Apache Software Foundation/Tomcat 7.0/webapps/snowdoniaprow/resources/temp/uploads/user

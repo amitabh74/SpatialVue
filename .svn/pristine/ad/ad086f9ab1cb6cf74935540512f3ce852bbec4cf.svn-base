@@ -1,0 +1,258 @@
+<div id="jobdiv" class="dialog-v">
+	<div id="issueTmpl" class="lab-int">
+		<div id="span-close" class="span-c" title="Close"  onclick="javascript:closeDialog('jobdiv');"></div>
+		<div id="span-help" class="span-h" onclick="javascript:openHelpWindow('job_help');"></div>
+		<div class="lineBreak05p"></div>
+		<!--div class="popupcaption"><span id="job-issueid"></span></div-->
+		<b><span id="job-issueid"></span></b>
+		
+		<div id="workcommitment_JobDetailsBody">
+			
+		</div>
+		
+		<div id="workcommitment_RiskBody">
+			
+		</div>
+		
+		<div id="workcommitment_AttachmentBody">
+			
+		</div>
+		
+	</div>	
+	
+</div>
+
+
+<script id="workcommitment_JobDetailsTmpl" type="text/x-jquery-tmpl">
+<form id="jobInfoForm" class="styleForm formPattern">	
+	<table id="jobFormTable" class="formTable">				
+				<input type="hidden"  class="int" id="hid-job_Id" name="hid-job_Id" value="${jobid}"/>
+				<input type="hidden"  class="int" id="hid-issueid" name="hid-issueid" value="${issueGID}"/>
+				
+				<tr>
+					<td> 
+						<label id="job_gid">Issue GID :</label> 
+						<input type="text"  class="int" id="issueid" name="issueid" value="${issueGID}" />
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td>
+						<label id="job_type">Job Type : </label>
+						
+						<select name="jobType" id="jobType" class="int">        						
+        				</select>
+												
+					</td>
+				</tr>				
+				
+				<tr>
+					<td>
+						<label id="job_feature">Feature : </label>
+						<select name="jobFeature" id="jobFeature" class="int">        						
+        				</select>
+												
+					</td>
+				</tr>
+
+
+				<tr>
+					<td> 
+						<label id="job_units">No. of Units :</label> 
+						<input type="text"  class="int" id="jobNoUnits" name="jobNoUnits" value="${numUnits}"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td> 
+						<label id="job_hrs">SNPA Hours :</label> 
+						<input type="text"  class="int" id="jobSNPAHours" name="jobSNPAHours" value="${snpaHrs}"/>
+					</td>
+				</tr>
+				
+
+				<tr>	
+					<td colspan="2">
+						<label for="sum" id="job_notes">Notes  : </label>
+						<textarea id="workNotes" class="qb_querybox" rows="2" name="workNotes" spellcheck="false">${notes}</textarea>				
+						
+					</td>
+				</tr>
+
+				<tr>
+					<td> 
+						<label id="job_material_cost">Material Cost :</label> 
+						<input type="text"  class="int" id="jobMaterialsCost" name="jobMaterialsCost" value="${materialCost}"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td> 
+						<label id="job_contract_cost">Contractor Cost :</label> 
+						<input type="text"  class="int" id="jobContractorCost" name="jobContractorCost" value="${contractorCost}"/>
+					</td>
+				</tr>
+				
+
+				<tr>
+					<td> 
+						<label id="job_total_cost">Total Cost :</label> 
+						<input type="text"  class="int" id="jobTotalCost" name="jobTotalCost" value="${totalCost}"/>
+					</td>
+					<Input type="hidden" id="hidJobTotalCost" name="hidJobTotalCost" value="${totalCost}"/>
+				</tr>
+				
+
+				<tr>		
+				<td>
+				<div style="padding-top:0.4em" id="workDoneBy">
+				<label id="job_done_by">Work Done By:</label>
+				</div>
+				
+				<div class="blueboxContainer" id="SelectUserJOb">
+				<div class="blueboxHeader"></div>
+				
+				<div class="blueboxContent">
+				<div class="form_head" style="font-size:12px;" id="job_user">Select SNPA User</div>
+				
+				<div class="userListJob">
+				<select name="snpaUserList" id="snpaUserList" class="int" style="width:250px; margin:0; padding:0">
+				</select>
+				<a href="#" class="addIcon" title="Add User" onclick="javascript:addJobsUsers();"><span>Add</span></a>
+				</div>
+				<div class="form_head" style="font-size:12px;" id="job_selected_users">Selected SNPA Users</div>
+				<table id="userlist_Job"  class="tablesorter" style="width:95%; margin:0 0 0 0.5em;" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>		
+							<th id="user_email">
+								User Email
+							</th>
+						</tr>	
+				 </thead>
+				<tbody id="userlist_Job_Body">
+								
+				</tbody>
+
+				</table>
+
+				
+				<div class="blueboxFooter"></div>
+				
+				</div>
+				</div>
+				</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pid" id="job_target_date">Target Date : </label>
+						<input type="text"  class="int" id="jobTargetDate" name="jobTargetDate" value="${targetDate}"/>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<label for="pid" id="job_complete_date">Job Completed Date : </label>
+						<input type="text"  class="int" id="jobCompletedDate" name="jobCompletedDate" value="${jobCompleted}"/>
+					</td>
+				</tr>
+				
+		</table>
+</form>
+		<div class="btn-holder-w buttons">
+								
+				<span class="lesserbtn" id="btnUpdateJob"> <input type="button" value="Edit" id="job_edit"/> </span>
+				<span class="lesserbtn" id="btnCancelJob"> <input type="button" value="Cancel" id="job_cancel" />   </span>
+				<span class="lesserbtn" id="btnSaveJob"> <input type="button" value="Save" id="job_save" onclick="saveJob();"/>   </span>
+				
+	</div>
+	
+	<ul class="footerBtns">
+	  <li><a title="" class="btn01" href="#" onclick="jobLink('${issueGID}','${jobid}')"><span class="LinkIcon" id="job_link">Job Link</span></a> </li>
+      <!--li><a title="" href="#" class="btn01"><span class="printiconBtn">Print Risk Assessment Doc</span></a> </li-->	  
+	<li ><a title="" id="ul_mapIT" class="btn01" href="#"  onclick="javascript:zoomToIssue(${issueGid});return false;"><span class="locateMap" id="job_locateOnMap">Locate on Map</span></a></li>	  
+	</ul>
+	
+</script>
+
+<script id="jobInfo_RiskTmpl" type="text/x-jquery-tmpl">	
+		<div id="JobriskDiv" class="attachmentcontainer">
+		<div class="blueboxHeader"></div>
+		
+		<div class="blueboxContent">
+	<div id="JobfileRiskDiv">	</div>
+    <div style="display: block; clear:both; margin: 0 1em; max-height: 330px; padding-bottom: 13px; padding-top: 13px;">    
+		<div id="RiskFileList" class="lab-int" style="clear:both;">
+        	<table width="100%" cellpadding="1" cellspacing="1">        	
+                	<!--start:heading-->
+                    <tr>
+                        <td id="risk_assessment_attachedfile" colspan="2" class="subTitle">
+                            Attached Risk File
+                        </td>
+                   </tr>
+               		<!--end:heading--> 
+            </table>
+			<table width="100%" cellspacing="1" cellpadding="1" border="0">
+				<thead>
+					<tr>						
+						<th class="headercolorup" id="header_risk_file"> File</th>
+						<th class="headercolorup" id="header_risk_action">Action</th>
+					</tr>
+				</thead>
+				
+				<tbody id="JobRiskFileListBody">
+			
+				</tbody>
+				
+			</table>
+		</div>
+    </div>
+	
+	</div>
+	
+	<div class="blueboxFooter"></div>
+	
+	</div>
+</script>
+
+<script id="jobInfo_AttachmentTmpl" type="text/x-jquery-tmpl">	
+		<div id="JobattachmentDiv" class="attachmentcontainer">
+		<div class="blueboxHeader"></div>
+		
+		<div class="blueboxContent">
+	<div id="JobfileAttachmentDiv">	</div>
+    <div class="outertableup">    
+		<div id="AttchFileList" class="lab-int">
+        	<table width="100%" cellpadding="1" cellspacing="1">        	
+                	<!--start:heading-->
+                    <tr>
+                        <td colspan="2" class="subTitle">
+                            <span id="job_attached_files">Attached Files</span>
+                        </td>
+                   </tr>
+               		<!--end:heading--> 
+            </table>
+			<table width="100%" cellspacing="1" cellpadding="1" border="0">
+				<thead>
+					<tr>						
+						<th class="headercolorup"><span id="job_attchmt_file">File</span></th>
+						<th class="headercolorup"><span id="job_attchmt_action">Action</span></th>
+					</tr>
+				</thead>
+				
+				<tbody id="JobAttchFileListBody">
+			
+				</tbody>
+				
+			</table>
+		</div>
+    </div>
+	
+	</div>
+	
+	<div class="blueboxFooter"></div>
+	
+	</div>
+</script>
+
+

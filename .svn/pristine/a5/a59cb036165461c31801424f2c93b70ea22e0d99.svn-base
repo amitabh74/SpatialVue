@@ -1,0 +1,376 @@
+<div class="backtoParent"><a href="#" id="goToparentAlLink" class="btnbacktoParent"><span id="accesslandlink_parent">Go to parent</span></a></div>
+	<div id="accessLandlink_accordion" style="text-align:left;">
+	
+		<h3><a id="Contact" href="#"><span id="accesslandlink_contact">Contact</span></a></h3>
+	
+			
+			<div title="" style="min-height:200px; overflow:hidden;">				
+				<div class="headerBtns">
+					<a class="btn02" href="#" id="addNewContact"><span class="ANCSpan" id="al_add_new_contact">Add New Contact</span></a>
+					<a class="btn02" href="#" id="addToExistingContact" ><span class="AECSpan" id="al_add_exist_contact">Add Existing Contact</span></a>			
+				</div>
+				<table id="accessLand_ContactTable" class="tblStyle" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>		
+							<th>
+								<span id="accesslandlink_contact_id">ContactId</span>
+							</th>					
+							<th>
+								<span id="accesslandlink_contact_name">First Name</span> 
+							</th>
+							<th>
+								<span id="accesslandlink_contact_sname">Surname</span>
+							</th>
+							<th>
+								<span id="accesslandlink_contact_type">ContactType</span>
+							</th>
+							<th>
+								<span id="accesslandlink_contact_position">Position</span>
+							</th>	
+							<th>
+								<span id="accesslandlink_contact_phone">Phone</span>
+							</th>
+							<th>
+								<span id="accesslandlink_contact_email">Email</span>
+							</th>
+							<th>
+								<span id="accesslandlink_contact_action">Action</span>
+							</th>
+						</tr>	
+				 </thead>
+				<tbody id="accessLand_ContactTableBody">
+								
+				</tbody>
+
+			</table>
+				
+				
+			</div>
+		
+		<h3><a id="Issue" href="#"><span id="accesslandlink_issue">Issue</span></a></h3>
+			<div id="accessLandlink_IssueBody" title="" style="min-height:200px; overflow:hidden;">
+				<!--a href="#" onclick="javascript:alert('Historical issues');" style="float:right"> View Historical issues </a-->
+				<div class="headerBtns">
+					<a class="btn02" href="#" id="openIssueALLink">
+					<span class="OISpan" id="accesslandlink_openIssue">Open Issues </span></a>
+					<a class="btn02" href="#" id="histricolIssueALLink">
+					<span class="HISpan" id="accesslandlink_hisIssue">Historical Issues</span></a>				
+				</div>
+				<table id="accessLandlink_IssueTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+
+
+				<thead>
+					<tr>		
+						<th>
+							<span id="accessLandlink_issue_id">IssueID</span>
+						</th>
+						<th>
+							<span id="accessLandlink_issue_rowid">RoWID</span>
+						</th>
+						
+						<th>
+							<span id="accessLandlink_issue_type">Type</span>
+						</th>
+						
+						<th>
+							<span id="accessLandlink_issue_urgency">Urgency</span> 
+						</th>
+						
+						<th>
+							<span id="accessLandlink_issue_status">Status</span> 
+						</th>	
+						<th>
+							<span id="accessLandlink_issue_assignedTo">Assigned to</span>
+						</th>
+						<th>
+							<span id="accessLandlink_issue_resolvedBy">Resolved by</span>
+						</th>
+						<th>
+								<span id="accessLandlink_issue_action">Action</span>
+						</th>					
+						
+					</tr>	
+				</thead>
+				<tbody id="accessLandlink_IssueTableBody">
+							
+				</tbody>
+
+				</table>
+				
+				
+		</div>
+		<h3><a id="Furniture"  href="#"><span id="accesslandlink_furniture">Furniture</span></a></h3>
+	
+			<div id="accessLand_furnitureBody" title="" style="min-height:200px; overflow:hidden;">
+				
+				<table id="accessLandlink_FurnitureTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+	
+				<thead>
+					<tr>		
+						<th>
+							<span id="accessLandlink_furniture_id">FurnitureID</span>
+						</th>									
+						<th>
+								<span id="accessLandlink_furniture_rowid">RoWID</span>
+						</th>
+						<th>
+							<span id="accessLandlink_furniture_type">Type</span>
+						</th>
+						<th>
+							<span id="accessLandlink_furniture_lastInspected">Last Inspected</span> 
+						</th>
+						
+						<th>
+							<span id="accessLandlink_furniture_condition">Condition</span>  
+						</th>
+									
+						
+					</tr>	
+				</thead>
+				<tbody id="accessLandlink_FurnitureTableBody">
+			
+				</tbody>
+
+		</table>
+				
+			</div>
+			<h3><a id="RoW_Path" href="#"><span id="accessLandlink_pathDetail">Path Detail</span> </a></h3>
+	
+			<div id="accessLand_pathlBody" title="" style="min-height:200px; overflow:hidden;">
+				<table id="accessLandlink_PathTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+
+
+					<thead>
+						<tr>								
+							<th>
+								<span id="accessLandlink_path_rowid">RoWID</span>
+							</th>
+							
+							<th>
+								<span id="accessLandlink_path_type">Type</span>
+							</th>
+							
+							<th>
+								<span id="accessLandlink_path_priority">Path Priority</span> 
+							</th>
+							
+							<th>
+								<span id="accessLandlink_path_lastSurvey">Last Survey Date</span> 
+							</th>	
+							<th>
+								<span id="accessLandlink_path_legalStatus">Legal Status</span>
+							</th>
+							
+						</tr>	
+					</thead>
+					<tbody id="accessLandlink_PathTableBody">
+							
+					</tbody>
+
+				</table>
+				
+				
+			</div>
+			
+			<!--h3><a id="His" href="#">Historical Agreements</a></h3>
+	
+			<div id="accessLand_historicalAgrBody" title="HistoricalAgreements" style="min-height:200px; overflow:hidden;">
+			
+			</div-->
+			
+			
+	</div>
+	
+<script id="accessLandlink_IssueTmpl" type="text/x-jquery-tmpl">
+		<tr>
+			<td>
+				<a href="#" onclick="javascript:showIssueDetails('${gid}','${rowId}')">${gid}</a>
+			</td>
+			<td>
+				${rowId}
+			</td>			
+			<td>
+				{{if (issueTypeLkp)}} 
+				${issueTypeLkp.type}
+				{{else}}
+			
+				{{/if}} 
+			</td>
+		
+			<td>
+				{{if (issueUrgencyLkp)}} 
+				${issueUrgencyLkp.urgencyType}
+				{{else}}
+			
+				{{/if}}
+			</td>
+			<td>
+				{{if (actionStatusLkp)}} 
+				${actionStatusLkp.actionStatus}
+				{{else}}
+			
+				{{/if}}
+			</td>
+			<td>
+				${assignedTo}
+			</td>
+			<td>
+				${resolveBy}
+			</td>
+			
+
+			<td class="gridicons">
+				<a class="btnGrid clsjob"  title="Create Jobs" onclick="javascript:SpatialVue.Job('${gid}');" href="#">    
+				<div class="createJobs"><span>Create Jobs</span></div>
+				</a>
+				
+				<a class="btnGrid clsLegal"  title="Create Legal" onclick="javascript:createLegal(${gid},'${rowId}');" href="#">     
+				<div class="createLegal"><span>Create Legal</span></div>
+				</a> 
+			</td>
+			
+			</tr>
+	</script>
+	
+	
+	
+<script id="accessLandlink_FurnitureTmpl" type="text/x-jquery-tmpl">
+	
+		{{each(i,furniture) $item.furnitureList}}
+
+
+	<tr>
+           	<td>
+				<a href="javascript:showFurnitureDetails('${furniture.gid}','${furniture.row_id}');">${furniture.furnitureid}</a>
+            </td>
+			<td>
+				${furniture.row_id}
+				
+			</td>	
+		
+			<td>
+			${furniture.type}	
+			</td>
+			
+			<td>
+				${furniture.last_inspected}	
+			</td>
+			
+			<td>
+				${furniture.condition}
+				
+			</td>	
+		
+			
+        </tr>
+	{{/each}}    
+</script>	
+
+
+	
+<!--script id="accessLandlink_historicalAgrTmpl" type="text/x-jquery-tmpl">
+
+	
+	<table id="accessLandlink_historicalTable"  class="tablesorter" cellpadding="0" cellspacing="0">
+
+
+	<thead>
+		<tr>		
+			<th>
+				ID
+			</th>					
+			<th>
+				Agreement
+			</th>
+			
+		</tr>	
+	</thead>
+	<tbody id="accessLandlink_historicalTableBody">
+			<tr>
+			<td>
+				C05/R10/I56
+			</td>
+			<td>
+				ABC
+			</td>
+			
+			</tr>
+			
+			
+			<tr>
+			<td>
+				C05/R10/I342
+			</td>			
+			<td>
+				XYZ
+			</td>
+			
+			</tr>	
+	</tbody>
+
+	</table>
+
+</script-->
+	
+	
+
+
+<script id="accessLandlink_PathTmpl" type="text/x-jquery-tmpl">
+	
+	{{each(i,attribute) $item.attributeList}}
+
+
+	<tr>
+           	<td>
+				<a href="javascript:showPathDetails('${attribute.gid}','${attribute.row_id}');">${attribute.row_id}</a>
+            </td>
+			
+			<td>
+			${attribute.type}	
+			</td>
+			<td>
+				${attribute._class}	
+			</td>
+			<td>
+			${attribute.lastsurvey}		
+				
+			</td>	
+			<td>
+			${attribute.legalstatus}	
+			</td>
+			
+        </tr>
+	{{/each}}    
+</script>
+
+
+<script id="accessLandlink_ContactTmpl" type="text/x-jquery-tmpl">
+        <tr>
+           	<td align="center">
+				<a href="javascript:showContactDetails('${contactid}');">${contactid}</a>
+            </td>
+			<td>
+				${firstName}
+			</td>
+			
+			<td>
+				${surname}
+			</td>
+			<td>
+				${contactTypeLkp.contactType}
+			</td>
+			<td>
+				${position}
+				
+			</td>	
+			<td>
+				${_primary_phone_}
+			</td>
+			<td>
+				${email}
+			</td>	
+			<td align="center">
+				<a href="javascript:deleteAccessLandContact('${contactid}');"><img src="resources/images/studio/delete.png" title="Delete" /></a>
+           </td>
+        </tr>
+</script>

@@ -1,0 +1,152 @@
+<div class="backtoParent"><a href="#" id="goToparentjobLink" class="btnbacktoParent"><span>Go to parent</span></a></div>
+	<div id="joblink_accordion" style="text-align:left;">
+	
+			<h3><a id="jobContact" href="#">Contact</a></h3>
+			<div title="" style="min-height:200px; overflow:hidden;">				
+				<div class="headerBtns">
+					<a class="btn02"  href="#" id="addNewJobContact" ><span class="ANCSpan">Add New Contact</span></a>	
+					<a class="btn02" href="#" id="addToExistingJobContact" ><span class="AECSpan">Add Existing Contact</span></a>			
+				</div>
+				<table id="job_ContactTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>		
+							
+							<th>
+								ContactId	
+							</th>					
+							
+							
+							<th>
+								First Name  
+							</th>
+							
+							<th>
+								Surname
+							</th>
+							<th>
+								ContactType
+							</th>
+							<th>
+								Position
+							</th>	
+							<th>
+								Address 
+							</th>
+							<th>
+								Email
+							</th>
+							<th>&nbsp;</th>
+						</tr>	
+				 </thead>
+				<tbody id="job_ContactTableBody">
+								
+				</tbody>
+
+			</table>
+				
+				
+			</div>
+			<h3><a id="JobIssue" href="#">Issue</a></h3>
+			<div id="joblink_IssueBody" title="" style="min-height:200px; overflow:hidden;">
+				<table id="joblink_IssueTable"  class="tblStyle" cellpadding="0" cellspacing="0">
+
+
+				<thead>
+					<tr>		
+										
+						<th>
+							RoWID
+						</th>
+						
+						<th>
+							Type
+						</th>
+						
+						<th>
+							Urgency 
+						</th>
+						
+						<th>
+							Status 
+						</th>	
+						<th>
+							Assigned to
+						</th>
+						<th>
+							Resolved by
+						</th>
+					</tr>	
+				</thead>
+				<tbody id="joblink_IssueTableBody">
+							
+				</tbody>
+
+				</table>
+				
+				
+		</div>
+
+	</div>
+	
+
+
+<script id="joblink_ContactTmpl" type="text/x-jquery-tmpl">
+        <tr>
+           	<td align="center">
+				<a href="javascript:showContactDetails('${contactid}');">${contactid}</a>
+            </td>
+			<td>
+				${firstName}
+			</td>
+			
+			<td>
+				${surname}
+			</td>
+			<td>
+				${contactTypeLkp.contactType}
+			</td>
+			<td>
+				${position}
+				
+			</td>	
+			<td>
+				${address}
+			</td>
+			<td>
+				${email}
+			</td>	
+			<td align="center">
+				<a href="javascript:deleteJobContact('${contactid}');"><img src="resources/images/studio/delete.png" title="Delete" /></a>
+           </td>
+        </tr>
+</script>
+
+<script id="joblink_IssueTmpl" type="text/x-jquery-tmpl">
+		{{each(i,issue) $item.issueList}}
+			<tr>
+			<td>
+				<a href="#" onclick="javascript:showIssueDetails('${issue.gid}','${issue.rowId}');">${issue.rowId}</a>
+			</td>			
+			<td>
+				${issue.issueTypeLkp.type}
+			</td>
+		
+			<td>
+				${issue.issueUrgencyLkp.urgencyType}
+			</td>
+			<td>
+				${issue.actionStatusLkp.actionStatus}
+			</td>
+			<td>
+				${issue.assignedTo}
+			</td>
+			<td>
+				${issue.resolveBy}
+			</td>
+			</tr>
+		{{/each}}
+			
+
+	
+
+</script>

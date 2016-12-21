@@ -1,0 +1,672 @@
+
+<div id="LayerFormDiv" title="Layers and Groups" style="visibility: hidden">
+
+<form class="cmxform" id="mapFrm" action="" onsubmit="return false;">
+<input type="hidden" name="Name" id="maptip_Name" value=""/>
+<input type="hidden" name="QueryExpression" id="maptip_QueryExpression" value=""  />
+<input type="hidden" name="Layer" id="maptip_Layer" value="" />
+<input type="hidden" name="Field" id="maptip_Field" value=""  />
+
+</form>
+
+
+<form class="cmxform" id="layerfrm" action="" onsubmit="return false;">
+<div>
+<input id="btnNew" class="submit" type="button" value="New" style="display: none;" onclick="CreateEditLayerRecord(null, null, null, 'layer');"/>
+<input id="btnSave" class="submit" type="submit" value="Save" style="display: none;" />
+</div>
+
+<div id ="searchDiv">
+
+<input type="text" id="txtSearch" value="" name="txtSearch" style="width:140px;"/>
+<img src="resources/images/search_button.png" />
+</div>
+ 
+<table id="tableGrid" class="tablesorter">
+    <thead>
+        <tr>
+            <th>
+                Alias
+            </th>
+			<th>
+                Name
+            </th>
+            			
+			<th>
+                IsBaseLayer
+            </th>
+            <th>
+               Layer Type
+            </th>
+			<th>
+                Unit
+            </th>
+            <th>
+                Projection
+            </th>	
+			
+        </tr>
+    </thead>
+    <tbody id="tableGridBody">
+        <script id="LayerTemplate" type="text/x-jquery-tmpl">
+        <tr>                     
+            <td>
+                ${alias}
+            </td>
+			<td>
+                ${name}
+            </td> 
+			<td>
+                ${isbaselayer}
+            </td>           
+            <td>
+                ${layertype.name}
+            </td>
+			<td>
+                ${unitBean.name}
+            </td>           
+            <td>
+                ${projectionBean.code}
+            </td>		
+			
+			<td align="center">
+				<a href="javascript:CreateEditLayerRecord('${alias}', '${layertype.name}', '${url}', 'layer');"><img src="resources/images/edit.png" /></a>
+            </td>
+           <td align="center">
+				<a href="javascript:deleteRecord('layer/delete/${alias}', '${alias}', 'layer');"><img src="resources/images/delete.png" /></a>
+           </td>
+           <!--<td align="center">
+				<a href="javascript:openLayerMapTab('${alias}');"><img src="../Content/images/admin/map_preview.png" /></a>
+           </td>-->
+          
+        </tr>		
+        </script>
+    </tbody>
+             
+    </table>
+	
+   <!--<div id="pagerDiv" >
+                    <div id="pager" class="pager">	
+		             <img src="../Scripts/tablesorter/addons/pager/icons/first.png" class="first"/>
+		            <img src="../Scripts/tablesorter/addons/pager/icons/prev.png" class="prev"/>
+		            <input type="text" class="pagedisplay"/>
+		            <img src="../Scripts/tablesorter/addons/pager/icons/next.png" class="next"/>
+		            <img src="../Scripts/tablesorter/addons/pager/icons/last.png" class="last"/>
+		            <input type="hidden" class="pagesize" value="10" />        
+                    </div>	
+     </div>-->
+
+
+ <table id="layerPropertyGrid">
+     <tbody>
+   
+    <script id="Script1" type="text/x-jquery-tmpl"> 	         
+    
+	<tr class = "typeTR">
+	<td>Type</td>
+	 
+	<td colspan="3"> 
+	  {{if ($item.action == 'Create')}}  
+	    <select id="layertype" name="layertype" style="width:136px;" onChange="enableLayerURL(this);">
+			<option SELECTED value="">Please select</option>		
+            {{each(i,_layerType) $item.layerTypesList}}              						
+				 <option  value="${_layerType.name}">${_layerType.name}</option>											
+            {{/each}}           
+		</select>		
+		 {{else}}
+                <input type="textbox" name="layertype.name" id="layertype.name" value="${layertype.name}"/>
+         {{/if}}       
+		 </td>
+
+		</tr>
+		<tr class = "urlTR">
+		<td>URL</td>
+		<td colspan="3">
+		
+        <input type="textbox" name="url" id="url" style="width:460px;" value='' style="width:300px;" />
+        <input id="btnConnect" class="submit" type="button" value="connect" 
+		onclick="javascript:connect();" disabled/></td>
+					
+        </tr>  	
+
+   <tr class="commonTR">
+<td>Layer Name</td>
+ <td colspan="3"> 
+ {{if ($item.action == 'Create')}} 
+     <select id="name" name = "name" style="width:460px;" onChange="javascript:selectWFSLayerName(this.value);" >
+     <option value="">Please Select</option>	
+     </select>
+ {{else ($item.currentLayerType == 'Bing')}}
+             <select id="name" name = "name" style="width:136px;">                
+            </select>
+ {{else ($item.currentLayerType == 'Google')}}
+             <select id="name" name = "name" style="width:136px;" >                
+            </select>
+ {{else}}
+    <input type="textbox" name="name" id="name" value="${name}"/>
+ {{/if}}  
+</td>  
+ 
+ </tr> 
+
+ <tr class="wmsTR">
+<td>WFS Name</td>
+ <td> 
+ {{if ($item.action == 'Create')}} 
+ <select id="wfsname" name = "wfsname" style="width:210px;"  onChange="javascript:getLayerInfo($('#name :selected').text(),this.value,$('#layertype :selected').text(),$('#url').val());">
+ <option value="">Please Select</option>	
+ </select>
+ {{else}}
+  <input type="textbox" name="wfsname" id="wfsname" value="${wfsname}"/>
+ {{/if}}  
+</td>  
+ 
+ <td>Display Name</td>
+    <td>                      
+       <input type="textbox" name="displayname" id="displayname" value="${displayname}"/>                  
+    </td> 
+
+ </tr>
+ 
+ <tr class="commonTR">
+<td>Alias</td>
+ <td>                      
+                <input type="textbox" name="alias" id="alias" value="${alias}"/>
+                {{if ($item.action == 'Create')}} 
+                <img src="resources/images/search_button.png"  onclick="javascript:checkLayerExistence($('#alias').val());"/>
+             
+                {{/if}}    
+    </td>    
+
+  <td class = "wmsTD">Projection</td>
+ <td class = "wmsTD">
+    {{if (projectionBean)}}		    
+        <input type="textbox" name="projectionBean.code" id="projectionBean.code" value="${projectionBean.code}"/> 
+    {{else}}
+        <input type="textbox" name="projectionBean" id="projectionBean" value=""/> 
+    {{/if}}
+ </td>
+ </tr>
+
+<tr class="wmsTR">
+ 
+ <td>Format</td>
+ <td>
+ <!--<select id="outputformat"  name = "Format" style="width:136px;">                       
+  <option value="">Please Select</option>
+ </select>-->
+
+ {{if ($item.action == 'Create')}} 
+	<select name="outputformat"  id="outputformat" style="width:136px;">
+             <option value="">Please Select</option>
+        </select>
+ {{else}}
+	<select name="outputformat.name"  id="outputformat.name" style="width:136px;">
+            {{each(i,_format) $item.formatsList}}
+                    {{if (outputformat.name)}}
+                        {{if (outputformat.name == _format.name)}}
+                            <option SELECTED value="${_format.name}">${_format.name}</option>
+                        {{else}}
+                             <option  value="${_format.name}">${_format.name}</option>
+                        {{/if}}
+                    {{else}}
+                         <option  value="${_format.name}">${_format.name}</option>
+					{{/if}}	
+            {{/each}}           
+        </select>
+	 {{/if}}
+ </td>
+ <td>MaxExtent</td>
+ <td><input type="textbox" name="maxextent" id="maxextent" value="${maxextent}"/></td>
+  
+
+ </tr>
+
+ <tr class="wmsTR"> 
+ <td>Queryable</td>
+ <td>
+	<select name="queryable" id="queryable" style="width:136px;">
+	
+    
+    {{if (queryable)}}		
+                        
+                        <option value="false">No</option>
+                        <option SELECTED value="true">Yes</option>
+						
+		{{else}}				
+                        <option SELECTED value="false">No</option>
+                         <option  value="true">Yes</option>
+						
+		
+		{{/if}}			
+      				
+	</select> 
+ </td>
+ <td>Editable</td>
+ <td>
+	<select name="editable" style="width:136px;">
+	
+    {{if (editable)}}		
+                        
+                        <option value="false">No</option>
+                        <option SELECTED value="true">Yes</option>
+						
+		{{else}}				
+                        <option SELECTED value="false">No</option>
+                         <option  value="true">Yes</option>
+						
+		
+		{{/if}}	
+	</select> 
+ </td>
+ </tr>
+
+
+ <tr class="wmsTR">
+ <td>Unit</td>
+ <td>
+ <select name="unitBean.name"  id="unitBean.name" style="width:136px;">
+            {{each(i,_unit) $item.unitsList}}
+                    {{if (unitBean)}}
+                        {{if (unitBean.name == _unit.name)}}
+                            <option SELECTED value="${_unit.name}">${_unit.name}</option>
+                        {{else}}
+                             <option  value="${_unit.name}">${_unit.name}</option>
+                        {{/if}}
+                    {{else}}
+                         <option  value="${_unit.name}">${_unit.name}</option>
+					{{/if}}	
+            {{/each}}           
+        </select>
+<td>MinExtent</td>
+ <td><input type="textbox" name="minextent" id="minextent" value="${minextent}"/></td>
+
+</tr>
+
+
+
+<tr class="wmsTR">
+    <!--td>Gutter</td>
+    <td><input type="textbox" name="Gutter" id="Gutter" value="${Gutter}"/></td-->    
+
+     <td>Style</td>
+     <td>
+        <select name="Style" id = "layerstyle" style="width:136px;">               
+        </select>
+     </td>
+     <td>Exportable</td>
+    <td>
+	    <select name="exportable" id="exportable" style="width:136px;">
+	
+        {{if (exportable)}}		
+                        
+                            <option value="false">No</option>
+                            <option SELECTED value="true">Yes</option>
+						
+		    {{else}}				
+                            <option SELECTED value="false">No</option>
+                             <option  value="true">Yes</option>
+						
+		
+		    {{/if}}	
+	    </select> 
+     </td>
+
+
+     
+
+<tr class="wmsTR">
+ <td>MinScale</td>
+ <td><input type="textbox" name="minscale" id="minscale" value="${minscale}"/></td>
+
+ <td>MaxScale</td>
+ <td><input type="textbox" name="maxscale" id="maxscale" value="${maxscale}"/></td>
+</tr>
+
+<input type="hidden" name="MinResolution" id="MinResolution" value="0"/>
+<input type="hidden" name="MaxResolution" id="MaxResolution" value="0"/>
+<input type="hidden" name="DisplayInLayerSwitcher" id="DisplayInLayerSwitcher" value="false"/>
+<input type="hidden" name="WrapDateLine" id="WrapDateLine" value="false"/>
+<input type="hidden" name="Filter" id="Filter" value="0"/>
+<input type="hidden" name="NumZoomLevels" id="NumZoomLevels" value="0"/>
+
+
+<!--tr class="wmsTR">
+ <td>MinResolution</td>
+ <td><input type="textbox" name="MinResolution" id="MinResolution" value="${minresolution}"/></td>
+ <td>MaxResolution</td>
+ <td><input type="textbox" name="WrapDateLine" id="WrapDateLine" value="${WrapDateLine}"/></td>
+ 
+</tr>
+ 
+<tr class="wmsTR"> 
+ <td>DisplayInLayerSwitcher</td>
+ <td>
+	<select name="DisplayInLayerSwitcher"  style="width:136px;">
+	{{if (DisplayInLayerSwitcher)}}
+		        
+            <option value="false">No</option>
+            <option SELECTED value="true">Yes</option>
+						    
+     {{else}}
+                                
+            <option SELECTED value="false">No</option> 
+            <option  value="true">Yes</option>
+						                      
+     {{/if}}
+    
+    					
+	</select> 
+ </td>
+
+
+ <td>WrapDateLine</td>
+ <td>
+  <select name="WrapDateLine"  style="width:136px;">
+	{{if (WrapDateLine)}}
+	
+                        <option value="false">No</option>
+                        <option SELECTED value="true">Yes</option>
+						
+    {{else}}
+                         <option SELECTED value="false">No</option>
+                         <option  value="true">Yes</option>
+						
+                    
+     {{/if}}				
+	</select>
+ </td>
+ </tr>
+ 
+  <tr class="wmsTR">
+ 
+ <td>Filter</td>
+ <td><input type="textbox" name="filter" id="filter" value="${filter}"/></td>
+
+<td>NumZoomLevels</td>
+ <td><input type="textbox" name="NumZoomLevels" id="NumZoomLevels" value="${NumZoomLevels}"/></td>
+ 
+ </tr>-->
+ 
+ <tr class="wmsTR">
+ <td>TileSize</td>
+ <td>
+ {{if ($item.action == 'Create')}}
+    <input type="textbox" name="tilesize" id="tilesize" value="256"/>
+ {{else}}
+    <input type="textbox" name="tilesize" id="tilesize" value="${tilesize}"/>
+ {{/if}}
+ </td>
+ 
+ <td>Buffer</td>
+ <td>
+ {{if ($item.action == 'Create')}}
+    <input type="textbox" name="buffer" id="buffer" value="0"/>
+ {{else}}
+    <input type="textbox" name="buffer" id="buffer" value="${buffer}"/>
+ {{/if}}
+ </td>
+ </tr>
+ 
+ <tr class="wmsTR">
+ <td>SphericalMercator</td>
+ <td>
+ <select name="sphericalmercator" id="sphericalmercator"  style="width:136px;">
+	{{if (sphericalmercator)}}
+
+                        <option value="false">No</option>
+                        <option SELECTED value="true">Yes</option>
+						
+    {{else}}
+                         <option SELECTED value="false">No</option>
+                         <option  value="true">Yes</option>
+                    
+     {{/if}}				
+	</select>
+ </td>
+ <td>DisplayOutsideMaxExtent</td>
+ <td>
+	<select name="displayoutsidemaxextent" id="displayoutsidemaxextent" style="width:136px;">
+	
+    	
+    {{if (displayoutsidemaxextent)}}		
+                        
+                        <option value="false">No</option>
+                        <option SELECTED value="true">Yes</option>
+						
+	{{else}}				
+                        <option SELECTED value="false">No</option>
+                         <option  value="true">Yes</option>	
+		
+	{{/if}}	
+    				
+	</select>
+ </td>
+
+
+ </tr>
+ 
+ <tr class="wmsTR">
+  <td>TransitionEffect</td>
+  <td>
+  <!--input type="textbox" name="TransitionEffect" id="TransitionEffect" value="${TransitionEffect}"/-->
+  <select name="transitioneffect" id="transitioneffect" style="width:136px;">  	                    
+            {{if (transitioneffect)}}  
+                {{if (transitioneffect=="NULL")}}                                       
+                        <option value="NULL" SELECTED>null</option>
+                        <option value="Resize" >Resize</option>	
+                    
+                    {{else}}
+                        <option value="NULL" >null</option>
+                        <option value="Resize" SELECTED>Resize</option>	
+                    
+                {{/if}}
+             
+            {{else}}
+                <option value="NULL">null</option>
+                <option value="Resize">Resize</option>	
+                    
+           {{/if}}
+        
+                
+
+	</select>
+  </td>
+  
+  <td>ApiKey</td>
+  <td><input type="textbox" name="apikey" id="apikey" value="${apikey}"/></td>
+ </tr>
+
+<tr class="wmsTR">
+ <td>IsBaseLayer</td>
+ <td>
+	<select name="isbaselayer" id="isbaselayer" style="width:136px;">
+		{{if (isbaselayer)}}		
+                        
+                        <option value="false">No</option>
+                        <option SELECTED value="true">Yes</option>
+						
+		{{else}}				
+                        <option SELECTED value="false">No</option>
+                         <option  value="true">Yes</option>
+						
+		
+		{{/if}}
+		
+    			
+	</select>
+ </td>
+ 
+ <td>GeomType</td>
+ <td> 
+ 
+ <select id="geomtype" name = "geomtype" style="width:136px;">
+ <option value="">Please Select</option>	
+ <option value="POINT">POINT</option>	
+ <option value="LINESTRING">LINESTRING</option>	
+ <option value="POLYGON">POLYGON</option>
+ <option value="RASTER">RASTER</option>	
+ </select>
+   
+</td>
+ </tr>
+
+ <tr class="wmsTR">
+    <td>Filter</td>
+    <td colspan="3"><textarea spellcheck="false" name="filter" id="filter" value="${filter}" rows="1" cols="5"></textarea></td>
+</tr>
+
+ <tr class="wfsTR">
+ <td>Version</td>
+  <td><input type="textbox" name="version" id="version" value="${version}"/></td>
+  <td>Geometry Name</td>
+  <td><input type="textbox" name="geometryname" id="geometryname" value="${geometryname}"/></td>
+ </tr>
+
+  <tr class="wfsTR">
+  <td>Feature Name Space</td>
+  <td colspan="3"><input type="textbox" name="featurens" id="featurens" value="${featurens}" style="width:200px;"/></td>
+ </tr>
+
+ </script>
+    </tbody>
+</table>
+
+<div id="fieldGrid" style="display: none;">
+<table id="layerFieldGrid" class="tblGrid">	
+	<thead>
+        <tr>
+            <th>Field Name </th>
+			<th>Alias</th>
+            <th>Displayable</th>
+            <th>Key</th>
+            		
+        </tr>      
+    </thead>
+	</table>
+</div>
+</form>
+
+
+<script type="text/javascript">
+    //jQuery.validator.addMethod("noSpace", function (value, element) {
+    //    return value.indexOf(" ") < 0 && value != "";
+    //}, "No space please and don't leave it empty");
+
+    $("#btnSave").live("click", function () {
+        //var layerType = $('#layertype.name').val().toUpperCase();
+        if (currentLayerType == 'BING' || currentLayerType == 'GOOGLE') {
+            $("#layerfrm").validate({
+                rules: {
+                    layertype: "required",
+                    name: "required",
+                    /*alias: {
+                        required: true,
+                        noSpace: true
+                    }*/
+                },
+                messages: {
+                    layertype: "Please Enter  Type",
+                    name: "Please Select Layer Name",
+                    /*alias: {
+                        required: "Please enter Alias",
+                        noSpace: "No white space please"
+                    }*/
+                }
+            });
+        }
+        else {
+            $("#layerfrm").validate({
+                rules: {
+                    url: "required",
+                    layertype: "required",
+                    name: "required",
+                    displayname: "required",
+                    /*Alias: {
+                        required: true,
+                        noSpace: true
+                    },*/
+                    projectionBean: "required",
+                    outputformat: "required",
+                    maxextent: "required",
+                    Gutter: {
+                        // required: true,
+                        digits: true
+                    },
+                    minscale: {
+                         required: true,
+                        digits: true
+                    },
+                    maxscale: {
+                         required: true,
+                        digits: true
+                    },
+                    buffer: {
+                        // required: true,
+                        digits: true
+                    },
+                    tilesize: {
+                        required: true,
+                        digits: true
+                    }
+                },
+                messages: {
+                    url: "Please enter  URL",
+                    layertype: "Please enter  Type",
+                    name: "Please Select Layer Name",
+                    displayname: "Please enter  Display name",
+                    /*alias: {
+                        required: "Please enter Alias",
+
+                        noSpace: "No white space please"
+                    },*/
+                    projectionBean: "Please enter  Projection",
+                    outputformat: "Please Select  Format",
+                    MaxExtent: "Please enter  maxextent",
+                    Gutter: {
+                        // required: "Please Enter Gutter",
+                        digits: "Please Enter a valid number.  "
+                    },
+                    minscale: {
+                         required: "Please Enter MinScale",
+                        digits: "Please Enter a valid number.  "
+                    },
+                    maxscale: {
+                         required: "Please Enter MaxScale",
+                        digits: "Please Enter a valid number.  "
+                    },
+                    tilesize: {
+                         required: "Please Enter TileSize",
+                        digits: "Please Enter a valid number.  "
+                    },
+                    buffer: {
+                        //required: "Please Enter Buffer",
+                        number: "Please Enter a valid number.  "
+                    }
+                }
+
+            });
+        }
+        if ($("#layerfrm").valid()) {
+           /* $("#maptip_Name").val($("#alias").val());
+            $("#maptip_QueryExpression").val('maptip_' + $("#alias").val());
+            $("#maptip_Layer").val($("#alias").val());
+            $("#maptip_Field").val($('input[name=Key]:checked').val());
+            if (layerType == 'BING' || layerType == 'GOOGLE') {
+                $('#maxextent').val('-1, -1, 1, 1');
+                $('#projectionBean').val('EPSG:4326');
+                $(new Option('image/png', 'image/png')).appendTo('#outputformat');
+                $("#outputformat option:contains('image/png')").attr("selected", true);
+                $('#url').val('Not Required.');
+                $("#maptip_Field").val('1');
+                $('#displayname').val($('#layertype').val() + " " + $('#name').val())
+            }
+            saveRecord($("#maptip_Name").val());*/
+        	saveRecord();
+        }
+        
+    });
+		
+    
+</script>
+</div>

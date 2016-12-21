@@ -1,0 +1,386 @@
+<div id="issuediv" class="dialog-v">
+	<div id="issueTmpl" class="lab-int">
+		<div id="span-close" class="span-c" title="Close"
+			onclick="javascript:closeDialog('issuediv');"></div>
+		<div id="span-help" class="span-h" title="" onclick="javascript:openHelpWindow('issue_help');"></div>
+		<div class="lineBreak05p"></div>
+		<!--div class="popupcaption"><span id="issue-complaintid"></span></div-->
+		<b><span id="issue-complaintid"></span>
+		</b>
+		<!-- div id="workcommitment_issue_accordion" style="text-align:left;"><h3><a href="#">Surveys</a></h3-->
+		
+		<div id="workcommitment_IssueDetailsBody" title=""></div>
+
+		<div id="issue_DetailsBody"></div>
+
+		<div id="issue_AttachmentBody"></div>
+
+
+
+	</div>
+
+</div>
+
+<form id="printIssueForm" method="post" action="print/issue" target="_blank">
+	
+	<input type="hidden" id="hid-title" name="hid-title" value="">
+	<input type="hidden" id="hid-notes" name="hid-notes" value="">
+	<input type="hidden" id="hid-layerUrl" name="hid-layerUrl" value="">
+	<input type="hidden" id="hid-legendUrl" name="hid-legendUrl" value="">
+	<input type="hidden" id="hid-bbox" name="hid-bbox" value="">
+	<input type="hidden" id="wmc" name="wmc" value="">
+	<input type="hidden" id="mapScale" name="mapScale" value="">
+	<input type="hidden" id="templateType" name="templateType" value="printIssue-tmpl-landscape">
+	<input type="hidden" id="access_land_sld_file" name="access_land_sld_file" value="">
+	<input type="hidden" id="cosmetic_sld_file" name="cosmetic_sld_file" value="">
+	
+	<input type="hidden" id="hid-issueId" name="hid-issueId" value="">
+	<input type="hidden" id="hid-rowId" name="hid-rowId" value="">
+	<input type="hidden" id="hid-furnitureId" name="hid-furnitureId" value="">	
+	<input type="hidden" id="hid-issueType_en" name="hid-issueType_en" value="">
+	<input type="hidden" id="hid-issueType_cy" name="hid-issueType_cy" value="">
+	<input type="hidden" id="hid-reportedOn" name="hid-reportedOn" value="">
+	<input type="hidden" id="hid-warden" name="hid-warden" value="">
+	<input type="hidden" id="hid-problem" name="hid-problem" value="">	
+	<input type="hidden" id="hid-gridRef" name="hid-gridRef" value="">
+	<input type="hidden" id="hid-attachmentUrl" name="hid-attachmentUrl" value="">
+	
+	
+	
+</form>
+
+<script id="issue_DetailsTmpl" type="text/x-jquery-tmpl">
+<form id="issueForm" class="styleForm formPattern">			
+<table id="issueTable" class="formTable">							
+				<input type="hidden"  class="int" id="hid-accesslandGid" name="hid-accessandGid" value="${gid}"/>
+				<input type="hidden"  class="int" id="row_id" name="row_id" value="${rowId}"/>	
+				<input type="hidden"  class="int" id="furnitureid" name="furnitureid" value="${furnitureid}"/>	
+				<input type="hidden"  class="int" id="surfaceid" name="surfaceid" value="${surfaceid}"/>
+				
+				<tr id="issueIdTR">		
+				<td> <label id="issueid"> Issue ID:</label> 
+				<input type="text"  class="int" id="_gid" name="_gid" value="${gid}"/> </td>
+				</tr>
+
+				<tr>		
+				<td> <label id="issue_rowid"> RoW ID:</label> 
+				<input type="text"  class="int" id="_row_id" name="_row_id" value="${rowId}"/> </td>
+				</tr>
+				<tr id="furnitureIDTR">
+				<td> <label id="issue_furnitureid"> Furniture ID:</label> 
+				<input type="text"  class="int" id="_furnitureid" name="_furnitureid" value="${furnitureid}"/> </td>
+				</tr>
+				<tr id="surfaceIDTR">
+				<td> <label id="issue_surfaceid"> Surface ID:</label> 
+				<input type="text"  class="int" id="_surfaceid" name="_surfaceid" value="${surfaceid}"/> </td>
+				</tr>					
+				
+				<tr>
+				<td> <label id="issue_type"> Issue Type:</label> 		
+				<select id="issueType" name="issueType" class="int">
+							
+					</select>
+				</tr>
+				
+				<tr>		
+				<td> <label id="issue_reported"> Reported on :</label> 
+				<input type="text"  class="int" id="reportedOn" name="reportedOn" value="${reportedOn}"/> </td>
+				</tr>
+				
+				<tr>		
+				<td> <label id="issue_why"> Why:</label> 
+				
+				<select id="reason" name="reason" class="int">
+							
+				</select>
+				</tr>
+				
+				<tr>		
+				<td> <label id="issue_assigned">Assigned to :</label> 
+				
+				<input style="display:none" type="text"  class="int" id="txtAssignedTo" name="txtAssignedTo" value=""  disabled/>
+				<select id="assignedTo" name="assignedTo" class="int">
+							
+				</select>				
+				</tr>
+					
+				<tr>		
+				<td> <label id="issue_problem">Problem: </label> 
+				<textarea id="problem" class="qb_querybox" rows="3" name="problem" spellcheck="false"> ${problem}</textarea></td>
+				</tr>
+				
+				<tr>		
+				<td> <label id="issue_urgency">Urgency :</label> 				
+				<select id="urgency" name="urgency" class="int">
+							
+				</select>
+				</td>
+				</tr>
+				<tr>		
+				<td> <label id="issue_responsibility">Responsibility For: </label> 
+				<select id="responsibleDept" name="responsibleDept" class="int">
+							
+					</select>
+				</td>
+				</tr>
+			
+				
+				<tr>
+				<td> <label id="issue_inspectby">Inspect By: </label> 
+				<input type="text"  class="int" id="inspectBy" name="inspectBy" value="${inspectBy}"/> 
+				</td>
+				</tr>
+				
+				<tr>
+				<td> <label id="issue_inspectedon">Inspected on: </label> 
+				<input type="text"  class="int" id="inspectedOn" name="inspectedOn" value="${inspectedOn}"/> 
+				</td>
+				</tr>
+				 
+				<tr>		
+				<td> <label id="issue_action_status">Action Status: </label> 
+				<select id="actionStatus" name="actionStatus" class="int">
+										
+							
+					</select>
+				</td>
+				</tr>
+				<tr>
+				<td> <label id="issue_resolve_date">Resolve by Date: </label> 
+				<input type="text"  class="int" id="resolveDate" name="resolveDate" value="${resolveBy}"/> 
+				</td>
+				</tr>
+				<tr>
+				<td> <label id="issue_signoff">Sign-off: </label> 
+				<input type="text"  class="int" id="signOff" name="signOff" value="${signoff}"/> 
+				</td>
+				</tr>
+				<tr>	
+					<td colspan="2">
+						<label for="not" id="issue_notes">Notes  : </label>
+						
+						<textarea id="notes" class="qb_querybox" rows="2" name="notes" spellcheck="false"> ${notes}</textarea>				
+						
+				</td>
+				</tr>
+				
+				
+				<tr id="issueActionTR">
+					<td>						
+					<label id="action">Action:</label> 
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					<span id="actionType">${ActionType}</span>							
+					</td>
+				</tr>
+											
+				
+
+
+						
+	</table>
+</form>
+
+
+	<div class="buttons btn-holder-float">
+								
+				<span class="lesserbtn" id="btnUpdateIssue"><input type="button" id="issue_edit" value="Edit"/></span>
+				<span class="lesserbtn" id="btnCancelIssue"><input type="button" id="issue_cancel" value="Cancel"/></span>    
+				<span class="lesserbtn" id="btnSaveIssue"><input type="button" id="issue_save" value="Save" onclick="saveIssue();"/></span>  
+	</div>
+
+	<div class="nxtPrevBTNHolder">
+				<div class="prvbtn">				
+				<a href="#" onclick="getPreviousIssue(${gid},'${rowid}')">
+				<span>Previous</span></a>			
+
+				</div>  
+				<div class="nxtbtn">				
+				
+				<a href="#" onclick="getNextIssue(${gid},'${rowid}')">
+				<span>Next</span></a>		
+				</div>  				
+	</div>					
+			
+			<ul class="footerBtns">
+			<li>
+			<a title="" class="btn01" href="#" onclick="javascript:issueLink('${rowId}',${gid});">
+			<span class="LinkIcon" id="issue_link">Issue Link</span></a>
+			</li>
+			<li>
+			<a title="" class="btn01" href="#" onclick="javascript:zoomToIssue(${gid});return false;">
+					<span class="mapIT" id="issue_locate">Locate on Map</span></a>
+			</li>
+			<li>
+			<a title="" class="btn01" href="#" onclick="javascript:gotoParentLayer('${gid}','${rowId}','${furnitureid}','${surfaceid}');return false;">
+					<span class="ParentIssue" id="parent_issue">Go to Parent </span></a>
+			</li>			
+			<li>
+			<a title="" class="btn01" href="#" onclick="javascript:SpatialVue.Job('${gid}');return false;">
+					<span class="createJobBtn" id="create_job">Create Job</span></a>
+			</li>	
+			<li>
+			<a title="" class="btn01" href="#" onclick="javascript:createLegal('${gid}','${rowId}');return false;">
+					<span class="createLegalBtn" id="create_legal">Create Legal</span></a>
+			</li>	
+			<li>
+			<a id="btnPrintIssue" title="" class="btn01" href="#" onclick="javascript:$('#addPrintIssueDiv').toggle()"; >
+					<span class="printiconBtn" id="print_issue">Print Issue</span></a>
+			</li>
+			</ul>
+		<div id="addPrintIssueDiv" class="formTable styleForm formPattern">
+			<label id="im">Title: </label>
+			<input class="int" type="text" name="issue_mapTitle" id="issue_mapTitle" value=""/>
+			
+			<label id="nt">Notes: </label>    
+			<textarea spellcheck="false" name="issue_mapNotes" rows="2" class="qb_querybox" id="issue_mapNotes" > </textarea>
+				<div class="buttons btn-holder-float">
+              <span id="btnUpdateIssue" class="lesserbtn">
+				<input type="button" value="Print Issue" id="printIssue" onclick="javascript:printIssue();" ></span>
+			</div>
+
+		</div>
+</script>
+
+<script id="issue_AttachmentTmpl" type="text/x-jquery-tmpl">	
+		
+		<div id="attachmentDiv" class="attachmentcontainer">
+		<div class="blueboxHeader"></div>
+		
+		<div class="blueboxContent">
+		
+	<div id="fileAttachmentDiv">	</div>
+
+	
+    <div class="outertableup">    
+		<div id="AttchFileList" class="lab-int">
+        	<table width="100%" cellpadding="1" cellspacing="1">        	
+                	<!--start:heading-->
+                    <tr>
+                        <td colspan="2" class="subTitle">
+                            <span id="issue_attached_file">Attached Files</span>
+                        </td>
+                   </tr>
+               		<!--end:heading--> 
+            </table>
+			<table width="100%" cellspacing="1" cellpadding="1" border="0">
+				<thead>
+					<tr>						
+						<th class="headercolorup"><span id="issue_file"> File</span></th>
+						<th class="headercolorup"><span id="issue_action">Action</span></th>
+					</tr>
+				</thead>
+				
+				<tbody id="AttchFileListBody">
+			
+				</tbody>
+				
+			</table>
+		</div>
+    </div>
+	
+	</div>
+	
+	<div class="blueboxFooter"></div>
+	
+	</div>
+			
+			
+							
+			
+		
+
+</script>
+
+
+
+
+
+<script id="workcommitment_IssueReassignTmpl" type="text/x-jquery-tmpl">
+		
+		<form id="reassignIssueForm" class="styleForm formPattern">
+			<table id="issueFormTable" class="formTable">				
+				
+				<tr>				
+				<td><label id="reassign-issueId"></label>
+				<select id="issueReAssignTo" name="issueReAssignTo" class="int">
+							<option selected="selected"  value="">Please Select</option>                    
+					</select>
+				
+				<input type="hidden" name="gId" id= "gId" />
+				</td>
+				</tr>
+				<tr>
+					<td>
+					<label for="stat">Resolve By Date: </label>
+					<input type="text"  class="int" id="resolvebydate" name="resolvebydate" />	
+					</td>
+				</tr>
+			</table>
+			
+		</form>	
+		
+		<div class="btn-holder-w buttons">
+												
+				<span class="lesserbtn" id="btnReAssignSurvey"><input type="button" value="Save"  onclick="reassignIssueSurveyor();"/> </span> 
+				
+			</div>
+		
+		
+</script>
+
+
+
+<script id="workcommitment_AddToExistingIssueTmpl" type="text/x-jquery-tmpl">
+		
+		<form id="assignIssueForm" class="styleForm formPattern">
+			<table id="issueFormTable" class="formTable">				
+				
+				
+				<tr>
+				<td> 
+				<b><span id="reassignissue-complaintId"></span></b>
+				</td>
+				<td>
+				<input type="text" class="int" id="complaintId" name="complaintId"/>
+				
+				<a href="#" id="zoomtoComplaint">Locate on Map</a>
+				</td>
+				</tr>
+				<tr>
+				<td><b><span id="search_issue">Search Issue:</span></b></td>
+				</tr>
+				<tr>
+				<td>
+				 <input type="radio" name="assignIssueToComplaint" id="searchOnMap" value="searchOnMap" /> <span id="search_issue_map">Search Issue On Map</span><br />
+                 <input type="radio" name="assignIssueToComplaint" id="searchOnissueList" value="searchOnissueList" /> <span id="search_issue_id">Search by Issue ID</span> 
+				<!--input type="radio" name="assignIssueToComplaint" id="selectFromIssueList" value="selectFromIssueList" /> Select From Issue List-->
+				<!--INPUT TYPE="radio" id="searchIssueById" NAME="issueRadio" VALUE="y" Search by issue-->
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<input type="text" id="issueId" name="issueId" />
+				</td>
+				<td>
+				<a href="#" id="zoomtoIssue" name="zoomtoIssue">Locate</a>
+				</td>
+				</tr>
+				
+				<tr>
+				<td>
+                     <!--select id="issuesList" name="issuesList">
+				        <option val="">Please select</option>                    
+                 </select-->
+				</td>
+				</tr>
+			</table>
+			<br />
+
+</form>
+
+			<div class="btn-holder-w buttons">												
+				<span class="lesserbtn" id="btnAssignIssue"> <input type="button" value="Assign Issue" onclick="javascript:saveAssignedIssueOnComplaint();"/> </span> 
+		    </div>
+
+
+</script>

@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+<meta name="author" content="Pankaj.Joshi">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>SurfaceDetails</title>
+<style type="text/css">
+body {background-color:#ffffff;color:#000000;}
+p,li,h1,h2,h3,h4,h5,table {text-align:justify;line-height:normal;}
+a:link{color:#0000ff;}
+.Balloon_Text {font-size:8pt;font-family:'Tahoma';}
+.Caption {font-weight:bold;}
+.List_Continue {margin-left:18pt;margin-bottom:6pt;}
+.No_Spacing {margin-left:14pt;font-family:'Arial';}
+.Style7 {text-indent:-18pt;margin-left:15pt;font-weight:bold;font-size:12pt;}
+h1 {text-indent:-7pt;margin-left:7pt;margin-top:0pt;margin-bottom:0pt;font-weight:bold;font-size:14pt;font-family:'Cambria';color:#1f497d;}
+h2 {text-indent:-22pt;margin-left:26pt;margin-top:0pt;margin-bottom:0pt;font-weight:bold;font-size:13pt;font-family:'Cambria';color:#000000;}
+h3 {text-indent:-35pt;margin-left:40pt;margin-top:0pt;margin-bottom:0pt;font-weight:bold;font-size:14pt;font-family:'Cambria';color:#000000;}
+h4 {text-indent:-18pt;margin-left:15pt;margin-bottom:auto;font-weight:bold;font-size:10pt;font-family:'Arial';color:#632423;}
+p, li {margin-top:0pt;margin-bottom:0pt;font-weight:normal;font-size:10pt;font-family:'Calibri';color:#000000;}
+ol, ul {margin:0 0 0 20pt;padding:0;list-style-position:outside;}
+li p {margin:0;padding:0;text-indent:0;}
+li, li div {margin:0;padding:0;}
+ol.L2_1{margin-left:20pt;}
+ol.L7_1{margin-left:30pt;}
+ol.L1_1{margin-left:35pt;}
+ol.L12_1{margin-left:20pt;list-style-type:lower-latin;}
+</style>
+</head>
+<body>
+<h3 style="margin-top:12pt;"><a name="_Toc324262237">Display/Edit Surface Details</a></h3>
+<br>
+<p>In this module, user is enabled with the functionalities like view surface details, edit surface details, create issue on surface and view surface links. These functionalities are described below:</p>
+<br>
+<ol class="L2_1">
+<li><h4 style="margin-top:auto;"><a name="_Toc324262238">Display Surface Details</a></h4></li></ol><br>
+<p class="No_Spacing" style="margin-left:0;font-family:'Calibri';">In this functionality, user is allowed to view detailed information of a selected surface. For this user first has to make Surface layer as active layer.</p>
+<br>
+<ol class="L7_1">
+<li><div style="font-family:'Calibri';"> User selects Surface by Search/ Query Builder/ Select Feature/ Select by Rectangle/Select by Polygon. Selected feature/features should be displayed in result panel. </div></li>
+<li><div style="font-family:'Calibri';">Select the required record from result panel and click on ‘Detailed Info’ tool on top of result panel.</div></li>
+<li><div style="font-family:'Calibri';">Application opens new tab ‘Surface’ in left panel with the detailed information of selected surface in read only format. </div></li></ol>
+<br>
+<p style="font-family:'Calibri';">The Surface details include attributes as shown in below figures:</p>
+<br>
+<p class="No_Spacing" style="text-indent:22pt;margin-left:10pt;font-size:11pt;font-family:'Calibri';"><img alt="" border="1" width="670" height="515" src="surface/surface_img1.png"></p>
+<p class="Caption" style="text-indent:36pt;margin-left:180pt;">Fig. 1 Surface Details</p>
+<br>
+<p class="No_Spacing" style="margin-left:0;font-family:'Calibri';">This tab also include</p>
+<ol class="L7_1">
+<li><div style="font-family:'Calibri';">Button: ‘Edit’</div></li>
+<li><div style="font-family:'Calibri';">Links: ‘Previous’ and ‘Next’</div></li>
+<li><div style="font-family:'Calibri';">Tools: View Surface Links, Map It, Create Issue </div></li>
+<li><div style="font-family:'Calibri';">An attachment box with the list of already attached documents (if any) as shown in figure above. </div></li></ol>
+<br>
+<p class="No_Spacing" style="margin-left:0;font-family:'Calibri';"><span style="font-size:11pt;"><b>Attach File:</b> </span>In the attachment box, user is allowed to attach any type of file (up to 2mb) like test file or image file.</p>
+<br>
+<p>To attach a file to furniture:</p>
+<ol class="L7_1">
+<li><divstyle="font-family:'Calibri';">Enter the description.</div></li>
+<li><div style="font-family:'Calibri';">Enter the file path or browse to the location of file.</div></li>
+<li><div style="font-family:'Calibri';">Click on Attach button.</div></li>
+<li><div style="font-family:'Calibri';">On successful attachment document will be displayed in the documents list.</div></li></ol>
+<br>
+<p>To remove an attachment:</p>
+<ol class="L7_1">
+<li><div style="font-family:'Calibri';">To remove an attachment, click on the remove icon in Action column. Application displays conformation message “Are You Sure you want to delete”.</div></li>
+<li><div style="font-family:'Calibri';">Click Ok and the document will be removed from list.</div></li>
+<li><div style="font-family:'Calibri';">Click Cancel to discard.</div></li>
+<li><div style="font-family:'Calibri';">To open a pre-attached document click on that document’s name in files list. &nbsp;</div></li></ol>
+<br>
+<ol class="L2_1" start="2">
+<li><h4 style="margin-top:auto;"><a name="_Toc324262239">Edit Surface Information</a> </h4></li></ol><br>
+<p class="No_Spacing" style="margin-left:0;font-family:'Calibri';">To edit Surface information, user first has to view the detailed information of selected Surface in left panel.</p>
+<br>
+<ol class="L7_1">
+<li><div style="font-family:'Calibri';"> In detail information tab of Surface, click on ‘Edit’ button. Application changes the attributes to editable form and displays two buttons ‘Cancel’ and ‘Save’ instead of Edit. </div></li>
+<li><div style="font-family:'Calibri';">After doing the required changes in attribute fields, click on ‘Save’ button.</div></li>
+<li><div style="font-family:'Calibri';">Application saves the changes by creating the old records as historical details and the changes will be saved as current details for selected surface.</div></li>
+<li><div style="font-family:'Calibri';">On saving the changes application displays message as “Data saved”.</div></li>
+<li><div style="font-family:'Calibri';">Click on Cancel button, application discard the changes and the attributes are changed to read only format.</div></li></ol>
+<br>
+<ol class="L2_1" start="3">
+<li><h4 style="margin-top:auto;"><a name="_Toc324262240">Display Historical details</a> </h4></li></ol><br>
+<p class="No_Spacing" style="margin-left:0;font-family:'Calibri';">This functionality allows users to view historical survey details of selected Surface as Historical Details. </p>
+<br>
+<ol class="L7_1">
+<li><div style="font-family:'Calibri';">To view historical details of selected Surface, click on ‘Previous’</font> <img alt="" border="0" width="18" height="19" src="surface/surface_img2.png"><font face="Calibri"> tool present on Surface tab. Application shows the historical details previous of current details of selected surface. Previous tool allows user to traverse through the historical details of selected Surface till oldest historical details. </font></div></li>
+<li><div style="font-family:'Calibri';">After first historical details, if user clicks on ‘Previous’ tool, application shows the message as “No Historical Records”. </div></li>
+<li><div style="font-family:'Calibri';">To view later version of the surface details, click on ‘Next’ </font><img alt="" border="0" width="18" height="20" src="surface/surface_img3.png"><font face="Calibri"> button. As user reaches to the latest version, application displays message as “No More Records”.</font></div></li></ol>
+<br>
+<ol class="L2_1" start="4">
+<li><h4 style="margin-top:auto;"><a name="_Toc324262241">Surface Links</a></h4></li></ol><br>
+<p class="No_Spacing" style="margin-left:0;font-family:'Calibri';">This tool allows user to view issues and contacts related to a selected Surface. In this section user can see the parent path information of the selected surface. </p>
+<br>
+<ol class="L7_1">
+<li><div style="font-family:'Calibri';">Select desired Surface and click on detailed info tool.</div></li>
+<li><div style="font-family:'Calibri';">Click on ‘Surface Links’ </font><img alt="" border="0" width="28" height="29" src="surface/surface_img4.png"><font face="Calibri"> icon on Surface tab. Application opens a new tab ‘Surface Links’ on map window. This window consists of three accordions: Contact, Issue and Path Details.</font></div></li>
+<li><div style="font-family:'Calibri';">Click on ‘Go to Parent’ button again shows the Surface details on left panel if surface details tab is closed.</div></li>
+<li><div style="font-family:'Calibri';">To go any of the accordions, just click on that accordion.</div></li></ol>
+<br>
+<p class="No_Spacing" style="margin-left:0;font-family:'Calibri';"> These accordions are described below:</p>
+<br>
+<ol class="L12_1">
+<li><div class="Style7">Issues </div></li></ol>
+<br>
+<ol class="L1_1">
+<li><div style="font-family:'Calibri';">As user clicks on Issue accordion, application expands the accordion with the list of all open issues (if exists) in tabular format for selected Surface. This accordion has two buttons ‘Open Issues’ and ‘Historical Issues’. </div></li></ol>
+<br>
+<p class="No_Spacing" style="text-indent:18pt;font-size:11pt;font-family:'Calibri';"><img alt="" border="1" width="800" height="300" src="surface/surface_img5.png"></p>
+<p class="Caption" style="text-indent:36pt;margin-left:220pt;">Fig.2 Issue Related to Surface</p>
+
+<br><ol class="L1_1" start="2">
+<li><div style="font-family:'Calibri';">To view the old issues on selected Surface, user clicks on ‘Historical Issues’ button. Application will display list of all issues those are resolved for selected surface. </div></li>
+<li><div style="font-family:'Calibri';">If no historical issue exists for selected surface, application shows a message “No historical issues are associated with selected Surface”. </div></li>
+<li><div style="font-family:'Calibri';">To go to the open issues list again, click on Open Issues button. Application will display the open issues list again.</div></li>
+<li><div style="font-family:'Calibri';"> User can view the issue details by clicking on the RoW ID of the issue. The issue details will be shown in left panel as Issue tab.</div></li>
+<li><div style="font-family:'Calibri';">In the tabular list of the open issues, in the last column ‘Action’ table have two icons: Create/view Job and Create/View Legal. </div></li>
+<li><div style="font-family:'Calibri';">On clicking ‘Create/View job’ application opens a form in left panel as Job with job details (if already created) or as a new form to create job for that issue (if job is not created).</div></li>
+<li><div style="font-family:'Calibri';">Similarly if user clicks on ‘Create/View Legal’ icon, application opens a form in left panel as Legal with legal details if already created or a blank form to create a new legal (if legal is not created).</div></li></ol>
+<br>
+<ol class="L12_1" start="2">
+<li><div class="Style7">Contact</div></li></ol>
+<br>
+<p>Contact part contains the list of contacts of SNPA contractors related to selected surface. Here user is allowed to add new contact to Surface and select a contact to add to the selected surface from the contractor’s existing list. </p>
+<br>
+<ol class="L1_1">
+<li><div style="font-family:'Calibri';">As user clicks on a Contact accordion, application expands contact tab with the tabular list of contacts related to the selected Surface. Top of this tab two buttons ‘Add New Contact’ and ‘Add Existing Contact’ is also there. </div></li>
+<li><div style="font-family:'Calibri';">To view detailed information of a contact, click on ContactID of a record. Application will display the detailed information of contact in Contact tab in left panel. </div></li>
+<li><div style="font-family:'Calibri';">In the last column of the table a tool ‘Delete’ exist to delete the contact record. </div></li>
+<li><div style="font-family:'Calibri';">To add a new contact to selected surface, click on Add New Contact button and to add a contact from the existing list of contacts, click on Add Existing Contact button.</div></li></ol>
+<br>
+<ol class="L12_1" start="3">
+<li><div class="Style7">Path Details</div></li></ol>
+<br>
+<p>In this section of Surface link, user is allowed to view the parent path information.</p>
+<br>
+<ol class="L1_1">
+<li><div style="font-family:'Calibri';">Click on Path Details option, application expands the accordion with details of parent path on which that surface exists. </div></li></ol>
+<br>
+<p class="No_Spacing" style="text-indent:18pt;font-size:11pt;font-family:'Calibri';"><img alt="" border="1" width="800" height="200" src="surface/surface_img7.png"></p>
+<p class="Caption" style="text-indent:36pt;margin-left:230pt;">Fig.4 Parent path details of surface</p>
+<br>
+<ol class="L1_1" start="2">
+<li><div style="font-family:'Calibri';">Click on RoWID of parent path. Application displays detailed information of the parent path in left panel.</div></li></ol>
+<br>
+<ol class="L2_1" start="5">
+<li><h4 style="margin-top:auto;"><a name="_Toc324262242">Zoom to Selected Surface on Map</a></h4></li></ol>
+<br>
+<p>With this functionality user is allowed to zoom to selected surface from the detailed information of the surface. </p>
+<p>Click on ‘Locate on Map’ <img alt="" border="0" width="26" height="27" src="surface/surface_img8.png"> tool on Furniture tab. Application zooms to the selected furniture on map canvas.</p>
+<br>
+<ol class="L2_1" start="6">
+<li><h4 style="margin-top:auto;"><a name="_Toc324262243">Create Issue</a> </h4></li></ol><br>
+<p style="font-family:'Calibri';">User is allowed to mark an issue on surface under this functionality. To create an issue over surface: </p>
+<br>
+<ol class="L7_1">
+<li><div style="font-family:'Calibri';">Select surface and view its detailed information in surface tab. </div></li>
+<li><div style="font-family:'Calibri';">Click on ‘Create Issue’<img alt="" border="0" width="28" height="28" src="surface/surface_img9.png"><font face="Calibri"> button. Application opens editing tab in left panel with editing functionalities.</font></div></li>
+<li><div style="font-family:'Calibri';">Click on Create link in editing tab. Application expands Create link.</div></li>
+<li><div style="font-family:'Calibri';">Select point tool from Create part. </div></li>
+<li><div style="font-family:'Calibri';">Click on map over selected surface at required location. If user clicks at a location other than selected surface application displays message “No surface found at this location”.</div></li>
+<li><div style="font-family:'Calibri';">On clicking over surface, application expands Edit Attribute link with all the issue details.</div></li>
+<li><div style="font-family:'Calibri';">Enter the values for all the fields. Click on ‘Apply’ button. Application validates the fields and displays message “Click on Save button to save the Issue”.</div></li>
+<li><div style="font-family:'Calibri';">Click ‘Ok’ and save the issue by clicking on ‘Save’ button in general editing tools. Application displays the issue on the selected surface.</div></li></ol>
+<br>
+
+</body>
+</html>

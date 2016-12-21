@@ -1,0 +1,80 @@
+<div id="fileuploaddiv" title="Search" class="dialog-v">
+
+	<div id="uploadTmpl" class="lab-int">
+		<div id="span-close" class="span-c" title="Close" 
+			onclick="javascript:closeDialog('fileuploaddiv');"></div>
+		<div id="fileupload-help" class="span-h" title="This is Search help for File Upload"  ></div>
+		<div class="lineBreak05p"></div>
+		
+		<div id="uploadDiv">	</div>
+		
+			
+		<!--
+		<div>
+			<dl>
+				<dd>
+					<label for="sep">Seperator</label>
+				</dd>
+				<dd>
+					<input type="text" value="," class="int" name="seperator"
+						id="seperator" />
+				</dd>
+
+				<dd>
+					<label for="fname">Latitude</label>
+				</dd>
+				<dd>
+					<select name="latitude" id="latitude" class="slt">
+						<option value="">Please Select</option>
+					</select>
+					
+				</dd>
+				
+				<dd>
+					<label for="fname">Longitude</label>
+				</dd>
+				<dd>
+					<select name="longitude" id="longitude" class="slt">
+						<option value="">Please Select</option>
+					</select>
+					
+					
+				</dd>
+
+			</dl>
+		</div>
+		<div class="btn-holder-w">
+				<input id="btnWriteKml" class="btn-w" type="submit" value="Import"/> 
+		</div>
+		-->
+	</div>
+	<div class="lineBreak05p"></div>
+    <div class="outertableup">    
+		<div id="AttchFileList" class="lab-int">
+        	<table width="100%" cellpadding="1" cellspacing="1">        	
+                	<!--start:heading-->
+                    <tr>
+                        <td colspan="2" class="form_head">
+                            Attachments
+                        </td>
+                   </tr>
+               		<!--end:heading--> 
+            </table>
+			<table width="100%" cellspacing="1" cellpadding="1" border="0">
+				<thead>
+					<tr>
+						<th class="headercolorup">Associate Id</th>
+						<th class="headercolorup"> File</th>
+						<th class="headercolorup">Action</th>
+					</tr>
+				</thead>
+				
+				<tbody id="AttchFileListBody">
+			
+				</tbody>
+				
+			</table>
+		</div>
+    </div>
+
+</div>

@@ -1,0 +1,42 @@
+<div id="complaintReassigndiv" class="dialog-v">
+	<div id="complaintReassignTmpl" class="lab-int">
+		<div id="span-close" class="span-c" title="Close"
+			onclick="javascript:closeDialog('complaintReassigndiv');"></div>
+		<div id="span-help" class="span-h" title="" onclick="javascript:openHelpWindow('issue_help');"></div>
+		<div class="lineBreak05p"></div>
+								
+		<div id="workcommitment_ComplaintReassignBody" title="Ressign Complaint"></div>
+
+
+	</div>
+
+</div>
+
+<script id="workcommitment_ComplaintReassignTmpl" type="text/x-jquery-tmpl">
+		
+		<form id="reassignComplaintForm" class="styleForm formPattern">
+			<table id="complaintFormTable" class="formTable">				
+				
+				<tr>				
+				<td>
+				<label id="reassign-ComplaintId"></label>
+				<select id="complaintReAssignTo" name="complaintReAssignTo" class="int">
+							<option selected="selected"  value="">Please Select</option>                    
+					</select>
+				
+				<input type="hidden" name="hid-complaintId" id= "hid-complaintId" value="" />
+				</td>
+				</tr>
+				
+			</table>
+			
+		</form>	
+		
+		<div class="btn-holder-w buttons">
+												
+				<span class="lesserbtn" id="btnReAssignSurvey"><input type="button" value="Save" onclick="saveReassignComplaint();"/> </span> 
+				
+			</div>
+		
+		
+</script>

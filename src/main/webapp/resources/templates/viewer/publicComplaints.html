@@ -1,0 +1,285 @@
+<meta charset=iso-8859-1">
+<div id="complaintdiv" class="dialog-v">
+	<div id="complaintTmpl" class="lab-int">
+		<div id="span-close" class="span-c" title="Close" onclick="javascript:closeDialog('complaintdiv');"></div>
+		<div id="complaint-help" class="span-h" onclick="javascript:openHelpWindow('complaint_help');"></div>
+		<div class="lineBreak05p" id="detailsDiv"></div>
+	<div id="complaint_accordion" style="text-align:left;">
+	<h3><a href="#"><span id="log_complaint">Log Complaint</span></a></h3>
+	
+			<form id="logComplaints">
+			<div id="logComplaintBody" class="styleForm" style="min-height:450px">
+			
+			<div id="userDetails">
+				
+		    </div>
+			
+			<dl>
+			<dd>
+				<label for="complaintDetail" id="complaint_details">Enter Complaint Details :</label>
+		    </dd>
+			</dl>
+			<dl>
+			<dd>
+				<label for="complaintNature" id="complaint_nature">Nature of Complaint / Enquiry</label>
+			</dd>
+			<dd>			
+				<textarea id="complaintNatureTextLog" class="qb_querybox" rows="2" name="complaintNatureTextLog" spellcheck="false" ></textarea>
+			</dd>
+
+			<dd>
+				<label for="descLoc" id="complaint_loc">Descriptive Location</label>
+			</dd>
+			<dd>
+				<textarea id="descLocTextLog" class="qb_querybox" rows="2" name="descLocTextLog" spellcheck="false" ></textarea>
+			</dd>
+			
+			</dl>
+				
+			</div>
+			
+			<div class="btn-holder-w buttons">
+	       		<span class="lesserbtn"><input id="btnSubmit" type="button" value="Submit" onclick="javascript:saveComplaint();"/>
+				</span>
+				<span class="lesserbtn"><input id="btnMark" type="button" value="Pin" />
+				</span>
+				<span class="lesserbtn"><input id="btnNew" type="button" value="New" />
+				</span>
+			</div>
+			</form>
+		<h3><a href="#"><span id="search_complaint">Search Complaints</span></a></h3>
+			
+				<div id="ComplaintBody" style="min-height:450px">		
+				<form id="searchComplaint">			
+				<div class="styleForm">
+					<dl>
+					<dd>
+					<label for="Search" id="search_complaintid">Complaint ID</label>
+					</dd>
+					<dd>
+						<input type="text" value="" class="int" id="complaintSearchText" />
+						
+					</dd>
+					</dl>
+				</div>
+				
+				<div class="btn-holder-w buttons">
+						<span class="lesserbtn">
+						<input id="btnSearch" type="button" value="Search" onclick="searchComplaint();"/>
+						</span>
+					</div>
+				
+				</form>
+				<div id="searchDetails">
+				
+				</div>
+				
+				</div>
+				
+	      
+	      <h3 id="addComplaintLink"><a href="#"><span id="add_complainant">Add Complainant</span></a></h3>
+	      <div id="addComplaintBody">		
+				
+		  </div>
+		
+	</div>
+	</div>
+	</div>
+
+
+<script id="addComplaintTempl"  type="text/x-jquery-tmpl">
+           
+            <form id="addComplainantDetails">			
+				    <div class="styleForm">
+					<input type="radio" name="userTypes" id="contactUser" value="contactUser" /><span id="contact_user">Contact User</span><br />
+                    <input type="radio" name="userTypes" id="publicUser" value="publicUser" /><span id="public_user">Public User</span><br />
+                    <input type="radio" name="userTypes" id="createUser" value="createUser" /><span id="new_user">Register New User</span><br />
+ 					<input type="radio" name="userTypes" id="wardenUser" value="wardenUser" /><span id="warden_user">Warden User</span><br />
+						<div class="lineBreak10p"></div>
+                    	<select id="userNames" name="userNames" class="int">
+                        <!--<option selected>Please Select</option>-->              
+                        </select>
+						
+					</div>
+                  
+                    
+
+					<div id="listUser" class="btn-holder-w buttons">
+					<span class="lesserbtn">
+					<input id="btnSubmitComplainant" type="button" value="Submit" onclick="addComplainant();"/>
+					</span>
+					</div>
+					<div id ="addUserByWarden"> </div>
+					
+
+					
+			</form>
+</script>
+
+<script id="userDetailsTempl"  type="text/x-jquery-tmpl">
+<dl>
+<dd>
+	<label for="complainantDetail" id="usercomplainantdetails">Complainant Details</label>
+</dd>
+</dl>
+
+<dd>
+	<label for="complainantID" id="usercomplainanttid">ComplainantID</label>
+</dd>
+<dd>
+	<input type="text" class="int" id="complainantIDText" value="${complainantid}" />
+</dd>
+
+<dd>
+	<label for="name" id=username>Name</label>
+</dd>
+<dd>
+	<input type="text" class="int" id="complainantNameLog" value="${name}" />
+</dd>
+
+<dd>
+	<label for="add" id="useraddress">Address</label>
+</dd>
+<dd>		
+	<textarea id="address" class="qb_querybox" rows="2" name="notes" spellcheck="false"  >${address}</textarea>
+</dd>
+
+<dd>
+	<label for="ph" id="userphone">Phone</label>
+</dd>
+<dd>
+	<input type="text" class="int" id="phone"   value="${phone}" />
+</dd>
+
+<dd>
+	<label for="mob" id="usermobile">Mobile</label>
+</dd>
+<dd>
+	<input type="text" class="int" id="mobile"  value="${mobile}" />
+</dd>
+
+<dd>
+	<label for="email" id="useremail">Email</label>
+</dd>
+<dd>
+	<input type="text" class="int" id="complainantEmailLog" value="${email}"/>
+</dd>
+
+<dd>
+	<label for="language" id="userlanguage">Language</label>
+</dd>
+<dd>
+	<input type="text" class="int" id="languageText" value="${languagePreference}"/>
+</dd>
+
+</script>
+
+<script id="searchComplaintTmpl" type="text/x-jquery-tmpl">
+
+		
+			<dl>
+			<dd>
+				<label for="complaintDetail" id="searchcomplaintdetail">Complaint Details</label>
+		    </dd>
+			</dl>
+			<dd>
+				<label for="complaintNature" id="searchcomplaintnature">Nature of Complaint / Enquiry</label>
+			</dd>
+			<dd>
+                <textarea id="complaintNatureText" class="qb_querybox" rows="2" name="notes" spellcheck="false"  >${complaintEnquiryNature} </textarea>
+			</dd>
+
+			<dd>
+				<label for="descLoc" id="searchdesclocation">Descriptive Location</label>
+			</dd>
+			<dd>				
+				<textarea id="descLocText" class="qb_querybox" rows="2" name="notes" spellcheck="false"  >${complaintEnquiryLocation}</textarea>
+			</dd>
+
+			<dd>
+				<label for="repOn" id="searchreportedon">Reported On</label>
+			</dd>
+			<dd>
+				<input type="text" class="int" id="repOnText" value="${reportedOn}"/>
+			</dd>
+			
+
+	         <dd>
+				<label for="ackOn" id="searchacknowledgementon">Complaint Closed</label>
+			</dd>
+			<dd>
+				<input type="text" class="int" id="ackOnText"  value="${signedoff}"/>
+			</dd>
+            
+			<dd>
+				<label for="blank"><BR/></label>
+			</dd>
+			<dd>
+				<a href="#" onclick="javascript:zoomToComplaintOnMap('${complaintid}');"><span id="loc_complaint">Locate on Map</span></a>
+			</dd>
+
+
+				 
+</script>
+ 
+ 
+<script id="addNewUserByWardenTmpl"  type="text/x-jquery-tmpl">
+<form id="addNewPublicUser">
+<div id="addNewPublicUserDiv" class="styleForm" style="min-height:450px">
+<dl>
+<dd>
+	<label for="Userdetail" id="userdetl_bywarden">User Details :</label>
+</dd>
+</dl>
+
+
+<dd>
+	<label for="name" id="username_bywarden">Name</label>
+</dd>
+<dd>
+	<input type="text" class="int" id="name" name="name"  />
+</dd>
+
+<dd>
+	<label for="add" id="address_bywarden">Address</label>
+</dd>
+<dd>		
+	<textarea id="address" class="qb_querybox" rows="2" name="address" spellcheck="false"  ></textarea>
+</dd>
+
+<dd>
+	<label for="ph" id="phone_bywarden">Phone</label>
+</dd>
+<dd>
+	<input type="text" class="int" id="phone" name="phone"  value="" onblur="formatPhoneText(this);return false;" />
+</dd>
+
+<dd>
+	<label for="mob" id="mobile_bywarden">Mobile</label>
+</dd>
+<dd>
+	<input type="text" class="int" id="mobile" name="mobile" value="" onblur="formatMobileText(this);return false;" />
+</dd>
+<dd>
+	<label for="language" id="language_bywarden">Language</label>
+</dd>
+<dd>
+	<select id="langpref" name="langpref">
+	<!--<option value="English">English</option>-->
+	<!--<option value="Welsh">Welsh</option>-->
+</select> 
+<dd>
+	<label for="email" id="email_bywarden">Warden Email</label>
+</dd>
+<dd>
+	<input type="text" class="int" id="email" name="email" value="" />
+</dd>
+<dd>
+<div class="btn-holder-w buttons">
+<span class="lesserbtn">
+	<input id="btnregister" type="button" value="Submit" onclick="saveUserAddedbyWarden();"/>
+</span>
+</dd>
+</div>
+</form>
+</script>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <list-property name="configVars">
+        <structure>
+            <property name="name">__isdisplay__imgurl_10_0</property>
+            <property name="value">111</property>
+        </structure>
+        <structure>
+            <property name="name">__isnull_39_1</property>
+            <property name="value">desc_39</property>
+        </structure>
+        <structure>
+            <property name="name">desc_39_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">__isnull_40_2</property>
+            <property name="value">legendurl_40</property>
+        </structure>
+        <structure>
+            <property name="name">legendurl_40_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">__isnull_64_3</property>
+            <property name="value">title_64</property>
+        </structure>
+        <structure>
+            <property name="name">title_64_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__compiledBy_154_4</property>
+            <property name="value">Aparesh Chakraborty</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__mapScale_288_5</property>
+            <property name="value">1111</property>
+        </structure>
+        <structure>
+            <property name="name">mapScale_288_6</property>
+            <property name="value">1111</property>
+        </structure>
+        <structure>
+            <property name="name">mapScale_288_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">compiledBy_154_7</property>
+            <property name="value">Aparesh Chakraborty</property>
+        </structure>
+        <structure>
+            <property name="name">compiledBy_154_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">imgurl_10_8</property>
+            <property name="value">111</property>
+        </structure>
+        <structure>
+            <property name="name">imgurl_10_type_</property>
+            <property name="value">string</property>
+        </structure>
+    </list-property>
+</report>

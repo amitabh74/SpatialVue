@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <list-property name="configVars">
+        <structure>
+            <property name="name">__isdisplay__imgurl_10_0</property>
+            <property name="value">http://nw028lim:8080/snowdoniaprow/resources/temp/images/1372159653761_map.png</property>
+        </structure>
+        <structure>
+            <property name="name">__isnull_40_1</property>
+            <property name="value">legendurl_40</property>
+        </structure>
+        <structure>
+            <property name="name">legendurl_40_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__title_64_2</property>
+            <property name="value">Test Issue Print</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__mapScale_288_3</property>
+            <property name="value">222</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__issueId_331_4</property>
+            <property name="value">123</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__rowId_332_5</property>
+            <property name="value">222</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__furnitureId_333_6</property>
+            <property name="value">222</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__issueType_en_334_7</property>
+            <property name="value">eng</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__reportedOn_335_8</property>
+            <property name="value">5656456</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__warden_336_9</property>
+            <property name="value">Aparesh Chakraborty</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__problem_337_10</property>
+            <property name="value">78768 test test 1234 tet hjhf mmrjh rjrh tjhtre tjrhtr twtjd terjhtre</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__gridRef_338_11</property>
+            <property name="value">76876</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__attachmentUrl_339_12</property>
+            <property name="value">http://nw028lim:8080/snowdoniaprow/resources/temp/uploads/user/obstruction - othert141302.jpg</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__notes_367_13</property>
+            <property name="value">scsdcsd</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__issueType_cy_414_14</property>
+            <property name="value">cy</property>
+        </structure>
+        <structure>
+            <property name="name">warden_336_15</property>
+            <property name="value">Aparesh Chakraborty</property>
+        </structure>
+        <structure>
+            <property name="name">warden_336_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">mapScale_288_16</property>
+            <property name="value">222</property>
+        </structure>
+        <structure>
+            <property name="name">mapScale_288_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">issueType_cy_414_17</property>
+            <property name="value">cy</property>
+        </structure>
+        <structure>
+            <property name="name">issueType_cy_414_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">furnitureId_333_18</property>
+            <property name="value">222</property>
+        </structure>
+        <structure>
+            <property name="name">furnitureId_333_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">issueId_331_19</property>
+            <property name="value">123</property>
+        </structure>
+        <structure>
+            <property name="name">issueId_331_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">rowId_332_20</property>
+            <property name="value">222</property>
+        </structure>
+        <structure>
+            <property name="name">rowId_332_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">problem_337_21</property>
+            <property name="value">78768 test test 1234 tet hjhf mmrjh rjrh tjhtre tjrhtr twtjd terjhtre</property>
+        </structure>
+        <structure>
+            <property name="name">problem_337_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">attachmentUrl_339_22</property>
+            <property name="value">http://nw028lim:8080/snowdoniaprow/resources/temp/uploads/user/obstruction - othert141302.jpg</property>
+        </structure>
+        <structure>
+            <property name="name">attachmentUrl_339_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">title_64_23</property>
+            <property name="value">Test Issue Print</property>
+        </structure>
+        <structure>
+            <property name="name">title_64_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">reportedOn_335_24</property>
+            <property name="value">5656456</property>
+        </structure>
+        <structure>
+            <property name="name">reportedOn_335_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">issueType_en_334_25</property>
+            <property name="value">eng</property>
+        </structure>
+        <structure>
+            <property name="name">issueType_en_334_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">gridRef_338_26</property>
+            <property name="value">76876</property>
+        </structure>
+        <structure>
+            <property name="name">gridRef_338_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">notes_367_27</property>
+            <property name="value">scsdcsd</property>
+        </structure>
+        <structure>
+            <property name="name">notes_367_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">imgurl_10_28</property>
+            <property name="value">http://nw028lim:8080/snowdoniaprow/resources/temp/images/1372159653761_map.png</property>
+        </structure>
+        <structure>
+            <property name="name">imgurl_10_type_</property>
+            <property name="value">string</property>
+        </structure>
+    </list-property>
+</report>

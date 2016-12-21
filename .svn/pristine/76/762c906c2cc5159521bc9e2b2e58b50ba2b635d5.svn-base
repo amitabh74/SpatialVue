@@ -1,0 +1,210 @@
+<div id="contactinfodiv" class="dialog-v">
+	<div id="contactinfoTmpl" class="lab-int fg-buttonset fg-buttonset-single">
+		<div id="span-close" class="span-c" title="Close" onclick="javascript:closeDialog('contactinfodiv');"></div>
+		<div id="contactinfo-help" class="span-h" title="" onclick="javascript:openHelpWindow('contact_help');" ></div>
+		<div class="lineBreak05p" id="detailsDiv"></div>	
+
+				<div id="ContactInfo_DetailsBody">
+			
+				
+				</div>
+		
+	</div>	
+</div>
+
+
+
+<script id="contactInfo_DetailsTmpl" type="text/x-jquery-tmpl">
+	<form id="contact_form" class="styleForm formPattern">
+	<table id="contactInfoTable" class="formTable">
+	 
+				<tr>
+					<td>
+						<label for="pid" id="lblContact">Contact Type : </label>
+ 						<select name="contactType" id="contactType">
+							<!--<option  value="">Please Select</option>-->
+						 </select>
+						<!--input type="text"  class="int" id="contactType" name="contactType" /-->
+					</td>
+				</tr>
+
+	 
+				<tr>
+					<td>
+						<label for="pid" id="lblCompany">Company : </label>
+					<input type="text"  class="int" id="contactCompany" name="contactCompany" value="${company}"/>
+					</td>
+				</tr>
+
+	 
+				<tr>
+					<td>
+						<label for="pid" id="lblTitle">Title : </label>
+					<input type="text"  class="int" id="contactTitle" name="contactTitle" value="${title}"/>
+					</td>
+				</tr>
+
+	 
+				<tr>
+					<td>
+						<label for="pid" id="lblInitials">Initials : </label>
+					<input type="text"  class="int" id="contactInitials" name="contactInitials" value="${initials}"/>
+					</td>
+				</tr>
+
+	 
+				<tr>
+					<td>
+						<label for="pid" id="lblFName">First Name : </label>
+					<input type="text"  class="int" id="contactFirstName" name="contactFirstName" value="${firstName}"/>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<label for="pid" id="lblSurName">Surname : </label>
+					<input type="text"  class="int" id="contactSurname" name="contactSurname" value="${surname}"/>
+					</td>
+				</tr>
+
+	 
+				<tr>
+					<td>
+						<label for="pid" id="lblPosition">Position : </label>
+					<input type="text"  class="int" id="contactPosition" name="contactPosition" value="${position}"/>
+					</td>
+				</tr>
+
+	 
+				<tr>
+					<td>
+						<label for="pid" id="lblAddress">Address : </label>
+					<input type="text"  class="int" id="contactAddress" name="contactAddress" value="${address}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pid" id="lblTown">Town : </label>
+					<input type="text"  class="int" id="contactTown" name="contactTown" value="${town}"/>
+					</td>
+				</tr>
+
+	 
+				<tr>
+					<td>
+						<label for="pid" id="lblCounty">County : </label>
+					<input type="text"  class="int" id="contactCounty" name="contactCounty" value="${county}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pid" id="lblPostcode">Postcode : </label>
+					<input type="text"  class="int" id="contactPostcode" name="contactPostcode" value="${postcode}"/>
+					</td>
+				</tr>
+
+	 
+				<tr>
+					<td>
+						<label for="pid" id="lblPrim_phone">Primary Phone : </label>
+					<input type="text"  class="int" id="contactPrimaryPhone" name="contactPrimaryPhone" value="${_primary_phone_}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pid" id="lblSecd_phone">Secondary Phone : </label>
+					<input type="text"  class="int" id="contactSecondaryPhone" name="contactSecondaryPhone" value="${_secondary_phone_}"/>
+					</td>
+				</tr>
+
+	 
+				<tr>
+					<td>
+						<label for="pid" id="lblMobile">Mobile : </label>
+					<input type="text"  class="int" id="contactMobile" name="contactMobile" value="${mobile}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pid" id="lblContact_Email">Email : </label>
+					<input type="text"  class="int" id="contactEmail" name="contactEmail" value="${email}"/>
+					</td>
+				</tr>
+
+	 
+				<tr>
+					<td>
+						<label for="pid" id="lblFax">Fax : </label>
+					<input type="text"  class="int" id="contactFax" name="contactFax" value="${fax}"/>
+					</td>
+				</tr>
+				<tr style="display: none;">
+					<td>
+					<input type="text"  class="int" id="contactid" name="contactid" value="${contactid}"/>
+					<input type="text"  class="int"  id="contactgid" name="contactgid" />
+					<input type="text"  class="int"  id="contactLayer" name="contactLayer" />
+					</td>
+				</tr>
+			
+		</table>
+</form>
+			 <div class="btn-holder-w buttons">
+								
+				<span class="lesserbtn" id="btnUpdateContact"><input 	type="button"  	id="btncontact_edit" value="Edit"/>  </span>
+				<span class="lesserbtn" id="btnCancelContact"><input   	type="button" 	id="btncontact_cancel" value="Cancel" onClick="javascript:closeDialog('contactinfodiv');" />  </span>
+				<span class="lesserbtn" id="btnSaveContact"><input    	type="button" 	id="btncontact_save"  value="Save" onClick="javascript:saveContact();" />  </span>
+				
+			</div>
+</script>
+
+
+<script id="Addexisiting_contactTmpl" type="text/x-jquery-tmpl">
+	<form id="addexistingcontact_form" class="styleForm">
+	<table id="contactlistTable" class="formPattern">
+	 			<tr>
+					<td>
+						<label for="pid" id="lblExistingContactType">Contact Type : </label>
+ 						<select name="contact_type" id="contact_type" class="int">
+							<!--<option  value="">Please Select</option>--> 
+						 </select>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<label for="pid" id="lblExistingContactCompany">Company : </label>
+						<select name="contact_company" id="contact_company" class="int">
+							<!--<option  value="">Please Select</option>--> 
+						 </select>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<label for="cid" id="lblExistingContactName">Name : </label>
+ 						<select name="contactlist" id="contactlist" class="int">
+							<!--<option  value="">Please Select</option>--> 
+						 </select>
+					</td>
+				</tr>
+				<tr style="display: none;">
+					<td>
+						<label for="pid">Fax : </label>
+						<input type="text"  class="int"  id="contactLayerl" name="contactLayerl" />
+					</td>
+				</tr>
+				<tr style="display: none;">
+					<td>
+						<label for="pid">Fax : </label>
+					<input type="text"  class="int"  id="contactgidl" name="contactgidl" />
+					</td>
+				</tr>
+		</table>
+		</form>
+			 <div class="btn-holder-w buttons">
+				<span class="lesserbtn" id="block_contact"><input id="btnBlockContact" type="button" value="Block Contact" onClick="javascript:blockContact();" /></span>
+				<span class="lesserbtn" ><input id="btnCancelaccessLandContact" type="button" value="Cancel" onClick="javascript:closeDialog('contactinfodiv');" />  </span>
+				<span class="lesserbtn" ><input id="btnSaveAccessLandContact" type="button"  value="Save" onClick="javascript:linkContactData(pathID);" />  </span>
+				
+			</div>
+</script>

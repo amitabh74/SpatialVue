@@ -1,0 +1,185 @@
+
+<%@page contentType="text/html;charset=UTF-8"%>
+<%@page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="true"%>
+<%
+	response.setHeader("Cache-Control","no-store"); //HTTP 1.1
+	response.setHeader("Pragma","no-cache"); //HTTP 1.0
+	response.setDateHeader("Expires", 0); //prevents caching at the proxy server 
+	
+	String queryString = request.getQueryString();
+	String token = (String)request.getSession().getAttribute("auth");
+	//(String)request.getSession().getAttribute("lang");
+	String lang_2 = "en";
+	if(((String)request.getSession().getAttribute("lang"))!=null){
+		
+		lang_2=(String)request.getSession().getAttribute("lang").toString();	
+	}	
+	java.lang.String s = null;
+	java.lang.String principal = null;
+	
+	try{
+		org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)org.springframework.security.core.context.SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		principal = user.getUsername();
+		java.util.Collection<org.springframework.security.core.GrantedAuthority> authorities =
+		org.springframework.security.core.context.SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+	 	java.lang.StringBuffer sb = new java.lang.StringBuffer();
+		for (java.util.Iterator<org.springframework.security.core.GrantedAuthority> itr = authorities.iterator(); itr.hasNext();) {       
+			org.springframework.security.core.GrantedAuthority authority = itr.next();
+			sb.append(authority.getAuthority()).append(", ");
+		} 
+		s = sb.toString();
+		s = s.substring(0, s.length() - 2);
+		
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>
+	<%								
+	if(lang_2.equalsIgnoreCase("cy")){	
+	%>
+		Mynegai
+	<%}else{ %>
+		Index
+	<%} %>		
+</title>
+<link href="./resources/styles/landing.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+	var url;
+	var qryString;
+</script>
+	<%
+	if(request.getSession().getAttribute("url") != null){
+		//System.out.println(" ------- URL on Landing " + request.getSession().getAttribute("url"));
+	%>	
+		<script type="text/javascript">
+			var url = "<%=request.getSession().getAttribute("url")%>";
+			qryString = "<%=request.getSession().getAttribute("lang")%>";
+			var url = url + "?lang=" + qryString;
+			document.location.href = url;
+		</script>
+		
+	<%
+	}else if(s.equalsIgnoreCase("ROLE_PUBLICUSER") || s.equalsIgnoreCase("ROLE_USER")){
+		System.out.println("---Authorities: " + s);
+	%>
+		<script type="text/javascript">
+			var studio_url = window.location.href;
+			var pos = studio_url.indexOf("index");
+			studio_url = studio_url.substring(0, pos - 1);
+			qryString = "<%=request.getSession().getAttribute("lang")%>";
+			studio_url = studio_url + "/viewer/?lang=" + qryString;
+			document.location.href = studio_url;
+		</script>
+	<%
+	}
+	%>
+</head>
+
+<body>
+<div id="header">
+						<div class="widthheader">
+							<div class="leftheader">
+								<%								
+								if(lang_2.equalsIgnoreCase("cy")){	
+																
+								%>
+								<img src="<c:url value="resources/images/viewer/logo-text_welsch.png" />" />
+								
+								<%}else{ %>
+								<img src="<c:url value="resources/images/viewer/logo-text.png" />" />
+								<%} %>
+								
+							</div>
+							<div class="rightheader">
+							<div class="greyInfo">
+							
+								<div align="right" class="snowdonai_welcome_text"> 
+									<span id="welcome1"></span><span class="username"><%=principal%></span>
+									<div class="signoutBTN">
+										<a href="/snowdoniaprow/j_spring_security_logout" class="signoutTXT"><span id="signout1">Sign Out</span></a>
+									</div>
+								</div>
+							  </div>
+								
+							</div>
+						</div>
+					</div>
+
+<div class="RoundedBox">
+<div class="RoundedboxHeader"></div>
+<div class="RoundedboxBody">
+<div class="landingpageBG">
+
+<div class="transparentBox">
+<div class="studio" id="studio"></div>
+<div class="LaunchButton"><a class="studioLink" href="studio/" id="studiolink"></a></div>
+</div>
+
+<div class="transparentBox">
+<div class="viewer" id="viewer"></div>
+<div class="LaunchButton"><a class="viewerLink" href="#" id="viewerlink" onclick="invokeViewer();"></a></div>
+
+</div>
+
+
+</div>
+</div>
+<div class="RoundedboxFooter"></div>
+</div>
+
+<script type="text/javascript">
+	var qryString = "<%=request.getSession().getAttribute("lang")%>";
+	if(qryString == null){
+		var _lang = "<%=request.getHeader("accept-language")%>";
+		var pos = _lang.indexOf(",");
+		if(pos > -1){
+			_lang = _lang.substring(0, pos);
+		}else{
+			_lang = "en";
+		}
+	}else{
+		_lang = qryString;
+	}
+	
+	var studio = document.getElementById("studio");
+	var viewer = document.getElementById("viewer");
+	var studio_link = document.getElementById("studiolink");
+	var viewer_link = document.getElementById("viewerlink");
+	if(_lang.indexOf("cy") > -1){
+		studio.appendChild(document.createTextNode("Stiwdio"));
+		studio_link.appendChild(document.createTextNode("Lansio Stiwdio"));
+		viewer.appendChild(document.createTextNode("Gwyliwr"));
+		viewer_link.appendChild(document.createTextNode("Lansio Gwyliwr"));
+		document.getElementById("welcome1").innerHTML = "Croeso ";
+		document.getElementById("signout1").innerHTML = "Ymadael";
+	}else{
+		studio.appendChild(document.createTextNode("Studio"));
+		studio_link.appendChild(document.createTextNode("Launch Studio"));
+		viewer.appendChild(document.createTextNode("Viewer"));
+		viewer_link.appendChild(document.createTextNode("Launch Viewer"));
+		document.getElementById("welcome1").innerHTML = "Welcome ";
+		document.getElementById("signout1").innerHTML = "Sign Out";
+	}
+
+	function invokeViewer(){
+		qryString = "<%=request.getSession().getAttribute("lang")%>";
+		if(qryString == "null"){
+			qryString = "en";
+		}
+		var url = "viewer/?lang=" + qryString;
+		document.location.href = url;
+	}
+</script>
+</body>
+</html>

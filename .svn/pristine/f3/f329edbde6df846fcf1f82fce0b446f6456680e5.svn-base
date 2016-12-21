@@ -1,0 +1,212 @@
+<div id="accessLandinfodiv" class="dialog-v">
+	<div id="accessLandinfoTmpl" class="lab-int fg-buttonset fg-buttonset-single">
+		<div id="span-close" class="span-c" title="Close" onclick="javascript:closeDialog('accessLandinfodiv');"></div>
+		<div id="accessLandinfo-help" class="span-h" title="" onclick="javascript:openHelpWindow('accessLand_help');"></div>
+		<div class="lineBreak05p" id="detailsDiv"></div>	
+
+			
+				
+				<div id="accessLandInfo_DetailsBody">
+				
+				</div>
+				
+				<div id="accessLandInfo_AttachmentBody">
+				
+				</div>
+
+	
+	</div>	
+</div>
+
+<script id="accessLandInfo_DetailsTmpl" type="text/x-jquery-tmpl">
+<form id="accessLandForm" class="styleForm formPattern">		
+<table id="accessLandInfoTable" class="formTable">
+	 
+		<input type="hidden"  class="int" id="hid-accesslandGid" name="hid-accessandGid" value="${gid}"/>
+		<input type="hidden"  class="int" id="row_id" name="row_id" value="${rowid}"/>
+		<input type="hidden"  class="int" id="thegeom" name="thegeom" value="${thegeom}"/>
+		
+				<tr>
+					<td>
+						<label id="row_id_AL">RoW ID : </label>
+								
+						<input type="text"  class="int" id="_row_id" name="_row_id" value="${rowid}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label id="lbl_type">Type : </label>
+						
+						<select name="type" id="type" class="int">        						
+        				</select>
+												
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label id="lbl_area_name">Area Name : </label>
+								
+						<input type="text"  class="int" id="area_name" name="area_name" value="${areaName}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label id="lbl_area">Area : </label>
+								
+						<input type="text"  class="int" id="area" name="area" value="${area}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label id="lbl_agreement_reference">Agreement Reference : </label>
+								
+						<input type="text"  class="int" id="agreement_reference" name="agreement_reference" value="${agreementReference}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label id="lbl_agreement_date">Agreement Date : </label>
+								
+						<input type="text"  class="int" id="agreement_date" name="agreement_date" value="${agreementDate}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label id="lbl_agreement_end_date">Agreement End Date : </label>
+								
+						<input type="text"  class="int" id="agreement_end_date" name="agreement_end_date" value="${agreementEndDate}"/>
+					</td>
+				</tr>
+				
+				<!--tr>
+					<td>
+						<label>Contact Information : </label>													
+					
+					<textarea id="contactinfo" class="qb_querybox" rows="3" name="contact info" spellcheck="false"> </textarea>
+					</td>
+				</tr-->
+				<tr>
+					<td>
+						<label id="unresolved_issues">Unresolved Issues :</label>
+						<select name="unresolved_status" id="unresolved_status" class="int" disabled="disabled">						
+							<option value="false">No</option>	
+							<option value="true">Yes</option>			
+						 </select>		
+						<!--input type="text"  class="int" id="unresolved_status" name="unresolved_status" value="${unresolvedStatus}"/-->
+					</td>
+				</tr>
+				<tr>
+				<td>
+
+						<label id="lbl_notes">Notes :</label>
+						<textarea id="notes" class="qb_querybox" rows="3" name="notes" spellcheck="false">${notes}</textarea>
+										
+				</td>
+				</tr>
+				
+		</table>
+</form>
+	
+
+
+<div class="buttons btn-holder-float">
+			<span class="lesserbtn" id="btnUpdateAccessLand"><input type="button" id="al_edit" value="Edit" /></span>
+			<span class="lesserbtn" id="btnCancelAccessLand"><input  type="button" id="al_cancel" value="Cancel" /></span>
+			<span class="lesserbtn" id="btnSaveAccessLand"><input  type="button" id="al_save" value="Save" onclick="saveAccessLand();"/></span>
+</div>
+
+
+
+
+<div class="nxtPrevBTNHolder">
+				<div class="prvbtn">				
+				<a href="#" onclick="getPreviousAccessLand(${gid},'${rowid}')">
+				<span>Previous</span></a>			
+
+				</div>  
+				<div class="nxtbtn">				
+				
+				<a href="#" onclick="getNextAccessLand(${gid},'${rowid}')">
+				<span>Next</span></a>		
+				</div>  				
+			</div>					
+			
+			<ul class="footerBtns">
+			<li><a title="" id="al_access_land_lnk" class="btn01" href="#" onclick="javascript:accessLandLink(${gid},'${rowid}');">
+			<span class="LinkIcon">Access Land Links</span>
+			</a></li>
+			<!--a class="btn01" href="#" onclick="javascript:createEditAccessLand();return false;">
+					<span class="pathEdit">Create Accessland</span></a-->
+			<li><a title="" id="al_locate_map_lnk" class="btn01" href="#" onclick="javascript:zoomToAccessland(${gid});return false;">
+			<span class="mapIT">Locate on Map</span>
+			</a></li>
+
+			<li><a title="" id="al_create_issue_lnk" class="btn01" href="#" onclick="javascript:createIssueOnAccessland(${gid},'${rowid}');return false;">
+					<span class="createIssue">Create Issue</span>
+					</a></li>
+			
+			<li><a title="" id="al_create_furniture_lnk" class="btn01" href="#" onclick="javascript:createFurnitureOnAccessland(${gid},'${rowid}');return false;">
+					<span class="createFurniture">Create Furniture</span>
+					</a></li>
+			
+	
+			</ul>
+
+
+
+
+
+</script>
+
+<script id="accessLandInfo_AttachmentTmpl" type="text/x-jquery-tmpl">	
+		
+		<div id="attachmentDiv" class="attachmentcontainer">
+		<div class="blueboxHeader"></div>
+		
+		<div class="blueboxContent">
+		
+	<div id="fileAttachmentDiv">	</div>
+
+	
+    <div class="outertableup">    
+		<div id="AttchFileList" class="lab-int">
+        	<table width="100%" cellpadding="1" cellspacing="1">        	
+                	<!--start:heading-->
+                    <tr>
+                        <td colspan="2" class="subTitle">
+                            <span id="al_attach_files">Attached Files</span>
+                        </td>
+                   </tr>
+               		<!--end:heading--> 
+            </table>
+			<table width="100%" cellspacing="1" cellpadding="1" border="0">
+				<thead>
+					<tr>						
+						<th class="headercolorup"><span id="al_file"> File </span></th>
+						<th class="headercolorup"><span id="al_action">Action</span></th>
+					</tr>
+				</thead>
+				
+				<tbody id="AttchFileListBody">
+			
+				</tbody>
+				
+			</table>
+		</div>
+    </div>
+	
+	</div>
+	
+	<div class="blueboxFooter"></div>
+	
+	</div>
+
+			
+			
+						
+
+
+</script>
+
+
+

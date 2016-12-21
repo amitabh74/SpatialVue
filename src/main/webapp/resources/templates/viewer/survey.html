@@ -1,0 +1,79 @@
+<div id="surveydiv" class="dialog-v">
+	<div id="isurveyTmpl" class="lab-int">
+		<div id="span-close" class="span-c" title="Close"  onclick="javascript:closeDialog('jobdiv');"></div>
+		<div id="span-help" class="span-h" onclick="javascript:openHelpWindow('survey_help');" ></div>
+		<div class="lineBreak05p"></div>
+		<!--div class="popupcaption"><span id="job-issueid"></span></div-->
+		<b><span id="_survey"></span></b>
+		<div id="workcommitment_SurveyDetailsBody" title="Issue">
+			
+		</div>
+
+	</div>	
+	
+</div>
+
+<script id="workcommitment_SurveyDetailsTmpl" type="text/x-jquery-tmpl">
+		
+		<form class="styleForm formPattern">
+			<table id="surveyFormTable" class="formTable">					
+				
+				<tr>		
+				<td> <label> SurveyID :</label> 
+				<input type="text"  class="int" id="SurveyID" name="SurveyID" value=""/> 
+				</td>
+				</tr>
+				
+				<tr>
+				<td> <label for="zz"> Survey by  :</label> 
+				<input type="text"  class="int" id="SurveyID" name="SurveyID" value=""/> 
+				</td>
+				
+				</tr>
+				
+				
+			</table>
+</form>
+			<div class="btn-holder-w buttons">
+								
+				<span class="lesserbtn" id="btnUpdateSurvey"><input type="button" value="Edit"/>  </span>
+				<span class="lesserbtn" id="btncancelSurvey"><input type="button" value="Cancel"/> </span>
+				<span class="lesserbtn" id="btnSaveSurvey"><input type="button" value="Save" />  </span>
+				
+			</div>
+</script>
+
+<script id="workcommitment_SurveyReassignTmpl" type="text/x-jquery-tmpl">
+		
+		<form id="surveyReassignForm">
+			<table id="surveyFormTable" class="formPattern styleForm">				
+				<tr>
+					<input type="hidden" name="gId" id= "gId" />
+				</tr>
+				<tr>		
+					<td> 
+					<b><span id="reassign-surveyId"></span></b>
+					</td>
+				</tr>
+				<tr>
+					<tr>
+						<td> <label for="zz" id="survey_reassign"> Re-Assign To  :</label> 
+
+						<select id="SurveyReAssignTo" name="SurveyReAssignTo" class="slt">
+								<!--<option selected="selected"  value=""></option>--> 
+						 </select>
+					</tr>
+				</tr>
+				<tr>
+					<td>
+						<label for="stat" id="survey_next">Next Survey Due : </label>
+						<input type="text"  class="int" id="nextsurveyDate" name="nextsurveyDate" />	
+					</td>
+				</tr>
+			</table>
+			<div class="btn-holder-w buttons">
+				<!--<span class="lesserbtn" id="btnReAssignSurvey"><input type="button" value="Save" onclick="javascript:alert('User assigned/re-assigned successfully');"/></span>-->  
+				<span class="lesserbtn" id="btnReAssignSurvey"><input type="button" id="btnSave_assignto" value="Save" onclick="javascript:reassignSurveyor();"/></span>				
+			</div>
+		</form>
+</script>

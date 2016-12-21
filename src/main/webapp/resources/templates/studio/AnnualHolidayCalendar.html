@@ -1,0 +1,171 @@
+<style type="text/css">
+label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+.holiday{background-color:red}
+</style>
+
+<div id="holidayCalendarFormDiv" style="visibility: hidden">
+
+<form class="cmxform" id="holidayCalendarForm" action="" onsubmit="return false;">
+
+
+<div  class="topmenu">
+<a id="holidayCalendar_btnNew" class="btn02" onclick="javascript:createEditHolidayCalendar();"><span class="NewBTN">New</span></a>
+<a id="holidayCalendar_btnSave" class="btn02" onclick="javascript:saveHolidayCalendar();"><span class="saveBTN">Save</span></a>
+<a id="holidayCalendar_btnBack" class="btn02" onclick="javascript:displayAnnualHolidayCalendar();"><span class="BackBTN">Back</span></a>
+</div>
+
+<table id="holidayCalendarTable" class="tablesorter" cellpadding="0" cellspacing="0">
+
+    <thead>
+    
+     <tr>
+            <td colspan="5" class="project_cellpadtwo">
+			
+			
+			
+								<table width="100%" cellpadding="0" cellspacing="0" class="project_table_adjust">
+                	<tr>
+                    	<td class="project_cell_adjust styleForm">
+						<label class="searchLbl">Search:</label>&nbsp;
+						<input id="holidayCalendar_txtSearch" value="" maxlength="30" size="30" type="text" />
+						</td>
+                       </tr>
+                </table>
+			
+			
+			
+			
+			
+            	
+            </td>
+        </tr>
+        <tr>
+           				
+			
+			<th>
+				Date
+			</th>							
+			<th>
+				Type	
+			</th>
+			<th>
+				Occasion
+			</th>
+			<th class="blanCell">&nbsp;</th>
+			<th class="blanCell">&nbsp;</th>
+             	
+        </tr>
+    </thead>
+    <tbody id="HolidayCalendarsRowData">
+        
+    </tbody>
+    	<tfoot>
+
+	    <tr id="calendar_pagerDiv" class="tblFooter">
+	       <td colspan="5" >
+            	<table cellpadding="1" cellspacing="1" class="cell_margin">
+                	<tr>
+                    	<td width="100%" class="cell_color">
+                        	<table cellpadding="1" cellspacing="1" class="table_adjust">
+                            	<tr>
+                                	 <td class="cell_adjust" >
+                                    	<img src="resources/scripts/tablesorter/addons/pager/icons/first.png" title="First" class="first"/>
+                                    </td>
+                                    <td class="cell_adjust" >
+                                        <img src="resources/scripts/tablesorter/addons/pager/icons/prev.png" title="Previous" class="prev"/>
+                                    </td>
+                                   <td class="cell_adjustone">
+                                        <input type="text" class="pagedisplay" readonly="readonly"/>
+                                    </td>
+                                    <td class="cell_adjust" >
+                                        <img src="resources/scripts/tablesorter/addons/pager/icons/next.png" title="Next" class="next"/>
+                                    </td>
+                                     <td class="cell_adjust" >
+                                        <img src="resources/scripts/tablesorter/addons/pager/icons/last.png" title="Last" class="last"/>
+                                    </td>
+                                   <td class="cell_adjustone">
+                                        <select class="pagesize">
+                                            <option selected="selected"  value="10">10</option>
+                                            <option value="20">20</option>
+                                        </select>
+                                    </td>
+                                </tr>                            
+                            </table>                        
+                        </td>
+                    </tr>
+                </table>
+           </td>
+	    </tr>
+	</tfoot>
+    
+    
+    
+    
+    
+    
+   </table>
+    
+	<div id="holidayCalendar_accordion">
+			<h3><a href="#">General</a></h3>
+			<div style="height:250px">   
+
+				<table id="holidayCalendarDetails" >
+					<tbody id="holidayCalendarDetailsBody">
+						
+					</tbody>
+				</table>
+			</div>
+	</div>
+	
+ <script id="HolidayCalendarTemplate" type="text/x-jquery-tmpl">
+        <tr>
+            		
+			<td>
+				${holidayDate}
+			</td>			
+			<td>
+				${holidayType}
+			</td>
+			<td>
+				${holidayOccassion}
+			</td>
+            <td align="center">
+				<a href="javascript:createEditHolidayCalendar('${id}');"><img src="resources/images/studio/edit.png" title="Edit"/></a>
+            </td>
+           <td align="center">
+				<a href="javascript:deleteHoliday('${id}');"><img src="resources/images/studio/delete.png" title="Delete"/></a>
+           </td>  	
+           
+        </tr>
+ </script>
+ <script id="HolidayCalendarTemplateForm" type="text/x-jquery-tmpl">
+	<tr>
+ 		 
+	<td>Type</td>
+ 	<td> 
+		<select name="holidayType" id="holidayType" >
+ 		<option  value="">Please Select</option>  
+ 		<option  value="public">Public</option>    
+ 		<option  value="nonWorking">Non-Working</option>     
+ 		</select></td>
+
+	<td>Date</td>
+ 	<td><input type="text" name="holidayDate" class="datepicker"  id="holidayDate" value="${holidayDate}"/>
+ 	</td><![CDATA[${$item.addDatePicker()}]]>
+</tr>
+
+<tr>
+<td>Occassion</td>
+<td colspan="3">
+	<input size="94px" type="text" name="holidayOccassion" class="datepicker"  id="holidayOccassion" value="${holidayOccassion}"/>
+	<input type="hidden" id="hid-id" name="hid-id">
+</td>
+</tr>
+
+
+
+
+ </script>
+    
+</form>	
+</div>

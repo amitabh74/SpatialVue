@@ -1,0 +1,131 @@
+
+<div id="reportdiv" class="dialog-v">
+	<form id="reportForm" method="post" action="report/pathcondition/" target="_blank">
+		<div id="reportinfoTmpl" class="lab-int fg-buttonset fg-buttonset-single">
+			<div id="span-close" class="span-c" title="Close" onclick="javascript:closeDialog('reportdiv');"></div>
+			<div id="reportinfo-help" class="span-h" title="" onclick="javascript:openHelpWindow('report_help');"></div>
+			<div class="lineBreak05p" id="detailsDiv"></div>
+		
+			<div class="formPattern">
+			<input type="hidden" id="hid-reportFile" name="hid-reportFile" value="">
+			<input type="hidden" id="hid-areaName" name="hid-areaName" value="">
+			<input type="hidden" id="hid-startDate" name="hid-startDate" value="">
+			<input type="hidden" id="hid-endDate" name="hid-endDate" value="">
+			<input type="hidden" id="hid-dateLabel" name="hid-dateLabel" value="">
+			<input type="hidden" id="hid-lang" name="hid-lang" value="">		
+						<dl class="styleForm">
+			 
+						
+							<dd>
+								<label for="pid" id="report_type">Report Type : </label>
+							</dd>
+							<dd>		
+								<select name="reporttype" id="reporttype" class="slt">							
+										    
+									<!-- <option  value="pathcondition">Row Path Condition</option> 
+									<option  value="maintenancework">Row Maintenance Work</option>
+									<option  value="maintenancebyprovider">Row Maintenance By Provider</option>
+									<option  value="networksurveybywarden">Row Network Survey By Warden</option>
+									<option  value="completedworksbySNPA">Row Completed Works By SNPA</option>
+									<option  value="outstandingworks">Row Outstanding Works</option>
+									<option  value="issuesbyresponsibility">Row Issues By Responsibility</option>
+									<option  value="complaintsreceived">Number of complaints received</option> -->
+									
+									    
+								</select>
+							</dd>
+							
+							<dd>
+							<label for="pid" id="report_area">Area : </label>
+							</dd>
+							<dd>
+							<input type="radio" name="rptAreaFilter" id="SNPAfilter" value="snp" checked/> 
+								<span id="report_snpa_filter">SNPA</span><br />
+							 <input type="radio" name="rptAreaFilter" id="countyFilter" value="county" /> 
+								<span id="report_county_filter">County</span><br />
+							 <input type="radio" name="rptAreaFilter" id="wardenareaFilter" value="region" />
+								<span id="report_warden_filter">Warden Area</span><br />
+							<input type="radio" name="rptAreaFilter" id="wardenFilter" value="wardenarea" />
+								<span id="report_indvwarden_filter">Individual Warden</span><br />	
+							<input type="radio" name="rptAreaFilter" id="indCountyFilter" value="community" />
+								<span id="report_indvcounty_filter">Individual Community</span><br />	
+							</dd>
+						
+						
+							<dd class="DD-areaFilter" style="display:none;">
+								<label for="pid" id="report_filter">Filter : </label>
+							</dd>
+							<dd class="DD-areaFilter" style="display:none;">
+								<select name="rpt_areaName" id="rpt_areaName" class="slt">
+								    
+								</select>
+							</dd>
+						</dl>	
+						
+						
+
+						<dl class="styleForm">
+							<dd>
+								<label for="pid" id="report_period">Period : </label>
+							</dd>
+							<dd>	
+							 <input type="radio" name="rptDateFilter" id="fromTofilter" value="1" checked/> 
+								<span id="from_filter">From to</span><br />
+							<input type="radio" name="rptDateFilter" id="quaterFilter" value="2" /> 
+								<span id="quarter_filter">Quarter</span><br />	
+							<input type="radio" name="rptDateFilter" id="yearFilter" value="3" />
+								<span id="financial_year_filter">Financial Year</span>
+							</dd>	
+						</dl>		
+							
+
+						<div id="divFromTodate" class="styleForm">
+
+							<label for="pid" id="report_start_date">Start Date : </label>
+							<input type="text"  id="rptStartDate" name="rptStartDate" class="int"/> 
+							
+							<label for="pid" id="report_end_date">End Date : </label>
+							<input type="text"  id="rptEndDate" name="rptEndDate" class="int"/> 
+						</div>
+						 
+						<div id="divQuarter" class="styleForm">
+
+							<label for="pid">Quarter : </label>
+							<select name="rpt_quarter" id="rpt_quarter" class="int">							
+							<option  value="1">first quarter</option> 
+							<option  value="2">Second quarter</option> 
+							<option  value="3">Third quarter</option> 
+							<option  value="4">Fourth quarter</option> 
+						   </select>
+							<label for="pid">Year : </label>
+							
+							<select name="rptQYear" id="rptQYear" class="slt">
+								
+							</select>
+						</div>
+								
+							 
+						<div id="divfinYear" class="styleForm">
+							<label for="pid">Year : </label>
+							<select name="rptFinYear" id="rptFinYear" class="slt">
+								
+							</select>								
+						</div>
+						
+					
+						<div class="buttons btn-holder-float">				
+							<span class="lesserbtn" id="btnGenReport"><input type="button" id="btnReportGenerator" value="Generate Report" onclick="generateReport();" /></span>
+						
+						</div>		
+				
+				
+			</div>
+
+		</div>
+	</form>	
+	
+	</div>	
+
+
+
+
